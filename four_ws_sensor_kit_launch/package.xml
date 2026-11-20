@@ -1,0 +1,19 @@
+<?xml version="1.0"?>
+<package format="3">
+  <name>four_ws_sensor_kit_launch</name><version>1.0.0</version>
+  <description>Five MID-360 sensor preprocessing for the four-wheel steering vehicle</description>
+  <maintainer email="maintainer@example.invalid">4WS vehicle maintainer</maintainer>
+  <license>Apache-2.0</license>
+  <buildtool_depend>ament_cmake</buildtool_depend>
+  <exec_depend>four_ws_sensor_kit_description</exec_depend>
+  <exec_depend>launch</exec_depend>
+  <exec_depend>launch_ros</exec_depend>
+  <exec_depend>rclpy</exec_depend>
+  <exec_depend>sensor_msgs</exec_depend>
+  <exec_depend>tf2_ros</exec_depend>
+  <exec_depend>python3-numpy</exec_depend>
+  <exec_depend>python3-yaml</exec_depend>
+  <exec_depend>autoware_imu_corrector</exec_depend>
+  <exec_depend>autoware_vehicle_velocity_converter</exec_depend>
+  <export><build_type>ament_cmake</build_type></export>
+</package>

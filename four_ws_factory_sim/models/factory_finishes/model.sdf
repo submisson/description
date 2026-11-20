@@ -1,0 +1,7 @@
+<?xml version='1.0' encoding='utf-8'?>
+<sdf version="1.7">
+  <model name="factory_finishes">
+    <static>true</static>
+    <link name="origin" />
+  </model>
+</sdf>

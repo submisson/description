@@ -1,0 +1,54 @@
+#!/usr/bin/env python3
+import math
+import rclpy
+from rclpy.node import Node
+from rclpy.qos import qos_profile_sensor_data
+from geometry_msgs.msg import Pose, PoseArray, PoseStamped
+from sensor_msgs.msg import PointCloud2
+from four_ws_factory_sim.perception import front_faces, packed_merged_xyz
+
+
+class Detector(Node):
+    def __init__(self):
+        super().__init__('pallet_detector')
+        self.targets=self.create_publisher(PoseArray,'/pallet/faces',5)
+        self.selected=self.create_publisher(PoseStamped,'/pallet/target',5)
+        self.create_subscription(PointCloud2,'/sensing/lidar/concatenated/pointcloud',
+                                 self.cloud,qos_profile_sensor_data)
+
+    def cloud(self,msg):
+        if msg.header.frame_id!='base_link':
+            return
+        try:
+            faces=front_faces(packed_merged_xyz(msg))
+        except ValueError as e:
+            self.get_logger().warning(str(e),throttle_duration_sec=5.)
+            return
+        batch=PoseArray(header=msg.header)
+        for f in faces:
+            p=Pose()
+            p.position.x=float(f.x)
+            p.position.y=float(f.y)
+            p.orientation.z=math.sin(f.yaw/2)
+            p.orientation.w=math.cos(f.yaw/2)
+            batch.poses.append(p)
+        self.targets.publish(batch)
+        if batch.poses:
+            self.selected.publish(PoseStamped(header=msg.header,pose=batch.poses[0]))
+
+
+def main():
+    rclpy.init()
+    node=Detector()
+    try:
+        rclpy.spin(node)
+    except KeyboardInterrupt:
+        pass
+    finally:
+        node.destroy_node()
+        if rclpy.ok():
+            rclpy.shutdown()
+
+
+if __name__=='__main__':
+    main()

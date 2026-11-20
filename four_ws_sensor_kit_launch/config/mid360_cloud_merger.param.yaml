@@ -1,0 +1,13 @@
+/**:
+  ros__parameters:
+    input_topics:
+      - /sensing/lidar/l1/pointcloud_before_sync
+      - /sensing/lidar/l2/pointcloud_before_sync
+      - /sensing/lidar/l3/pointcloud_before_sync
+      - /sensing/lidar/l4/pointcloud_before_sync
+      - /sensing/lidar/l5/pointcloud_before_sync
+    output_topic: /sensing/lidar/concatenated/pointcloud
+    output_frame: base_link
+    # All five messages must fit this window; no stale-frame reuse or partial output.
+    sync_tolerance_sec: 0.05
+    queue_size: 10

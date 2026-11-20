@@ -1,0 +1,108 @@
+material Factory/Wood
+{
+  technique
+  {
+    pass
+    {
+      ambient 0.84 0.84 0.84
+      diffuse 0.95 0.95 0.95
+      specular 0.08 0.08 0.08 1 8
+      texture_unit
+      {
+        texture wood.png
+        scale 1 1
+        filtering trilinear
+      }
+    }
+  }
+}
+material Factory/Concrete
+{
+  technique
+  {
+    pass
+    {
+      ambient 0.84 0.84 0.84
+      diffuse 0.95 0.95 0.95
+      specular 0.08 0.08 0.08 1 8
+      texture_unit
+      {
+        texture concrete.png
+        scale .080 .125
+        filtering trilinear
+      }
+    }
+  }
+}
+material Factory/BayA
+{
+  technique
+  {
+    pass
+    {
+      ambient 0.84 0.84 0.84
+      diffuse 0.95 0.95 0.95
+      specular 0.08 0.08 0.08 1 8
+      texture_unit
+      {
+        texture bay_A.png
+        scale 1 1
+        filtering trilinear
+      }
+    }
+  }
+}
+material Factory/BayB
+{
+  technique
+  {
+    pass
+    {
+      ambient 0.84 0.84 0.84
+      diffuse 0.95 0.95 0.95
+      specular 0.08 0.08 0.08 1 8
+      texture_unit
+      {
+        texture bay_B.png
+        scale 1 1
+        filtering trilinear
+      }
+    }
+  }
+}
+material Factory/BayC
+{
+  technique
+  {
+    pass
+    {
+      ambient 0.84 0.84 0.84
+      diffuse 0.95 0.95 0.95
+      specular 0.08 0.08 0.08 1 8
+      texture_unit
+      {
+        texture bay_C.png
+        scale 1 1
+        filtering trilinear
+      }
+    }
+  }
+}
+material Factory/BayD
+{
+  technique
+  {
+    pass
+    {
+      ambient 0.84 0.84 0.84
+      diffuse 0.95 0.95 0.95
+      specular 0.08 0.08 0.08 1 8
+      texture_unit
+      {
+        texture bay_D.png
+        scale 1 1
+        filtering trilinear
+      }
+    }
+  }
+}

@@ -1,0 +1,246 @@
+#!/usr/bin/env python3
+"""One local pickup cycle, using a measured face, physical joints, odometry and tine contacts."""
+from collections import deque
+import math
+from statistics import median
+
+import rclpy
+from rclpy.node import Node
+from rclpy.qos import DurabilityPolicy, QoSProfile, qos_profile_sensor_data
+from gazebo_msgs.msg import ContactsState
+from geometry_msgs.msg import PoseStamped, Twist
+from nav_msgs.msg import Odometry
+from sensor_msgs.msg import JointState
+from std_msgs.msg import String
+
+from four_ws_factory_sim.dimensions import (TOOL_X, BLADE_Z, HEIGHT_TRAVEL, HEIGHT_IN,
+                                            HEIGHT_CARRY, REACH)
+from four_ws_factory_sim.pick_geometry import PlanarPose, make_plan, wrap
+
+
+def yaw(q):
+    return math.atan2(2*(q.w*q.z+q.x*q.y),1-2*(q.y*q.y+q.z*q.z))
+
+
+def stamp(header):
+    return header.stamp.sec+header.stamp.nanosec*1e-9
+
+
+class PickPallet(Node):
+    def __init__(self):
+        super().__init__('pick_pallet')
+        self.vel=self.create_publisher(Twist,'/cmd_vel',1)
+        self.tool=self.create_publisher(JointState,'/fork/targets',1)
+        self.status=self.create_publisher(String,'/forklift/demo_status',
+            QoSProfile(depth=1,durability=DurabilityPolicy.TRANSIENT_LOCAL))
+        self.create_subscription(Odometry,'/odom',self.on_odom,5)
+        self.create_subscription(JointState,'/joint_states',self.on_joints,5)
+        self.create_subscription(PoseStamped,'/pallet/target',self.on_face,5)
+        for key in ('a','b'):
+            self.create_subscription(ContactsState,'/fork/contact_'+key,
+                lambda msg,k=key:self.on_contact(k,msg),qos_profile_sensor_data)
+        self.base=None
+        self.measured={}
+        self.odom_at=self.joints_at=-100.
+        self.observations=deque(maxlen=4)
+        self.contact={'a':{},'b':{}}
+        self.plan=None
+        self.pallet=None
+        self.last_support=-100.
+        self.terminal=False
+        self.previous_velocity=(0.,0.)
+        self.phase='SEEK'
+        self.started=None
+        self.stable_since=None
+        self.create_timer(.05,self.tick)
+
+    def now(self):
+        return self.get_clock().now().nanoseconds*1e-9
+
+    def on_odom(self,msg):
+        p=msg.pose.pose
+        self.base=PlanarPose(p.position.x,p.position.y,yaw(p.orientation))
+        self.odom_at=stamp(msg.header)
+
+    def on_joints(self,msg):
+        self.measured=dict(zip(msg.name,msg.position))
+        self.joints_at=stamp(msg.header)
+
+    def on_face(self,msg):
+        if self.phase!='SEEK' or msg.header.frame_id!='base_link':
+            return
+        p=msg.pose
+        face=PlanarPose(p.position.x,p.position.y,yaw(p.orientation))
+        if abs(face.x-TOOL_X)>.70 or not -3.2<face.y<-1.50:
+            return
+        if self.observations:
+            prev_time,prev=self.observations[-1]
+            if stamp(msg.header)<=prev_time:
+                return
+            if math.hypot(face.x-prev.x,face.y-prev.y)>.04 or abs(wrap(face.yaw-prev.yaw))>.05:
+                self.observations.clear()
+        self.observations.append((stamp(msg.header),face))
+
+    def on_contact(self,side,msg):
+        t=stamp(msg.header)
+        if t<=0.:
+            t=self.now()
+        for contact in msg.states:
+            for full_name in (contact.collision1_name,contact.collision2_name):
+                for part in full_name.split('::'):
+                    if part.startswith('pallet_'):
+                        self.contact[side][part]=t
+        # Sensor reports per-step contacts. Retain short gaps between ODE contact updates.
+        self.contact[side]={name:v for name,v in self.contact[side].items() if t-v<1.}
+
+    def loads(self,side):
+        return {k for k,t in self.contact[side].items() if 0<=self.now()-t<.24}
+
+    def phase_to(self,phase):
+        self.phase=phase
+        self.started=self.now()
+        self.stable_since=None
+        self.stop()
+        self.status.publish(String(data=phase))
+        self.get_logger().info('Pick cycle '+phase)
+
+    def fail(self,reason):
+        self.terminal=True
+        self.stop()
+        msg='FAILED '+self.phase+' '+reason
+        self.status.publish(String(data=msg))
+        self.get_logger().error(msg)
+
+    def stop(self):
+        self.previous_velocity=(0.,0.)
+        self.vel.publish(Twist())
+
+    def held(self,condition,duration=.20):
+        if not condition:
+            self.stable_since=None
+            return False
+        if self.stable_since is None:
+            self.stable_since=self.now()
+        return self.now()-self.stable_since>=duration
+
+    def tool_at(self,reach,shift,height):
+        lift=height-BLADE_Z
+        msg=JointState()
+        msg.name=['reach','side_shift_joint','fork_lift_joint']
+        msg.position=[float(reach),float(shift),float(lift)]
+        self.tool.publish(msg)
+        joints=self.measured
+        return (abs(joints.get('reach_inner_joint',-9)-reach/2)<.006 and
+                abs(joints.get('reach_outer_joint',-9)-reach/2)<.006 and
+                abs(joints.get('side_shift_joint',-9)-shift)<.006 and
+                abs(joints.get('fork_lift_joint',-9)-lift)<.006)
+
+    def drive_to(self,goal,speed):
+        dx,dy=self.base.local(goal.x,goal.y)
+        ang=wrap(goal.yaw-self.base.yaw)
+        dist=math.hypot(dx,dy)
+        if dist<.012 and abs(ang)<.009:
+            self.stop()
+            return True
+        scale=min(1.5,speed/max(dist,.001))
+        want=(scale*dx,scale*dy)
+        px,py=self.previous_velocity
+        ax,ay=want[0]-px,want[1]-py
+        factor=min(1.,.012/max(.00001,math.hypot(ax,ay)))
+        vx,vy=px+factor*ax,py+factor*ay
+        self.previous_velocity=(vx,vy)
+        cmd=Twist()
+        cmd.linear.x=vx
+        cmd.linear.y=vy
+        cmd.angular.z=max(-.24,min(.24,1.8*ang))
+        self.vel.publish(cmd)
+        return False
+
+    def tick(self):
+        if self.terminal:
+            return
+        t=self.now()
+        if self.started is None:
+            self.phase_to('SEEK')
+        if t<self.started:
+            return self.fail('simulation clock reset')
+        if t-self.started>(100 if self.phase=='SEEK' else 55):
+            return self.fail('phase timeout; check sensors, alignment or contacts')
+        if self.base is None or t-self.odom_at>.6 or t-self.joints_at>.6:
+            self.stop()
+            if self.phase!='SEEK':
+                return self.fail('stale odometry or joint feedback')
+            return
+        p=self.plan
+        if self.phase=='SEEK':
+            self.stop()
+            if (len(self.observations)<4 or t-self.observations[0][0]>1.2 or
+                t-self.observations[-1][0]>.45):
+                return
+            faces=[f for _,f in self.observations]
+            face=PlanarPose(*[median(getattr(f,k) for f in faces) for k in ('x','y','yaw')])
+            self.plan=make_plan(self.base,face)
+            self.get_logger().info(f'Observed face x={face.x:.3f}, y={face.y:.3f}, yaw={face.yaw:.3f} rad')
+            self.phase_to('ALIGN')
+        elif self.phase=='ALIGN':
+            ready=self.tool_at(0.,p.shift,HEIGHT_TRAVEL)
+            parked=self.drive_to(p.approach,.16)
+            if self.held(ready and parked):
+                self.phase_to('EXTEND')
+        elif self.phase=='EXTEND':
+            if self.held(self.tool_at(REACH,p.shift,HEIGHT_TRAVEL)):
+                self.phase_to('LOWER')
+        elif self.phase=='LOWER':
+            if self.held(self.tool_at(REACH,p.shift,HEIGHT_IN)):
+                self.phase_to('INSERT')
+        elif self.phase=='INSERT':
+            if self.held(self.drive_to(p.inserted,.10)):
+                self.phase_to('LIFT')
+        elif self.phase=='LIFT':
+            at_height=self.tool_at(REACH,p.shift,HEIGHT_CARRY)
+            on_both=self.loads('a') & self.loads('b')
+            if self.held(at_height and bool(on_both),.45):
+                self.pallet=sorted(on_both)[0]
+                self.last_support=t
+                self.phase_to('CARRY')
+        elif self.phase=='CARRY':
+            if self.pallet in (self.loads('a') & self.loads('b')):
+                self.last_support=t
+            if t-self.last_support>.70:
+                return self.fail('both tines no longer support the same pallet')
+            if self.held(self.drive_to(p.drop,.095)):
+                self.phase_to('SET_DOWN')
+        elif self.phase=='SET_DOWN':
+            down=self.tool_at(REACH,p.shift,HEIGHT_IN)
+            released=self.pallet not in (self.loads('a') | self.loads('b'))
+            if self.held(down and released,.35):
+                self.phase_to('WITHDRAW')
+        elif self.phase=='WITHDRAW':
+            if self.held(self.drive_to(p.clear,.11)):
+                self.phase_to('RAISE_CLEAR')
+        elif self.phase=='RAISE_CLEAR':
+            if self.held(self.tool_at(REACH,p.shift,HEIGHT_TRAVEL)):
+                self.phase_to('STOW')
+        elif self.phase=='STOW':
+            if self.held(self.tool_at(0.,0.,HEIGHT_TRAVEL)):
+                self.phase_to('DONE')
+                self.terminal=True
+
+
+def main():
+    rclpy.init()
+    node=PickPallet()
+    try:
+        rclpy.spin(node)
+    except KeyboardInterrupt:
+        pass
+    finally:
+        if rclpy.ok():
+            node.stop()
+        node.destroy_node()
+        if rclpy.ok():
+            rclpy.shutdown()
+
+
+if __name__=='__main__':
+    main()

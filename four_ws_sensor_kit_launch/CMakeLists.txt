@@ -1,0 +1,7 @@
+cmake_minimum_required(VERSION 3.8)
+project(four_ws_sensor_kit_launch)
+find_package(ament_cmake REQUIRED)
+install(DIRECTORY launch config DESTINATION share/${PROJECT_NAME})
+install(PROGRAMS scripts/merge_mid360_clouds.py DESTINATION lib/${PROJECT_NAME})
+install(FILES scripts/pointcloud_utils.py DESTINATION lib/${PROJECT_NAME})
+ament_package()

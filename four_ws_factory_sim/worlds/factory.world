@@ -1,0 +1,5963 @@
+<?xml version='1.0' encoding='utf-8'?>
+<sdf version="1.7">
+  <world name="factory">
+    <gravity>0 0 -9.81</gravity>
+    <physics type="ode" name="factory_ode">
+      <max_step_size>.002</max_step_size>
+      <real_time_update_rate>500</real_time_update_rate>
+      <ode>
+        <solver>
+          <type>quick</type>
+          <iters>90</iters>
+          <sor>1.15</sor>
+        </solver>
+        <constraints>
+          <contact_surface_layer>.0003</contact_surface_layer>
+          <contact_max_correcting_vel>.25</contact_max_correcting_vel>
+        </constraints>
+      </ode>
+    </physics>
+    <scene>
+      <ambient>.56 .58 .60 1</ambient>
+      <background>.77 .81 .83 1</background>
+      <shadows>false</shadows>
+    </scene>
+    <gui>
+      <camera name="operator_view">
+        <pose>3.75 -5.90 2.70 0 0.32 2.15</pose>
+        <view_controller>orbit</view_controller>
+      </camera>
+    </gui>
+    <light name="clerestory" type="directional">
+      <direction>-.44 .43 -.88</direction>
+      <diffuse>.83 .83 .78 1</diffuse>
+      <specular>.24 .25 .25 1</specular>
+      <cast_shadows>true</cast_shadows>
+    </light>
+    <model name="factory_shell">
+      <static>true</static>
+      <link name="structure">
+        <collision name="floor">
+          <pose>0 0 -0.09 0 0 0</pose>
+          <geometry>
+            <box>
+              <size>28 18 0.18</size>
+            </box>
+          </geometry>
+          <surface>
+            <friction>
+              <ode>
+                <mu>1.1</mu>
+                <mu2>1.1</mu2>
+              </ode>
+            </friction>
+          </surface>
+        </collision>
+        <visual name="v_floor">
+          <pose>0 0 -0.09 0 0 0</pose>
+          <geometry>
+            <box>
+              <size>28 18 0.18</size>
+            </box>
+          </geometry>
+          <material>
+            <script>
+              <uri>model://factory_finishes/materials/scripts</uri>
+              <uri>model://factory_finishes/materials/textures</uri>
+              <name>Factory/Concrete</name>
+            </script>
+          </material>
+        </visual>
+        <collision name="wall_0">
+          <pose>0 -9 2.75 0 0 0</pose>
+          <geometry>
+            <box>
+              <size>28 0.16 5.5</size>
+            </box>
+          </geometry>
+        </collision>
+        <visual name="v_wall_0">
+          <pose>0 -9 2.75 0 0 0</pose>
+          <geometry>
+            <box>
+              <size>28 0.16 5.5</size>
+            </box>
+          </geometry>
+          <material>
+            <ambient>0.578 0.612 0.612 1</ambient>
+            <diffuse>0.68 0.72 0.72 1</diffuse>
+          </material>
+        </visual>
+        <visual name="v_wall_base_0">
+          <pose>0 -8.909 0.56 0 0 0</pose>
+          <geometry>
+            <box>
+              <size>27.95 0.026 1.12</size>
+            </box>
+          </geometry>
+          <material>
+            <ambient>0.2635 0.3315 0.34 1</ambient>
+            <diffuse>0.31 0.39 0.4 1</diffuse>
+          </material>
+        </visual>
+        <visual name="v_glass_0_0">
+          <pose>-12 -8.91 3.75 0 0 0</pose>
+          <geometry>
+            <box>
+              <size>3.57 0.045 1.34</size>
+            </box>
+          </geometry>
+          <material>
+            <ambient>0.3825 0.544 0.578 1</ambient>
+            <diffuse>0.45 0.64 0.68 1</diffuse>
+          </material>
+        </visual>
+        <visual name="v_mullion_0_0">
+          <pose>-12 -8.88 3.75 0 0 0</pose>
+          <geometry>
+            <box>
+              <size>0.045 0.04 1.34</size>
+            </box>
+          </geometry>
+          <material>
+            <ambient>0.4505 0.5015 0.51 1</ambient>
+            <diffuse>0.53 0.59 0.6 1</diffuse>
+          </material>
+        </visual>
+        <visual name="v_glass_0_1">
+          <pose>-8 -8.91 3.75 0 0 0</pose>
+          <geometry>
+            <box>
+              <size>3.57 0.045 1.34</size>
+            </box>
+          </geometry>
+          <material>
+            <ambient>0.3825 0.544 0.578 1</ambient>
+            <diffuse>0.45 0.64 0.68 1</diffuse>
+          </material>
+        </visual>
+        <visual name="v_mullion_0_1">
+          <pose>-8 -8.88 3.75 0 0 0</pose>
+          <geometry>
+            <box>
+              <size>0.045 0.04 1.34</size>
+            </box>
+          </geometry>
+          <material>
+            <ambient>0.4505 0.5015 0.51 1</ambient>
+            <diffuse>0.53 0.59 0.6 1</diffuse>
+          </material>
+        </visual>
+        <visual name="v_glass_0_2">
+          <pose>-4 -8.91 3.75 0 0 0</pose>
+          <geometry>
+            <box>
+              <size>3.57 0.045 1.34</size>
+            </box>
+          </geometry>
+          <material>
+            <ambient>0.3825 0.544 0.578 1</ambient>
+            <diffuse>0.45 0.64 0.68 1</diffuse>
+          </material>
+        </visual>
+        <visual name="v_mullion_0_2">
+          <pose>-4 -8.88 3.75 0 0 0</pose>
+          <geometry>
+            <box>
+              <size>0.045 0.04 1.34</size>
+            </box>
+          </geometry>
+          <material>
+            <ambient>0.4505 0.5015 0.51 1</ambient>
+            <diffuse>0.53 0.59 0.6 1</diffuse>
+          </material>
+        </visual>
+        <visual name="v_glass_0_3">
+          <pose>0 -8.91 3.75 0 0 0</pose>
+          <geometry>
+            <box>
+              <size>3.57 0.045 1.34</size>
+            </box>
+          </geometry>
+          <material>
+            <ambient>0.3825 0.544 0.578 1</ambient>
+            <diffuse>0.45 0.64 0.68 1</diffuse>
+          </material>
+        </visual>
+        <visual name="v_mullion_0_3">
+          <pose>0 -8.88 3.75 0 0 0</pose>
+          <geometry>
+            <box>
+              <size>0.045 0.04 1.34</size>
+            </box>
+          </geometry>
+          <material>
+            <ambient>0.4505 0.5015 0.51 1</ambient>
+            <diffuse>0.53 0.59 0.6 1</diffuse>
+          </material>
+        </visual>
+        <visual name="v_glass_0_4">
+          <pose>4 -8.91 3.75 0 0 0</pose>
+          <geometry>
+            <box>
+              <size>3.57 0.045 1.34</size>
+            </box>
+          </geometry>
+          <material>
+            <ambient>0.3825 0.544 0.578 1</ambient>
+            <diffuse>0.45 0.64 0.68 1</diffuse>
+          </material>
+        </visual>
+        <visual name="v_mullion_0_4">
+          <pose>4 -8.88 3.75 0 0 0</pose>
+          <geometry>
+            <box>
+              <size>0.045 0.04 1.34</size>
+            </box>
+          </geometry>
+          <material>
+            <ambient>0.4505 0.5015 0.51 1</ambient>
+            <diffuse>0.53 0.59 0.6 1</diffuse>
+          </material>
+        </visual>
+        <visual name="v_glass_0_5">
+          <pose>8 -8.91 3.75 0 0 0</pose>
+          <geometry>
+            <box>
+              <size>3.57 0.045 1.34</size>
+            </box>
+          </geometry>
+          <material>
+            <ambient>0.3825 0.544 0.578 1</ambient>
+            <diffuse>0.45 0.64 0.68 1</diffuse>
+          </material>
+        </visual>
+        <visual name="v_mullion_0_5">
+          <pose>8 -8.88 3.75 0 0 0</pose>
+          <geometry>
+            <box>
+              <size>0.045 0.04 1.34</size>
+            </box>
+          </geometry>
+          <material>
+            <ambient>0.4505 0.5015 0.51 1</ambient>
+            <diffuse>0.53 0.59 0.6 1</diffuse>
+          </material>
+        </visual>
+        <visual name="v_glass_0_6">
+          <pose>12 -8.91 3.75 0 0 0</pose>
+          <geometry>
+            <box>
+              <size>3.57 0.045 1.34</size>
+            </box>
+          </geometry>
+          <material>
+            <ambient>0.3825 0.544 0.578 1</ambient>
+            <diffuse>0.45 0.64 0.68 1</diffuse>
+          </material>
+        </visual>
+        <visual name="v_mullion_0_6">
+          <pose>12 -8.88 3.75 0 0 0</pose>
+          <geometry>
+            <box>
+              <size>0.045 0.04 1.34</size>
+            </box>
+          </geometry>
+          <material>
+            <ambient>0.4505 0.5015 0.51 1</ambient>
+            <diffuse>0.53 0.59 0.6 1</diffuse>
+          </material>
+        </visual>
+        <collision name="wall_1">
+          <pose>0 9 2.75 0 0 0</pose>
+          <geometry>
+            <box>
+              <size>28 0.16 5.5</size>
+            </box>
+          </geometry>
+        </collision>
+        <visual name="v_wall_1">
+          <pose>0 9 2.75 0 0 0</pose>
+          <geometry>
+            <box>
+              <size>28 0.16 5.5</size>
+            </box>
+          </geometry>
+          <material>
+            <ambient>0.578 0.612 0.612 1</ambient>
+            <diffuse>0.68 0.72 0.72 1</diffuse>
+          </material>
+        </visual>
+        <visual name="v_wall_base_1">
+          <pose>0 8.909 0.56 0 0 0</pose>
+          <geometry>
+            <box>
+              <size>27.95 0.026 1.12</size>
+            </box>
+          </geometry>
+          <material>
+            <ambient>0.2635 0.3315 0.34 1</ambient>
+            <diffuse>0.31 0.39 0.4 1</diffuse>
+          </material>
+        </visual>
+        <visual name="v_glass_1_0">
+          <pose>-12 8.91 3.75 0 0 0</pose>
+          <geometry>
+            <box>
+              <size>3.57 0.045 1.34</size>
+            </box>
+          </geometry>
+          <material>
+            <ambient>0.3825 0.544 0.578 1</ambient>
+            <diffuse>0.45 0.64 0.68 1</diffuse>
+          </material>
+        </visual>
+        <visual name="v_mullion_1_0">
+          <pose>-12 8.88 3.75 0 0 0</pose>
+          <geometry>
+            <box>
+              <size>0.045 0.04 1.34</size>
+            </box>
+          </geometry>
+          <material>
+            <ambient>0.4505 0.5015 0.51 1</ambient>
+            <diffuse>0.53 0.59 0.6 1</diffuse>
+          </material>
+        </visual>
+        <visual name="v_glass_1_1">
+          <pose>-8 8.91 3.75 0 0 0</pose>
+          <geometry>
+            <box>
+              <size>3.57 0.045 1.34</size>
+            </box>
+          </geometry>
+          <material>
+            <ambient>0.3825 0.544 0.578 1</ambient>
+            <diffuse>0.45 0.64 0.68 1</diffuse>
+          </material>
+        </visual>
+        <visual name="v_mullion_1_1">
+          <pose>-8 8.88 3.75 0 0 0</pose>
+          <geometry>
+            <box>
+              <size>0.045 0.04 1.34</size>
+            </box>
+          </geometry>
+          <material>
+            <ambient>0.4505 0.5015 0.51 1</ambient>
+            <diffuse>0.53 0.59 0.6 1</diffuse>
+          </material>
+        </visual>
+        <visual name="v_glass_1_2">
+          <pose>-4 8.91 3.75 0 0 0</pose>
+          <geometry>
+            <box>
+              <size>3.57 0.045 1.34</size>
+            </box>
+          </geometry>
+          <material>
+            <ambient>0.3825 0.544 0.578 1</ambient>
+            <diffuse>0.45 0.64 0.68 1</diffuse>
+          </material>
+        </visual>
+        <visual name="v_mullion_1_2">
+          <pose>-4 8.88 3.75 0 0 0</pose>
+          <geometry>
+            <box>
+              <size>0.045 0.04 1.34</size>
+            </box>
+          </geometry>
+          <material>
+            <ambient>0.4505 0.5015 0.51 1</ambient>
+            <diffuse>0.53 0.59 0.6 1</diffuse>
+          </material>
+        </visual>
+        <visual name="v_glass_1_3">
+          <pose>0 8.91 3.75 0 0 0</pose>
+          <geometry>
+            <box>
+              <size>3.57 0.045 1.34</size>
+            </box>
+          </geometry>
+          <material>
+            <ambient>0.3825 0.544 0.578 1</ambient>
+            <diffuse>0.45 0.64 0.68 1</diffuse>
+          </material>
+        </visual>
+        <visual name="v_mullion_1_3">
+          <pose>0 8.88 3.75 0 0 0</pose>
+          <geometry>
+            <box>
+              <size>0.045 0.04 1.34</size>
+            </box>
+          </geometry>
+          <material>
+            <ambient>0.4505 0.5015 0.51 1</ambient>
+            <diffuse>0.53 0.59 0.6 1</diffuse>
+          </material>
+        </visual>
+        <visual name="v_glass_1_4">
+          <pose>4 8.91 3.75 0 0 0</pose>
+          <geometry>
+            <box>
+              <size>3.57 0.045 1.34</size>
+            </box>
+          </geometry>
+          <material>
+            <ambient>0.3825 0.544 0.578 1</ambient>
+            <diffuse>0.45 0.64 0.68 1</diffuse>
+          </material>
+        </visual>
+        <visual name="v_mullion_1_4">
+          <pose>4 8.88 3.75 0 0 0</pose>
+          <geometry>
+            <box>
+              <size>0.045 0.04 1.34</size>
+            </box>
+          </geometry>
+          <material>
+            <ambient>0.4505 0.5015 0.51 1</ambient>
+            <diffuse>0.53 0.59 0.6 1</diffuse>
+          </material>
+        </visual>
+        <visual name="v_glass_1_5">
+          <pose>8 8.91 3.75 0 0 0</pose>
+          <geometry>
+            <box>
+              <size>3.57 0.045 1.34</size>
+            </box>
+          </geometry>
+          <material>
+            <ambient>0.3825 0.544 0.578 1</ambient>
+            <diffuse>0.45 0.64 0.68 1</diffuse>
+          </material>
+        </visual>
+        <visual name="v_mullion_1_5">
+          <pose>8 8.88 3.75 0 0 0</pose>
+          <geometry>
+            <box>
+              <size>0.045 0.04 1.34</size>
+            </box>
+          </geometry>
+          <material>
+            <ambient>0.4505 0.5015 0.51 1</ambient>
+            <diffuse>0.53 0.59 0.6 1</diffuse>
+          </material>
+        </visual>
+        <visual name="v_glass_1_6">
+          <pose>12 8.91 3.75 0 0 0</pose>
+          <geometry>
+            <box>
+              <size>3.57 0.045 1.34</size>
+            </box>
+          </geometry>
+          <material>
+            <ambient>0.3825 0.544 0.578 1</ambient>
+            <diffuse>0.45 0.64 0.68 1</diffuse>
+          </material>
+        </visual>
+        <visual name="v_mullion_1_6">
+          <pose>12 8.88 3.75 0 0 0</pose>
+          <geometry>
+            <box>
+              <size>0.045 0.04 1.34</size>
+            </box>
+          </geometry>
+          <material>
+            <ambient>0.4505 0.5015 0.51 1</ambient>
+            <diffuse>0.53 0.59 0.6 1</diffuse>
+          </material>
+        </visual>
+        <collision name="end_-14.0">
+          <pose>-14 0 2.75 0 0 0</pose>
+          <geometry>
+            <box>
+              <size>0.16 18 5.5</size>
+            </box>
+          </geometry>
+        </collision>
+        <visual name="v_end_-14.0">
+          <pose>-14 0 2.75 0 0 0</pose>
+          <geometry>
+            <box>
+              <size>0.16 18 5.5</size>
+            </box>
+          </geometry>
+          <material>
+            <ambient>0.5525 0.5865 0.595 1</ambient>
+            <diffuse>0.65 0.69 0.7 1</diffuse>
+          </material>
+        </visual>
+        <collision name="end_14.0">
+          <pose>14 0 2.75 0 0 0</pose>
+          <geometry>
+            <box>
+              <size>0.16 18 5.5</size>
+            </box>
+          </geometry>
+        </collision>
+        <visual name="v_end_14.0">
+          <pose>14 0 2.75 0 0 0</pose>
+          <geometry>
+            <box>
+              <size>0.16 18 5.5</size>
+            </box>
+          </geometry>
+          <material>
+            <ambient>0.5525 0.5865 0.595 1</ambient>
+            <diffuse>0.65 0.69 0.7 1</diffuse>
+          </material>
+        </visual>
+        <collision name="column_0_0">
+          <pose>-12 -8.78 2.7 0 0 0</pose>
+          <geometry>
+            <box>
+              <size>0.2 0.22 5.4</size>
+            </box>
+          </geometry>
+        </collision>
+        <visual name="v_column_0_0">
+          <pose>-12 -8.78 2.7 0 0 0</pose>
+          <geometry>
+            <box>
+              <size>0.2 0.22 5.4</size>
+            </box>
+          </geometry>
+          <material>
+            <ambient>0.085 0.238 0.3315 1</ambient>
+            <diffuse>0.1 0.28 0.39 1</diffuse>
+          </material>
+        </visual>
+        <collision name="foot_0_0">
+          <pose>-12 -8.78 0.4 0 0 0</pose>
+          <geometry>
+            <box>
+              <size>0.24 0.26 0.8</size>
+            </box>
+          </geometry>
+        </collision>
+        <visual name="v_foot_0_0">
+          <pose>-12 -8.78 0.4 0 0 0</pose>
+          <geometry>
+            <box>
+              <size>0.24 0.26 0.8</size>
+            </box>
+          </geometry>
+          <material>
+            <ambient>0.833 0.5865 0.102 1</ambient>
+            <diffuse>0.98 0.69 0.12 1</diffuse>
+          </material>
+        </visual>
+        <collision name="column_0_1">
+          <pose>-12 8.78 2.7 0 0 0</pose>
+          <geometry>
+            <box>
+              <size>0.2 0.22 5.4</size>
+            </box>
+          </geometry>
+        </collision>
+        <visual name="v_column_0_1">
+          <pose>-12 8.78 2.7 0 0 0</pose>
+          <geometry>
+            <box>
+              <size>0.2 0.22 5.4</size>
+            </box>
+          </geometry>
+          <material>
+            <ambient>0.085 0.238 0.3315 1</ambient>
+            <diffuse>0.1 0.28 0.39 1</diffuse>
+          </material>
+        </visual>
+        <collision name="foot_0_1">
+          <pose>-12 8.78 0.4 0 0 0</pose>
+          <geometry>
+            <box>
+              <size>0.24 0.26 0.8</size>
+            </box>
+          </geometry>
+        </collision>
+        <visual name="v_foot_0_1">
+          <pose>-12 8.78 0.4 0 0 0</pose>
+          <geometry>
+            <box>
+              <size>0.24 0.26 0.8</size>
+            </box>
+          </geometry>
+          <material>
+            <ambient>0.833 0.5865 0.102 1</ambient>
+            <diffuse>0.98 0.69 0.12 1</diffuse>
+          </material>
+        </visual>
+        <collision name="rafter_0">
+          <pose>-12 0 5.29 0 0 0</pose>
+          <geometry>
+            <box>
+              <size>0.13 17.62 0.24</size>
+            </box>
+          </geometry>
+        </collision>
+        <visual name="v_rafter_0">
+          <pose>-12 0 5.29 0 0 0</pose>
+          <geometry>
+            <box>
+              <size>0.13 17.62 0.24</size>
+            </box>
+          </geometry>
+          <material>
+            <ambient>0.4505 0.5015 0.51 1</ambient>
+            <diffuse>0.53 0.59 0.6 1</diffuse>
+          </material>
+        </visual>
+        <visual name="v_luminaire_0_0">
+          <pose>-12 -4 5.12 0 0 0</pose>
+          <geometry>
+            <box>
+              <size>0.32 1.8 0.08</size>
+            </box>
+          </geometry>
+          <material>
+            <ambient>0.8075 0.8075 0.7225 1</ambient>
+            <diffuse>0.95 0.95 0.85 1</diffuse>
+            <emissive>0.76 0.76 0.68 1</emissive>
+          </material>
+        </visual>
+        <visual name="v_luminaire_0_1">
+          <pose>-12 4 5.12 0 0 0</pose>
+          <geometry>
+            <box>
+              <size>0.32 1.8 0.08</size>
+            </box>
+          </geometry>
+          <material>
+            <ambient>0.8075 0.8075 0.7225 1</ambient>
+            <diffuse>0.95 0.95 0.85 1</diffuse>
+            <emissive>0.76 0.76 0.68 1</emissive>
+          </material>
+        </visual>
+        <collision name="column_1_0">
+          <pose>-8 -8.78 2.7 0 0 0</pose>
+          <geometry>
+            <box>
+              <size>0.2 0.22 5.4</size>
+            </box>
+          </geometry>
+        </collision>
+        <visual name="v_column_1_0">
+          <pose>-8 -8.78 2.7 0 0 0</pose>
+          <geometry>
+            <box>
+              <size>0.2 0.22 5.4</size>
+            </box>
+          </geometry>
+          <material>
+            <ambient>0.085 0.238 0.3315 1</ambient>
+            <diffuse>0.1 0.28 0.39 1</diffuse>
+          </material>
+        </visual>
+        <collision name="foot_1_0">
+          <pose>-8 -8.78 0.4 0 0 0</pose>
+          <geometry>
+            <box>
+              <size>0.24 0.26 0.8</size>
+            </box>
+          </geometry>
+        </collision>
+        <visual name="v_foot_1_0">
+          <pose>-8 -8.78 0.4 0 0 0</pose>
+          <geometry>
+            <box>
+              <size>0.24 0.26 0.8</size>
+            </box>
+          </geometry>
+          <material>
+            <ambient>0.833 0.5865 0.102 1</ambient>
+            <diffuse>0.98 0.69 0.12 1</diffuse>
+          </material>
+        </visual>
+        <collision name="column_1_1">
+          <pose>-8 8.78 2.7 0 0 0</pose>
+          <geometry>
+            <box>
+              <size>0.2 0.22 5.4</size>
+            </box>
+          </geometry>
+        </collision>
+        <visual name="v_column_1_1">
+          <pose>-8 8.78 2.7 0 0 0</pose>
+          <geometry>
+            <box>
+              <size>0.2 0.22 5.4</size>
+            </box>
+          </geometry>
+          <material>
+            <ambient>0.085 0.238 0.3315 1</ambient>
+            <diffuse>0.1 0.28 0.39 1</diffuse>
+          </material>
+        </visual>
+        <collision name="foot_1_1">
+          <pose>-8 8.78 0.4 0 0 0</pose>
+          <geometry>
+            <box>
+              <size>0.24 0.26 0.8</size>
+            </box>
+          </geometry>
+        </collision>
+        <visual name="v_foot_1_1">
+          <pose>-8 8.78 0.4 0 0 0</pose>
+          <geometry>
+            <box>
+              <size>0.24 0.26 0.8</size>
+            </box>
+          </geometry>
+          <material>
+            <ambient>0.833 0.5865 0.102 1</ambient>
+            <diffuse>0.98 0.69 0.12 1</diffuse>
+          </material>
+        </visual>
+        <collision name="rafter_1">
+          <pose>-8 0 5.29 0 0 0</pose>
+          <geometry>
+            <box>
+              <size>0.13 17.62 0.24</size>
+            </box>
+          </geometry>
+        </collision>
+        <visual name="v_rafter_1">
+          <pose>-8 0 5.29 0 0 0</pose>
+          <geometry>
+            <box>
+              <size>0.13 17.62 0.24</size>
+            </box>
+          </geometry>
+          <material>
+            <ambient>0.4505 0.5015 0.51 1</ambient>
+            <diffuse>0.53 0.59 0.6 1</diffuse>
+          </material>
+        </visual>
+        <visual name="v_luminaire_1_0">
+          <pose>-8 -4 5.12 0 0 0</pose>
+          <geometry>
+            <box>
+              <size>0.32 1.8 0.08</size>
+            </box>
+          </geometry>
+          <material>
+            <ambient>0.8075 0.8075 0.7225 1</ambient>
+            <diffuse>0.95 0.95 0.85 1</diffuse>
+            <emissive>0.76 0.76 0.68 1</emissive>
+          </material>
+        </visual>
+        <visual name="v_luminaire_1_1">
+          <pose>-8 4 5.12 0 0 0</pose>
+          <geometry>
+            <box>
+              <size>0.32 1.8 0.08</size>
+            </box>
+          </geometry>
+          <material>
+            <ambient>0.8075 0.8075 0.7225 1</ambient>
+            <diffuse>0.95 0.95 0.85 1</diffuse>
+            <emissive>0.76 0.76 0.68 1</emissive>
+          </material>
+        </visual>
+        <collision name="column_2_0">
+          <pose>-4 -8.78 2.7 0 0 0</pose>
+          <geometry>
+            <box>
+              <size>0.2 0.22 5.4</size>
+            </box>
+          </geometry>
+        </collision>
+        <visual name="v_column_2_0">
+          <pose>-4 -8.78 2.7 0 0 0</pose>
+          <geometry>
+            <box>
+              <size>0.2 0.22 5.4</size>
+            </box>
+          </geometry>
+          <material>
+            <ambient>0.085 0.238 0.3315 1</ambient>
+            <diffuse>0.1 0.28 0.39 1</diffuse>
+          </material>
+        </visual>
+        <collision name="foot_2_0">
+          <pose>-4 -8.78 0.4 0 0 0</pose>
+          <geometry>
+            <box>
+              <size>0.24 0.26 0.8</size>
+            </box>
+          </geometry>
+        </collision>
+        <visual name="v_foot_2_0">
+          <pose>-4 -8.78 0.4 0 0 0</pose>
+          <geometry>
+            <box>
+              <size>0.24 0.26 0.8</size>
+            </box>
+          </geometry>
+          <material>
+            <ambient>0.833 0.5865 0.102 1</ambient>
+            <diffuse>0.98 0.69 0.12 1</diffuse>
+          </material>
+        </visual>
+        <collision name="column_2_1">
+          <pose>-4 8.78 2.7 0 0 0</pose>
+          <geometry>
+            <box>
+              <size>0.2 0.22 5.4</size>
+            </box>
+          </geometry>
+        </collision>
+        <visual name="v_column_2_1">
+          <pose>-4 8.78 2.7 0 0 0</pose>
+          <geometry>
+            <box>
+              <size>0.2 0.22 5.4</size>
+            </box>
+          </geometry>
+          <material>
+            <ambient>0.085 0.238 0.3315 1</ambient>
+            <diffuse>0.1 0.28 0.39 1</diffuse>
+          </material>
+        </visual>
+        <collision name="foot_2_1">
+          <pose>-4 8.78 0.4 0 0 0</pose>
+          <geometry>
+            <box>
+              <size>0.24 0.26 0.8</size>
+            </box>
+          </geometry>
+        </collision>
+        <visual name="v_foot_2_1">
+          <pose>-4 8.78 0.4 0 0 0</pose>
+          <geometry>
+            <box>
+              <size>0.24 0.26 0.8</size>
+            </box>
+          </geometry>
+          <material>
+            <ambient>0.833 0.5865 0.102 1</ambient>
+            <diffuse>0.98 0.69 0.12 1</diffuse>
+          </material>
+        </visual>
+        <collision name="rafter_2">
+          <pose>-4 0 5.29 0 0 0</pose>
+          <geometry>
+            <box>
+              <size>0.13 17.62 0.24</size>
+            </box>
+          </geometry>
+        </collision>
+        <visual name="v_rafter_2">
+          <pose>-4 0 5.29 0 0 0</pose>
+          <geometry>
+            <box>
+              <size>0.13 17.62 0.24</size>
+            </box>
+          </geometry>
+          <material>
+            <ambient>0.4505 0.5015 0.51 1</ambient>
+            <diffuse>0.53 0.59 0.6 1</diffuse>
+          </material>
+        </visual>
+        <visual name="v_luminaire_2_0">
+          <pose>-4 -4 5.12 0 0 0</pose>
+          <geometry>
+            <box>
+              <size>0.32 1.8 0.08</size>
+            </box>
+          </geometry>
+          <material>
+            <ambient>0.8075 0.8075 0.7225 1</ambient>
+            <diffuse>0.95 0.95 0.85 1</diffuse>
+            <emissive>0.76 0.76 0.68 1</emissive>
+          </material>
+        </visual>
+        <visual name="v_luminaire_2_1">
+          <pose>-4 4 5.12 0 0 0</pose>
+          <geometry>
+            <box>
+              <size>0.32 1.8 0.08</size>
+            </box>
+          </geometry>
+          <material>
+            <ambient>0.8075 0.8075 0.7225 1</ambient>
+            <diffuse>0.95 0.95 0.85 1</diffuse>
+            <emissive>0.76 0.76 0.68 1</emissive>
+          </material>
+        </visual>
+        <collision name="column_3_0">
+          <pose>0 -8.78 2.7 0 0 0</pose>
+          <geometry>
+            <box>
+              <size>0.2 0.22 5.4</size>
+            </box>
+          </geometry>
+        </collision>
+        <visual name="v_column_3_0">
+          <pose>0 -8.78 2.7 0 0 0</pose>
+          <geometry>
+            <box>
+              <size>0.2 0.22 5.4</size>
+            </box>
+          </geometry>
+          <material>
+            <ambient>0.085 0.238 0.3315 1</ambient>
+            <diffuse>0.1 0.28 0.39 1</diffuse>
+          </material>
+        </visual>
+        <collision name="foot_3_0">
+          <pose>0 -8.78 0.4 0 0 0</pose>
+          <geometry>
+            <box>
+              <size>0.24 0.26 0.8</size>
+            </box>
+          </geometry>
+        </collision>
+        <visual name="v_foot_3_0">
+          <pose>0 -8.78 0.4 0 0 0</pose>
+          <geometry>
+            <box>
+              <size>0.24 0.26 0.8</size>
+            </box>
+          </geometry>
+          <material>
+            <ambient>0.833 0.5865 0.102 1</ambient>
+            <diffuse>0.98 0.69 0.12 1</diffuse>
+          </material>
+        </visual>
+        <collision name="column_3_1">
+          <pose>0 8.78 2.7 0 0 0</pose>
+          <geometry>
+            <box>
+              <size>0.2 0.22 5.4</size>
+            </box>
+          </geometry>
+        </collision>
+        <visual name="v_column_3_1">
+          <pose>0 8.78 2.7 0 0 0</pose>
+          <geometry>
+            <box>
+              <size>0.2 0.22 5.4</size>
+            </box>
+          </geometry>
+          <material>
+            <ambient>0.085 0.238 0.3315 1</ambient>
+            <diffuse>0.1 0.28 0.39 1</diffuse>
+          </material>
+        </visual>
+        <collision name="foot_3_1">
+          <pose>0 8.78 0.4 0 0 0</pose>
+          <geometry>
+            <box>
+              <size>0.24 0.26 0.8</size>
+            </box>
+          </geometry>
+        </collision>
+        <visual name="v_foot_3_1">
+          <pose>0 8.78 0.4 0 0 0</pose>
+          <geometry>
+            <box>
+              <size>0.24 0.26 0.8</size>
+            </box>
+          </geometry>
+          <material>
+            <ambient>0.833 0.5865 0.102 1</ambient>
+            <diffuse>0.98 0.69 0.12 1</diffuse>
+          </material>
+        </visual>
+        <collision name="rafter_3">
+          <pose>0 0 5.29 0 0 0</pose>
+          <geometry>
+            <box>
+              <size>0.13 17.62 0.24</size>
+            </box>
+          </geometry>
+        </collision>
+        <visual name="v_rafter_3">
+          <pose>0 0 5.29 0 0 0</pose>
+          <geometry>
+            <box>
+              <size>0.13 17.62 0.24</size>
+            </box>
+          </geometry>
+          <material>
+            <ambient>0.4505 0.5015 0.51 1</ambient>
+            <diffuse>0.53 0.59 0.6 1</diffuse>
+          </material>
+        </visual>
+        <visual name="v_luminaire_3_0">
+          <pose>0 -4 5.12 0 0 0</pose>
+          <geometry>
+            <box>
+              <size>0.32 1.8 0.08</size>
+            </box>
+          </geometry>
+          <material>
+            <ambient>0.8075 0.8075 0.7225 1</ambient>
+            <diffuse>0.95 0.95 0.85 1</diffuse>
+            <emissive>0.76 0.76 0.68 1</emissive>
+          </material>
+        </visual>
+        <visual name="v_luminaire_3_1">
+          <pose>0 4 5.12 0 0 0</pose>
+          <geometry>
+            <box>
+              <size>0.32 1.8 0.08</size>
+            </box>
+          </geometry>
+          <material>
+            <ambient>0.8075 0.8075 0.7225 1</ambient>
+            <diffuse>0.95 0.95 0.85 1</diffuse>
+            <emissive>0.76 0.76 0.68 1</emissive>
+          </material>
+        </visual>
+        <collision name="column_4_0">
+          <pose>4 -8.78 2.7 0 0 0</pose>
+          <geometry>
+            <box>
+              <size>0.2 0.22 5.4</size>
+            </box>
+          </geometry>
+        </collision>
+        <visual name="v_column_4_0">
+          <pose>4 -8.78 2.7 0 0 0</pose>
+          <geometry>
+            <box>
+              <size>0.2 0.22 5.4</size>
+            </box>
+          </geometry>
+          <material>
+            <ambient>0.085 0.238 0.3315 1</ambient>
+            <diffuse>0.1 0.28 0.39 1</diffuse>
+          </material>
+        </visual>
+        <collision name="foot_4_0">
+          <pose>4 -8.78 0.4 0 0 0</pose>
+          <geometry>
+            <box>
+              <size>0.24 0.26 0.8</size>
+            </box>
+          </geometry>
+        </collision>
+        <visual name="v_foot_4_0">
+          <pose>4 -8.78 0.4 0 0 0</pose>
+          <geometry>
+            <box>
+              <size>0.24 0.26 0.8</size>
+            </box>
+          </geometry>
+          <material>
+            <ambient>0.833 0.5865 0.102 1</ambient>
+            <diffuse>0.98 0.69 0.12 1</diffuse>
+          </material>
+        </visual>
+        <collision name="column_4_1">
+          <pose>4 8.78 2.7 0 0 0</pose>
+          <geometry>
+            <box>
+              <size>0.2 0.22 5.4</size>
+            </box>
+          </geometry>
+        </collision>
+        <visual name="v_column_4_1">
+          <pose>4 8.78 2.7 0 0 0</pose>
+          <geometry>
+            <box>
+              <size>0.2 0.22 5.4</size>
+            </box>
+          </geometry>
+          <material>
+            <ambient>0.085 0.238 0.3315 1</ambient>
+            <diffuse>0.1 0.28 0.39 1</diffuse>
+          </material>
+        </visual>
+        <collision name="foot_4_1">
+          <pose>4 8.78 0.4 0 0 0</pose>
+          <geometry>
+            <box>
+              <size>0.24 0.26 0.8</size>
+            </box>
+          </geometry>
+        </collision>
+        <visual name="v_foot_4_1">
+          <pose>4 8.78 0.4 0 0 0</pose>
+          <geometry>
+            <box>
+              <size>0.24 0.26 0.8</size>
+            </box>
+          </geometry>
+          <material>
+            <ambient>0.833 0.5865 0.102 1</ambient>
+            <diffuse>0.98 0.69 0.12 1</diffuse>
+          </material>
+        </visual>
+        <collision name="rafter_4">
+          <pose>4 0 5.29 0 0 0</pose>
+          <geometry>
+            <box>
+              <size>0.13 17.62 0.24</size>
+            </box>
+          </geometry>
+        </collision>
+        <visual name="v_rafter_4">
+          <pose>4 0 5.29 0 0 0</pose>
+          <geometry>
+            <box>
+              <size>0.13 17.62 0.24</size>
+            </box>
+          </geometry>
+          <material>
+            <ambient>0.4505 0.5015 0.51 1</ambient>
+            <diffuse>0.53 0.59 0.6 1</diffuse>
+          </material>
+        </visual>
+        <visual name="v_luminaire_4_0">
+          <pose>4 -4 5.12 0 0 0</pose>
+          <geometry>
+            <box>
+              <size>0.32 1.8 0.08</size>
+            </box>
+          </geometry>
+          <material>
+            <ambient>0.8075 0.8075 0.7225 1</ambient>
+            <diffuse>0.95 0.95 0.85 1</diffuse>
+            <emissive>0.76 0.76 0.68 1</emissive>
+          </material>
+        </visual>
+        <visual name="v_luminaire_4_1">
+          <pose>4 4 5.12 0 0 0</pose>
+          <geometry>
+            <box>
+              <size>0.32 1.8 0.08</size>
+            </box>
+          </geometry>
+          <material>
+            <ambient>0.8075 0.8075 0.7225 1</ambient>
+            <diffuse>0.95 0.95 0.85 1</diffuse>
+            <emissive>0.76 0.76 0.68 1</emissive>
+          </material>
+        </visual>
+        <collision name="column_5_0">
+          <pose>8 -8.78 2.7 0 0 0</pose>
+          <geometry>
+            <box>
+              <size>0.2 0.22 5.4</size>
+            </box>
+          </geometry>
+        </collision>
+        <visual name="v_column_5_0">
+          <pose>8 -8.78 2.7 0 0 0</pose>
+          <geometry>
+            <box>
+              <size>0.2 0.22 5.4</size>
+            </box>
+          </geometry>
+          <material>
+            <ambient>0.085 0.238 0.3315 1</ambient>
+            <diffuse>0.1 0.28 0.39 1</diffuse>
+          </material>
+        </visual>
+        <collision name="foot_5_0">
+          <pose>8 -8.78 0.4 0 0 0</pose>
+          <geometry>
+            <box>
+              <size>0.24 0.26 0.8</size>
+            </box>
+          </geometry>
+        </collision>
+        <visual name="v_foot_5_0">
+          <pose>8 -8.78 0.4 0 0 0</pose>
+          <geometry>
+            <box>
+              <size>0.24 0.26 0.8</size>
+            </box>
+          </geometry>
+          <material>
+            <ambient>0.833 0.5865 0.102 1</ambient>
+            <diffuse>0.98 0.69 0.12 1</diffuse>
+          </material>
+        </visual>
+        <collision name="column_5_1">
+          <pose>8 8.78 2.7 0 0 0</pose>
+          <geometry>
+            <box>
+              <size>0.2 0.22 5.4</size>
+            </box>
+          </geometry>
+        </collision>
+        <visual name="v_column_5_1">
+          <pose>8 8.78 2.7 0 0 0</pose>
+          <geometry>
+            <box>
+              <size>0.2 0.22 5.4</size>
+            </box>
+          </geometry>
+          <material>
+            <ambient>0.085 0.238 0.3315 1</ambient>
+            <diffuse>0.1 0.28 0.39 1</diffuse>
+          </material>
+        </visual>
+        <collision name="foot_5_1">
+          <pose>8 8.78 0.4 0 0 0</pose>
+          <geometry>
+            <box>
+              <size>0.24 0.26 0.8</size>
+            </box>
+          </geometry>
+        </collision>
+        <visual name="v_foot_5_1">
+          <pose>8 8.78 0.4 0 0 0</pose>
+          <geometry>
+            <box>
+              <size>0.24 0.26 0.8</size>
+            </box>
+          </geometry>
+          <material>
+            <ambient>0.833 0.5865 0.102 1</ambient>
+            <diffuse>0.98 0.69 0.12 1</diffuse>
+          </material>
+        </visual>
+        <collision name="rafter_5">
+          <pose>8 0 5.29 0 0 0</pose>
+          <geometry>
+            <box>
+              <size>0.13 17.62 0.24</size>
+            </box>
+          </geometry>
+        </collision>
+        <visual name="v_rafter_5">
+          <pose>8 0 5.29 0 0 0</pose>
+          <geometry>
+            <box>
+              <size>0.13 17.62 0.24</size>
+            </box>
+          </geometry>
+          <material>
+            <ambient>0.4505 0.5015 0.51 1</ambient>
+            <diffuse>0.53 0.59 0.6 1</diffuse>
+          </material>
+        </visual>
+        <visual name="v_luminaire_5_0">
+          <pose>8 -4 5.12 0 0 0</pose>
+          <geometry>
+            <box>
+              <size>0.32 1.8 0.08</size>
+            </box>
+          </geometry>
+          <material>
+            <ambient>0.8075 0.8075 0.7225 1</ambient>
+            <diffuse>0.95 0.95 0.85 1</diffuse>
+            <emissive>0.76 0.76 0.68 1</emissive>
+          </material>
+        </visual>
+        <visual name="v_luminaire_5_1">
+          <pose>8 4 5.12 0 0 0</pose>
+          <geometry>
+            <box>
+              <size>0.32 1.8 0.08</size>
+            </box>
+          </geometry>
+          <material>
+            <ambient>0.8075 0.8075 0.7225 1</ambient>
+            <diffuse>0.95 0.95 0.85 1</diffuse>
+            <emissive>0.76 0.76 0.68 1</emissive>
+          </material>
+        </visual>
+        <collision name="column_6_0">
+          <pose>12 -8.78 2.7 0 0 0</pose>
+          <geometry>
+            <box>
+              <size>0.2 0.22 5.4</size>
+            </box>
+          </geometry>
+        </collision>
+        <visual name="v_column_6_0">
+          <pose>12 -8.78 2.7 0 0 0</pose>
+          <geometry>
+            <box>
+              <size>0.2 0.22 5.4</size>
+            </box>
+          </geometry>
+          <material>
+            <ambient>0.085 0.238 0.3315 1</ambient>
+            <diffuse>0.1 0.28 0.39 1</diffuse>
+          </material>
+        </visual>
+        <collision name="foot_6_0">
+          <pose>12 -8.78 0.4 0 0 0</pose>
+          <geometry>
+            <box>
+              <size>0.24 0.26 0.8</size>
+            </box>
+          </geometry>
+        </collision>
+        <visual name="v_foot_6_0">
+          <pose>12 -8.78 0.4 0 0 0</pose>
+          <geometry>
+            <box>
+              <size>0.24 0.26 0.8</size>
+            </box>
+          </geometry>
+          <material>
+            <ambient>0.833 0.5865 0.102 1</ambient>
+            <diffuse>0.98 0.69 0.12 1</diffuse>
+          </material>
+        </visual>
+        <collision name="column_6_1">
+          <pose>12 8.78 2.7 0 0 0</pose>
+          <geometry>
+            <box>
+              <size>0.2 0.22 5.4</size>
+            </box>
+          </geometry>
+        </collision>
+        <visual name="v_column_6_1">
+          <pose>12 8.78 2.7 0 0 0</pose>
+          <geometry>
+            <box>
+              <size>0.2 0.22 5.4</size>
+            </box>
+          </geometry>
+          <material>
+            <ambient>0.085 0.238 0.3315 1</ambient>
+            <diffuse>0.1 0.28 0.39 1</diffuse>
+          </material>
+        </visual>
+        <collision name="foot_6_1">
+          <pose>12 8.78 0.4 0 0 0</pose>
+          <geometry>
+            <box>
+              <size>0.24 0.26 0.8</size>
+            </box>
+          </geometry>
+        </collision>
+        <visual name="v_foot_6_1">
+          <pose>12 8.78 0.4 0 0 0</pose>
+          <geometry>
+            <box>
+              <size>0.24 0.26 0.8</size>
+            </box>
+          </geometry>
+          <material>
+            <ambient>0.833 0.5865 0.102 1</ambient>
+            <diffuse>0.98 0.69 0.12 1</diffuse>
+          </material>
+        </visual>
+        <collision name="rafter_6">
+          <pose>12 0 5.29 0 0 0</pose>
+          <geometry>
+            <box>
+              <size>0.13 17.62 0.24</size>
+            </box>
+          </geometry>
+        </collision>
+        <visual name="v_rafter_6">
+          <pose>12 0 5.29 0 0 0</pose>
+          <geometry>
+            <box>
+              <size>0.13 17.62 0.24</size>
+            </box>
+          </geometry>
+          <material>
+            <ambient>0.4505 0.5015 0.51 1</ambient>
+            <diffuse>0.53 0.59 0.6 1</diffuse>
+          </material>
+        </visual>
+        <visual name="v_luminaire_6_0">
+          <pose>12 -4 5.12 0 0 0</pose>
+          <geometry>
+            <box>
+              <size>0.32 1.8 0.08</size>
+            </box>
+          </geometry>
+          <material>
+            <ambient>0.8075 0.8075 0.7225 1</ambient>
+            <diffuse>0.95 0.95 0.85 1</diffuse>
+            <emissive>0.76 0.76 0.68 1</emissive>
+          </material>
+        </visual>
+        <visual name="v_luminaire_6_1">
+          <pose>12 4 5.12 0 0 0</pose>
+          <geometry>
+            <box>
+              <size>0.32 1.8 0.08</size>
+            </box>
+          </geometry>
+          <material>
+            <ambient>0.8075 0.8075 0.7225 1</ambient>
+            <diffuse>0.95 0.95 0.85 1</diffuse>
+            <emissive>0.76 0.76 0.68 1</emissive>
+          </material>
+        </visual>
+        <collision name="door_0">
+          <pose>-13.9 -4.8 1.95 0 0 0</pose>
+          <geometry>
+            <box>
+              <size>0.05 3.4 3.9</size>
+            </box>
+          </geometry>
+        </collision>
+        <visual name="v_door_0">
+          <pose>-13.9 -4.8 1.95 0 0 0</pose>
+          <geometry>
+            <box>
+              <size>0.05 3.4 3.9</size>
+            </box>
+          </geometry>
+          <material>
+            <ambient>0.3655 0.4165 0.425 1</ambient>
+            <diffuse>0.43 0.49 0.5 1</diffuse>
+          </material>
+        </visual>
+        <visual name="v_slat_0_0">
+          <pose>-13.866 -4.8 0.19 0 0 0</pose>
+          <geometry>
+            <box>
+              <size>0.02 3.37 0.017</size>
+            </box>
+          </geometry>
+          <material>
+            <ambient>0.4505 0.5015 0.51 1</ambient>
+            <diffuse>0.53 0.59 0.6 1</diffuse>
+          </material>
+        </visual>
+        <visual name="v_slat_0_1">
+          <pose>-13.866 -4.8 0.494 0 0 0</pose>
+          <geometry>
+            <box>
+              <size>0.02 3.37 0.017</size>
+            </box>
+          </geometry>
+          <material>
+            <ambient>0.4505 0.5015 0.51 1</ambient>
+            <diffuse>0.53 0.59 0.6 1</diffuse>
+          </material>
+        </visual>
+        <visual name="v_slat_0_2">
+          <pose>-13.866 -4.8 0.798 0 0 0</pose>
+          <geometry>
+            <box>
+              <size>0.02 3.37 0.017</size>
+            </box>
+          </geometry>
+          <material>
+            <ambient>0.4505 0.5015 0.51 1</ambient>
+            <diffuse>0.53 0.59 0.6 1</diffuse>
+          </material>
+        </visual>
+        <visual name="v_slat_0_3">
+          <pose>-13.866 -4.8 1.102 0 0 0</pose>
+          <geometry>
+            <box>
+              <size>0.02 3.37 0.017</size>
+            </box>
+          </geometry>
+          <material>
+            <ambient>0.4505 0.5015 0.51 1</ambient>
+            <diffuse>0.53 0.59 0.6 1</diffuse>
+          </material>
+        </visual>
+        <visual name="v_slat_0_4">
+          <pose>-13.866 -4.8 1.406 0 0 0</pose>
+          <geometry>
+            <box>
+              <size>0.02 3.37 0.017</size>
+            </box>
+          </geometry>
+          <material>
+            <ambient>0.4505 0.5015 0.51 1</ambient>
+            <diffuse>0.53 0.59 0.6 1</diffuse>
+          </material>
+        </visual>
+        <visual name="v_slat_0_5">
+          <pose>-13.866 -4.8 1.71 0 0 0</pose>
+          <geometry>
+            <box>
+              <size>0.02 3.37 0.017</size>
+            </box>
+          </geometry>
+          <material>
+            <ambient>0.4505 0.5015 0.51 1</ambient>
+            <diffuse>0.53 0.59 0.6 1</diffuse>
+          </material>
+        </visual>
+        <visual name="v_slat_0_6">
+          <pose>-13.866 -4.8 2.014 0 0 0</pose>
+          <geometry>
+            <box>
+              <size>0.02 3.37 0.017</size>
+            </box>
+          </geometry>
+          <material>
+            <ambient>0.4505 0.5015 0.51 1</ambient>
+            <diffuse>0.53 0.59 0.6 1</diffuse>
+          </material>
+        </visual>
+        <visual name="v_slat_0_7">
+          <pose>-13.866 -4.8 2.318 0 0 0</pose>
+          <geometry>
+            <box>
+              <size>0.02 3.37 0.017</size>
+            </box>
+          </geometry>
+          <material>
+            <ambient>0.4505 0.5015 0.51 1</ambient>
+            <diffuse>0.53 0.59 0.6 1</diffuse>
+          </material>
+        </visual>
+        <visual name="v_slat_0_8">
+          <pose>-13.866 -4.8 2.622 0 0 0</pose>
+          <geometry>
+            <box>
+              <size>0.02 3.37 0.017</size>
+            </box>
+          </geometry>
+          <material>
+            <ambient>0.4505 0.5015 0.51 1</ambient>
+            <diffuse>0.53 0.59 0.6 1</diffuse>
+          </material>
+        </visual>
+        <visual name="v_slat_0_9">
+          <pose>-13.866 -4.8 2.926 0 0 0</pose>
+          <geometry>
+            <box>
+              <size>0.02 3.37 0.017</size>
+            </box>
+          </geometry>
+          <material>
+            <ambient>0.4505 0.5015 0.51 1</ambient>
+            <diffuse>0.53 0.59 0.6 1</diffuse>
+          </material>
+        </visual>
+        <visual name="v_slat_0_10">
+          <pose>-13.866 -4.8 3.23 0 0 0</pose>
+          <geometry>
+            <box>
+              <size>0.02 3.37 0.017</size>
+            </box>
+          </geometry>
+          <material>
+            <ambient>0.4505 0.5015 0.51 1</ambient>
+            <diffuse>0.53 0.59 0.6 1</diffuse>
+          </material>
+        </visual>
+        <visual name="v_slat_0_11">
+          <pose>-13.866 -4.8 3.534 0 0 0</pose>
+          <geometry>
+            <box>
+              <size>0.02 3.37 0.017</size>
+            </box>
+          </geometry>
+          <material>
+            <ambient>0.4505 0.5015 0.51 1</ambient>
+            <diffuse>0.53 0.59 0.6 1</diffuse>
+          </material>
+        </visual>
+        <collision name="bollard_0_-1">
+          <pose>-13.25 -6.72 0.43 0 0 0</pose>
+          <geometry>
+            <cylinder>
+              <radius>0.095</radius>
+              <length>0.86</length>
+            </cylinder>
+          </geometry>
+        </collision>
+        <visual name="v_bollard_0_-1">
+          <pose>-13.25 -6.72 0.43 0 0 0</pose>
+          <geometry>
+            <cylinder>
+              <radius>0.095</radius>
+              <length>0.86</length>
+            </cylinder>
+          </geometry>
+          <material>
+            <ambient>0.833 0.5865 0.102 1</ambient>
+            <diffuse>0.98 0.69 0.12 1</diffuse>
+          </material>
+        </visual>
+        <collision name="bollard_0_1">
+          <pose>-13.25 -2.88 0.43 0 0 0</pose>
+          <geometry>
+            <cylinder>
+              <radius>0.095</radius>
+              <length>0.86</length>
+            </cylinder>
+          </geometry>
+        </collision>
+        <visual name="v_bollard_0_1">
+          <pose>-13.25 -2.88 0.43 0 0 0</pose>
+          <geometry>
+            <cylinder>
+              <radius>0.095</radius>
+              <length>0.86</length>
+            </cylinder>
+          </geometry>
+          <material>
+            <ambient>0.833 0.5865 0.102 1</ambient>
+            <diffuse>0.98 0.69 0.12 1</diffuse>
+          </material>
+        </visual>
+        <collision name="door_1">
+          <pose>-13.9 0 1.95 0 0 0</pose>
+          <geometry>
+            <box>
+              <size>0.05 3.4 3.9</size>
+            </box>
+          </geometry>
+        </collision>
+        <visual name="v_door_1">
+          <pose>-13.9 0 1.95 0 0 0</pose>
+          <geometry>
+            <box>
+              <size>0.05 3.4 3.9</size>
+            </box>
+          </geometry>
+          <material>
+            <ambient>0.3655 0.4165 0.425 1</ambient>
+            <diffuse>0.43 0.49 0.5 1</diffuse>
+          </material>
+        </visual>
+        <visual name="v_slat_1_0">
+          <pose>-13.866 0 0.19 0 0 0</pose>
+          <geometry>
+            <box>
+              <size>0.02 3.37 0.017</size>
+            </box>
+          </geometry>
+          <material>
+            <ambient>0.4505 0.5015 0.51 1</ambient>
+            <diffuse>0.53 0.59 0.6 1</diffuse>
+          </material>
+        </visual>
+        <visual name="v_slat_1_1">
+          <pose>-13.866 0 0.494 0 0 0</pose>
+          <geometry>
+            <box>
+              <size>0.02 3.37 0.017</size>
+            </box>
+          </geometry>
+          <material>
+            <ambient>0.4505 0.5015 0.51 1</ambient>
+            <diffuse>0.53 0.59 0.6 1</diffuse>
+          </material>
+        </visual>
+        <visual name="v_slat_1_2">
+          <pose>-13.866 0 0.798 0 0 0</pose>
+          <geometry>
+            <box>
+              <size>0.02 3.37 0.017</size>
+            </box>
+          </geometry>
+          <material>
+            <ambient>0.4505 0.5015 0.51 1</ambient>
+            <diffuse>0.53 0.59 0.6 1</diffuse>
+          </material>
+        </visual>
+        <visual name="v_slat_1_3">
+          <pose>-13.866 0 1.102 0 0 0</pose>
+          <geometry>
+            <box>
+              <size>0.02 3.37 0.017</size>
+            </box>
+          </geometry>
+          <material>
+            <ambient>0.4505 0.5015 0.51 1</ambient>
+            <diffuse>0.53 0.59 0.6 1</diffuse>
+          </material>
+        </visual>
+        <visual name="v_slat_1_4">
+          <pose>-13.866 0 1.406 0 0 0</pose>
+          <geometry>
+            <box>
+              <size>0.02 3.37 0.017</size>
+            </box>
+          </geometry>
+          <material>
+            <ambient>0.4505 0.5015 0.51 1</ambient>
+            <diffuse>0.53 0.59 0.6 1</diffuse>
+          </material>
+        </visual>
+        <visual name="v_slat_1_5">
+          <pose>-13.866 0 1.71 0 0 0</pose>
+          <geometry>
+            <box>
+              <size>0.02 3.37 0.017</size>
+            </box>
+          </geometry>
+          <material>
+            <ambient>0.4505 0.5015 0.51 1</ambient>
+            <diffuse>0.53 0.59 0.6 1</diffuse>
+          </material>
+        </visual>
+        <visual name="v_slat_1_6">
+          <pose>-13.866 0 2.014 0 0 0</pose>
+          <geometry>
+            <box>
+              <size>0.02 3.37 0.017</size>
+            </box>
+          </geometry>
+          <material>
+            <ambient>0.4505 0.5015 0.51 1</ambient>
+            <diffuse>0.53 0.59 0.6 1</diffuse>
+          </material>
+        </visual>
+        <visual name="v_slat_1_7">
+          <pose>-13.866 0 2.318 0 0 0</pose>
+          <geometry>
+            <box>
+              <size>0.02 3.37 0.017</size>
+            </box>
+          </geometry>
+          <material>
+            <ambient>0.4505 0.5015 0.51 1</ambient>
+            <diffuse>0.53 0.59 0.6 1</diffuse>
+          </material>
+        </visual>
+        <visual name="v_slat_1_8">
+          <pose>-13.866 0 2.622 0 0 0</pose>
+          <geometry>
+            <box>
+              <size>0.02 3.37 0.017</size>
+            </box>
+          </geometry>
+          <material>
+            <ambient>0.4505 0.5015 0.51 1</ambient>
+            <diffuse>0.53 0.59 0.6 1</diffuse>
+          </material>
+        </visual>
+        <visual name="v_slat_1_9">
+          <pose>-13.866 0 2.926 0 0 0</pose>
+          <geometry>
+            <box>
+              <size>0.02 3.37 0.017</size>
+            </box>
+          </geometry>
+          <material>
+            <ambient>0.4505 0.5015 0.51 1</ambient>
+            <diffuse>0.53 0.59 0.6 1</diffuse>
+          </material>
+        </visual>
+        <visual name="v_slat_1_10">
+          <pose>-13.866 0 3.23 0 0 0</pose>
+          <geometry>
+            <box>
+              <size>0.02 3.37 0.017</size>
+            </box>
+          </geometry>
+          <material>
+            <ambient>0.4505 0.5015 0.51 1</ambient>
+            <diffuse>0.53 0.59 0.6 1</diffuse>
+          </material>
+        </visual>
+        <visual name="v_slat_1_11">
+          <pose>-13.866 0 3.534 0 0 0</pose>
+          <geometry>
+            <box>
+              <size>0.02 3.37 0.017</size>
+            </box>
+          </geometry>
+          <material>
+            <ambient>0.4505 0.5015 0.51 1</ambient>
+            <diffuse>0.53 0.59 0.6 1</diffuse>
+          </material>
+        </visual>
+        <collision name="bollard_1_-1">
+          <pose>-13.25 -1.92 0.43 0 0 0</pose>
+          <geometry>
+            <cylinder>
+              <radius>0.095</radius>
+              <length>0.86</length>
+            </cylinder>
+          </geometry>
+        </collision>
+        <visual name="v_bollard_1_-1">
+          <pose>-13.25 -1.92 0.43 0 0 0</pose>
+          <geometry>
+            <cylinder>
+              <radius>0.095</radius>
+              <length>0.86</length>
+            </cylinder>
+          </geometry>
+          <material>
+            <ambient>0.833 0.5865 0.102 1</ambient>
+            <diffuse>0.98 0.69 0.12 1</diffuse>
+          </material>
+        </visual>
+        <collision name="bollard_1_1">
+          <pose>-13.25 1.92 0.43 0 0 0</pose>
+          <geometry>
+            <cylinder>
+              <radius>0.095</radius>
+              <length>0.86</length>
+            </cylinder>
+          </geometry>
+        </collision>
+        <visual name="v_bollard_1_1">
+          <pose>-13.25 1.92 0.43 0 0 0</pose>
+          <geometry>
+            <cylinder>
+              <radius>0.095</radius>
+              <length>0.86</length>
+            </cylinder>
+          </geometry>
+          <material>
+            <ambient>0.833 0.5865 0.102 1</ambient>
+            <diffuse>0.98 0.69 0.12 1</diffuse>
+          </material>
+        </visual>
+        <collision name="door_2">
+          <pose>-13.9 4.8 1.95 0 0 0</pose>
+          <geometry>
+            <box>
+              <size>0.05 3.4 3.9</size>
+            </box>
+          </geometry>
+        </collision>
+        <visual name="v_door_2">
+          <pose>-13.9 4.8 1.95 0 0 0</pose>
+          <geometry>
+            <box>
+              <size>0.05 3.4 3.9</size>
+            </box>
+          </geometry>
+          <material>
+            <ambient>0.3655 0.4165 0.425 1</ambient>
+            <diffuse>0.43 0.49 0.5 1</diffuse>
+          </material>
+        </visual>
+        <visual name="v_slat_2_0">
+          <pose>-13.866 4.8 0.19 0 0 0</pose>
+          <geometry>
+            <box>
+              <size>0.02 3.37 0.017</size>
+            </box>
+          </geometry>
+          <material>
+            <ambient>0.4505 0.5015 0.51 1</ambient>
+            <diffuse>0.53 0.59 0.6 1</diffuse>
+          </material>
+        </visual>
+        <visual name="v_slat_2_1">
+          <pose>-13.866 4.8 0.494 0 0 0</pose>
+          <geometry>
+            <box>
+              <size>0.02 3.37 0.017</size>
+            </box>
+          </geometry>
+          <material>
+            <ambient>0.4505 0.5015 0.51 1</ambient>
+            <diffuse>0.53 0.59 0.6 1</diffuse>
+          </material>
+        </visual>
+        <visual name="v_slat_2_2">
+          <pose>-13.866 4.8 0.798 0 0 0</pose>
+          <geometry>
+            <box>
+              <size>0.02 3.37 0.017</size>
+            </box>
+          </geometry>
+          <material>
+            <ambient>0.4505 0.5015 0.51 1</ambient>
+            <diffuse>0.53 0.59 0.6 1</diffuse>
+          </material>
+        </visual>
+        <visual name="v_slat_2_3">
+          <pose>-13.866 4.8 1.102 0 0 0</pose>
+          <geometry>
+            <box>
+              <size>0.02 3.37 0.017</size>
+            </box>
+          </geometry>
+          <material>
+            <ambient>0.4505 0.5015 0.51 1</ambient>
+            <diffuse>0.53 0.59 0.6 1</diffuse>
+          </material>
+        </visual>
+        <visual name="v_slat_2_4">
+          <pose>-13.866 4.8 1.406 0 0 0</pose>
+          <geometry>
+            <box>
+              <size>0.02 3.37 0.017</size>
+            </box>
+          </geometry>
+          <material>
+            <ambient>0.4505 0.5015 0.51 1</ambient>
+            <diffuse>0.53 0.59 0.6 1</diffuse>
+          </material>
+        </visual>
+        <visual name="v_slat_2_5">
+          <pose>-13.866 4.8 1.71 0 0 0</pose>
+          <geometry>
+            <box>
+              <size>0.02 3.37 0.017</size>
+            </box>
+          </geometry>
+          <material>
+            <ambient>0.4505 0.5015 0.51 1</ambient>
+            <diffuse>0.53 0.59 0.6 1</diffuse>
+          </material>
+        </visual>
+        <visual name="v_slat_2_6">
+          <pose>-13.866 4.8 2.014 0 0 0</pose>
+          <geometry>
+            <box>
+              <size>0.02 3.37 0.017</size>
+            </box>
+          </geometry>
+          <material>
+            <ambient>0.4505 0.5015 0.51 1</ambient>
+            <diffuse>0.53 0.59 0.6 1</diffuse>
+          </material>
+        </visual>
+        <visual name="v_slat_2_7">
+          <pose>-13.866 4.8 2.318 0 0 0</pose>
+          <geometry>
+            <box>
+              <size>0.02 3.37 0.017</size>
+            </box>
+          </geometry>
+          <material>
+            <ambient>0.4505 0.5015 0.51 1</ambient>
+            <diffuse>0.53 0.59 0.6 1</diffuse>
+          </material>
+        </visual>
+        <visual name="v_slat_2_8">
+          <pose>-13.866 4.8 2.622 0 0 0</pose>
+          <geometry>
+            <box>
+              <size>0.02 3.37 0.017</size>
+            </box>
+          </geometry>
+          <material>
+            <ambient>0.4505 0.5015 0.51 1</ambient>
+            <diffuse>0.53 0.59 0.6 1</diffuse>
+          </material>
+        </visual>
+        <visual name="v_slat_2_9">
+          <pose>-13.866 4.8 2.926 0 0 0</pose>
+          <geometry>
+            <box>
+              <size>0.02 3.37 0.017</size>
+            </box>
+          </geometry>
+          <material>
+            <ambient>0.4505 0.5015 0.51 1</ambient>
+            <diffuse>0.53 0.59 0.6 1</diffuse>
+          </material>
+        </visual>
+        <visual name="v_slat_2_10">
+          <pose>-13.866 4.8 3.23 0 0 0</pose>
+          <geometry>
+            <box>
+              <size>0.02 3.37 0.017</size>
+            </box>
+          </geometry>
+          <material>
+            <ambient>0.4505 0.5015 0.51 1</ambient>
+            <diffuse>0.53 0.59 0.6 1</diffuse>
+          </material>
+        </visual>
+        <visual name="v_slat_2_11">
+          <pose>-13.866 4.8 3.534 0 0 0</pose>
+          <geometry>
+            <box>
+              <size>0.02 3.37 0.017</size>
+            </box>
+          </geometry>
+          <material>
+            <ambient>0.4505 0.5015 0.51 1</ambient>
+            <diffuse>0.53 0.59 0.6 1</diffuse>
+          </material>
+        </visual>
+        <collision name="bollard_2_-1">
+          <pose>-13.25 2.88 0.43 0 0 0</pose>
+          <geometry>
+            <cylinder>
+              <radius>0.095</radius>
+              <length>0.86</length>
+            </cylinder>
+          </geometry>
+        </collision>
+        <visual name="v_bollard_2_-1">
+          <pose>-13.25 2.88 0.43 0 0 0</pose>
+          <geometry>
+            <cylinder>
+              <radius>0.095</radius>
+              <length>0.86</length>
+            </cylinder>
+          </geometry>
+          <material>
+            <ambient>0.833 0.5865 0.102 1</ambient>
+            <diffuse>0.98 0.69 0.12 1</diffuse>
+          </material>
+        </visual>
+        <collision name="bollard_2_1">
+          <pose>-13.25 6.72 0.43 0 0 0</pose>
+          <geometry>
+            <cylinder>
+              <radius>0.095</radius>
+              <length>0.86</length>
+            </cylinder>
+          </geometry>
+        </collision>
+        <visual name="v_bollard_2_1">
+          <pose>-13.25 6.72 0.43 0 0 0</pose>
+          <geometry>
+            <cylinder>
+              <radius>0.095</radius>
+              <length>0.86</length>
+            </cylinder>
+          </geometry>
+          <material>
+            <ambient>0.833 0.5865 0.102 1</ambient>
+            <diffuse>0.98 0.69 0.12 1</diffuse>
+          </material>
+        </visual>
+      </link>
+    </model>
+    <light name="high_bay_0" type="point">
+      <pose>0 -4 4.98 0 0 0</pose>
+      <diffuse>.55 .54 .49 1</diffuse>
+      <specular>.08 .08 .08 1</specular>
+      <cast_shadows>false</cast_shadows>
+      <attenuation>
+        <range>16</range>
+        <constant>0.7</constant>
+        <linear>0.075</linear>
+        <quadratic>0.014</quadratic>
+      </attenuation>
+    </light>
+    <light name="high_bay_1" type="point">
+      <pose>0 3 4.98 0 0 0</pose>
+      <diffuse>.55 .54 .49 1</diffuse>
+      <specular>.08 .08 .08 1</specular>
+      <cast_shadows>false</cast_shadows>
+      <attenuation>
+        <range>16</range>
+        <constant>0.7</constant>
+        <linear>0.075</linear>
+        <quadratic>0.014</quadratic>
+      </attenuation>
+    </light>
+    <model name="rack_1">
+      <static>true</static>
+      <link name="structure">
+        <collision name="post_0_0">
+          <pose>-10.75 6.03 1.7 0 0 0</pose>
+          <geometry>
+            <box>
+              <size>0.105 0.105 3.4</size>
+            </box>
+          </geometry>
+        </collision>
+        <visual name="v_post_0_0">
+          <pose>-10.75 6.03 1.7 0 0 0</pose>
+          <geometry>
+            <box>
+              <size>0.105 0.105 3.4</size>
+            </box>
+          </geometry>
+          <material>
+            <ambient>0.085 0.238 0.3315 1</ambient>
+            <diffuse>0.1 0.28 0.39 1</diffuse>
+          </material>
+        </visual>
+        <collision name="guard_0_0">
+          <pose>-10.75 6.03 0.19 0 0 0</pose>
+          <geometry>
+            <box>
+              <size>0.15 0.15 0.38</size>
+            </box>
+          </geometry>
+        </collision>
+        <visual name="v_guard_0_0">
+          <pose>-10.75 6.03 0.19 0 0 0</pose>
+          <geometry>
+            <box>
+              <size>0.15 0.15 0.38</size>
+            </box>
+          </geometry>
+          <material>
+            <ambient>0.833 0.5865 0.102 1</ambient>
+            <diffuse>0.98 0.69 0.12 1</diffuse>
+          </material>
+        </visual>
+        <collision name="post_0_1">
+          <pose>-10.75 7.17 1.7 0 0 0</pose>
+          <geometry>
+            <box>
+              <size>0.105 0.105 3.4</size>
+            </box>
+          </geometry>
+        </collision>
+        <visual name="v_post_0_1">
+          <pose>-10.75 7.17 1.7 0 0 0</pose>
+          <geometry>
+            <box>
+              <size>0.105 0.105 3.4</size>
+            </box>
+          </geometry>
+          <material>
+            <ambient>0.085 0.238 0.3315 1</ambient>
+            <diffuse>0.1 0.28 0.39 1</diffuse>
+          </material>
+        </visual>
+        <collision name="guard_0_1">
+          <pose>-10.75 7.17 0.19 0 0 0</pose>
+          <geometry>
+            <box>
+              <size>0.15 0.15 0.38</size>
+            </box>
+          </geometry>
+        </collision>
+        <visual name="v_guard_0_1">
+          <pose>-10.75 7.17 0.19 0 0 0</pose>
+          <geometry>
+            <box>
+              <size>0.15 0.15 0.38</size>
+            </box>
+          </geometry>
+          <material>
+            <ambient>0.833 0.5865 0.102 1</ambient>
+            <diffuse>0.98 0.69 0.12 1</diffuse>
+          </material>
+        </visual>
+        <visual name="v_brace_0_0.28">
+          <pose>-10.75 6.6 0.955 0 0.6925485 1.570796</pose>
+          <geometry>
+            <box>
+              <size>0.045 0.045 1.754109</size>
+            </box>
+          </geometry>
+          <material>
+            <ambient>0.4505 0.5015 0.51 1</ambient>
+            <diffuse>0.53 0.59 0.6 1</diffuse>
+          </material>
+        </visual>
+        <visual name="v_brace_0_1.8">
+          <pose>-10.75 6.6 2.475 0 0.6925485 1.570796</pose>
+          <geometry>
+            <box>
+              <size>0.045 0.045 1.754109</size>
+            </box>
+          </geometry>
+          <material>
+            <ambient>0.4505 0.5015 0.51 1</ambient>
+            <diffuse>0.53 0.59 0.6 1</diffuse>
+          </material>
+        </visual>
+        <collision name="post_1_0">
+          <pose>-8.1 6.03 1.7 0 0 0</pose>
+          <geometry>
+            <box>
+              <size>0.105 0.105 3.4</size>
+            </box>
+          </geometry>
+        </collision>
+        <visual name="v_post_1_0">
+          <pose>-8.1 6.03 1.7 0 0 0</pose>
+          <geometry>
+            <box>
+              <size>0.105 0.105 3.4</size>
+            </box>
+          </geometry>
+          <material>
+            <ambient>0.085 0.238 0.3315 1</ambient>
+            <diffuse>0.1 0.28 0.39 1</diffuse>
+          </material>
+        </visual>
+        <collision name="guard_1_0">
+          <pose>-8.1 6.03 0.19 0 0 0</pose>
+          <geometry>
+            <box>
+              <size>0.15 0.15 0.38</size>
+            </box>
+          </geometry>
+        </collision>
+        <visual name="v_guard_1_0">
+          <pose>-8.1 6.03 0.19 0 0 0</pose>
+          <geometry>
+            <box>
+              <size>0.15 0.15 0.38</size>
+            </box>
+          </geometry>
+          <material>
+            <ambient>0.833 0.5865 0.102 1</ambient>
+            <diffuse>0.98 0.69 0.12 1</diffuse>
+          </material>
+        </visual>
+        <collision name="post_1_1">
+          <pose>-8.1 7.17 1.7 0 0 0</pose>
+          <geometry>
+            <box>
+              <size>0.105 0.105 3.4</size>
+            </box>
+          </geometry>
+        </collision>
+        <visual name="v_post_1_1">
+          <pose>-8.1 7.17 1.7 0 0 0</pose>
+          <geometry>
+            <box>
+              <size>0.105 0.105 3.4</size>
+            </box>
+          </geometry>
+          <material>
+            <ambient>0.085 0.238 0.3315 1</ambient>
+            <diffuse>0.1 0.28 0.39 1</diffuse>
+          </material>
+        </visual>
+        <collision name="guard_1_1">
+          <pose>-8.1 7.17 0.19 0 0 0</pose>
+          <geometry>
+            <box>
+              <size>0.15 0.15 0.38</size>
+            </box>
+          </geometry>
+        </collision>
+        <visual name="v_guard_1_1">
+          <pose>-8.1 7.17 0.19 0 0 0</pose>
+          <geometry>
+            <box>
+              <size>0.15 0.15 0.38</size>
+            </box>
+          </geometry>
+          <material>
+            <ambient>0.833 0.5865 0.102 1</ambient>
+            <diffuse>0.98 0.69 0.12 1</diffuse>
+          </material>
+        </visual>
+        <visual name="v_brace_1_0.28">
+          <pose>-8.1 6.6 0.955 0 0.6925485 1.570796</pose>
+          <geometry>
+            <box>
+              <size>0.045 0.045 1.754109</size>
+            </box>
+          </geometry>
+          <material>
+            <ambient>0.4505 0.5015 0.51 1</ambient>
+            <diffuse>0.53 0.59 0.6 1</diffuse>
+          </material>
+        </visual>
+        <visual name="v_brace_1_1.8">
+          <pose>-8.1 6.6 2.475 0 0.6925485 1.570796</pose>
+          <geometry>
+            <box>
+              <size>0.045 0.045 1.754109</size>
+            </box>
+          </geometry>
+          <material>
+            <ambient>0.4505 0.5015 0.51 1</ambient>
+            <diffuse>0.53 0.59 0.6 1</diffuse>
+          </material>
+        </visual>
+        <collision name="post_2_0">
+          <pose>-5.45 6.03 1.7 0 0 0</pose>
+          <geometry>
+            <box>
+              <size>0.105 0.105 3.4</size>
+            </box>
+          </geometry>
+        </collision>
+        <visual name="v_post_2_0">
+          <pose>-5.45 6.03 1.7 0 0 0</pose>
+          <geometry>
+            <box>
+              <size>0.105 0.105 3.4</size>
+            </box>
+          </geometry>
+          <material>
+            <ambient>0.085 0.238 0.3315 1</ambient>
+            <diffuse>0.1 0.28 0.39 1</diffuse>
+          </material>
+        </visual>
+        <collision name="guard_2_0">
+          <pose>-5.45 6.03 0.19 0 0 0</pose>
+          <geometry>
+            <box>
+              <size>0.15 0.15 0.38</size>
+            </box>
+          </geometry>
+        </collision>
+        <visual name="v_guard_2_0">
+          <pose>-5.45 6.03 0.19 0 0 0</pose>
+          <geometry>
+            <box>
+              <size>0.15 0.15 0.38</size>
+            </box>
+          </geometry>
+          <material>
+            <ambient>0.833 0.5865 0.102 1</ambient>
+            <diffuse>0.98 0.69 0.12 1</diffuse>
+          </material>
+        </visual>
+        <collision name="post_2_1">
+          <pose>-5.45 7.17 1.7 0 0 0</pose>
+          <geometry>
+            <box>
+              <size>0.105 0.105 3.4</size>
+            </box>
+          </geometry>
+        </collision>
+        <visual name="v_post_2_1">
+          <pose>-5.45 7.17 1.7 0 0 0</pose>
+          <geometry>
+            <box>
+              <size>0.105 0.105 3.4</size>
+            </box>
+          </geometry>
+          <material>
+            <ambient>0.085 0.238 0.3315 1</ambient>
+            <diffuse>0.1 0.28 0.39 1</diffuse>
+          </material>
+        </visual>
+        <collision name="guard_2_1">
+          <pose>-5.45 7.17 0.19 0 0 0</pose>
+          <geometry>
+            <box>
+              <size>0.15 0.15 0.38</size>
+            </box>
+          </geometry>
+        </collision>
+        <visual name="v_guard_2_1">
+          <pose>-5.45 7.17 0.19 0 0 0</pose>
+          <geometry>
+            <box>
+              <size>0.15 0.15 0.38</size>
+            </box>
+          </geometry>
+          <material>
+            <ambient>0.833 0.5865 0.102 1</ambient>
+            <diffuse>0.98 0.69 0.12 1</diffuse>
+          </material>
+        </visual>
+        <visual name="v_brace_2_0.28">
+          <pose>-5.45 6.6 0.955 0 0.6925485 1.570796</pose>
+          <geometry>
+            <box>
+              <size>0.045 0.045 1.754109</size>
+            </box>
+          </geometry>
+          <material>
+            <ambient>0.4505 0.5015 0.51 1</ambient>
+            <diffuse>0.53 0.59 0.6 1</diffuse>
+          </material>
+        </visual>
+        <visual name="v_brace_2_1.8">
+          <pose>-5.45 6.6 2.475 0 0.6925485 1.570796</pose>
+          <geometry>
+            <box>
+              <size>0.045 0.045 1.754109</size>
+            </box>
+          </geometry>
+          <material>
+            <ambient>0.4505 0.5015 0.51 1</ambient>
+            <diffuse>0.53 0.59 0.6 1</diffuse>
+          </material>
+        </visual>
+        <collision name="beam_0_0">
+          <pose>-8.1 6.04 0.32 0 0 0</pose>
+          <geometry>
+            <box>
+              <size>5.35 0.1 0.15</size>
+            </box>
+          </geometry>
+        </collision>
+        <visual name="v_beam_0_0">
+          <pose>-8.1 6.04 0.32 0 0 0</pose>
+          <geometry>
+            <box>
+              <size>5.35 0.1 0.15</size>
+            </box>
+          </geometry>
+          <material>
+            <ambient>0.765 0.3315 0.085 1</ambient>
+            <diffuse>0.9 0.39 0.1 1</diffuse>
+          </material>
+        </visual>
+        <collision name="beam_0_1">
+          <pose>-8.1 7.16 0.32 0 0 0</pose>
+          <geometry>
+            <box>
+              <size>5.35 0.1 0.15</size>
+            </box>
+          </geometry>
+        </collision>
+        <visual name="v_beam_0_1">
+          <pose>-8.1 7.16 0.32 0 0 0</pose>
+          <geometry>
+            <box>
+              <size>5.35 0.1 0.15</size>
+            </box>
+          </geometry>
+          <material>
+            <ambient>0.765 0.3315 0.085 1</ambient>
+            <diffuse>0.9 0.39 0.1 1</diffuse>
+          </material>
+        </visual>
+        <collision name="shelf_0">
+          <pose>-8.1 6.6 0.389 0 0 0</pose>
+          <geometry>
+            <box>
+              <size>5.3 1.12 0.054</size>
+            </box>
+          </geometry>
+        </collision>
+        <visual name="v_shelf_0">
+          <pose>-8.1 6.6 0.389 0 0 0</pose>
+          <geometry>
+            <box>
+              <size>5.3 1.12 0.054</size>
+            </box>
+          </geometry>
+          <material>
+            <ambient>0.4505 0.5015 0.51 1</ambient>
+            <diffuse>0.53 0.59 0.6 1</diffuse>
+          </material>
+        </visual>
+        <collision name="carton_0_1">
+          <pose>-9.22 6.6 0.807 0 0 0</pose>
+          <geometry>
+            <box>
+              <size>0.81 0.76 0.78</size>
+            </box>
+          </geometry>
+        </collision>
+        <visual name="v_carton_0_1">
+          <pose>-9.22 6.6 0.807 0 0 0</pose>
+          <geometry>
+            <box>
+              <size>0.81 0.76 0.78</size>
+            </box>
+          </geometry>
+          <material>
+            <ambient>0.6035 0.4845 0.3315 1</ambient>
+            <diffuse>0.71 0.57 0.39 1</diffuse>
+          </material>
+        </visual>
+        <visual name="v_band_0_1">
+          <pose>-9.06 6.218 0.808 0 0 0</pose>
+          <geometry>
+            <box>
+              <size>0.033 0.006 0.78</size>
+            </box>
+          </geometry>
+          <material>
+            <ambient>0.2295 0.255 0.2295 1</ambient>
+            <diffuse>0.27 0.3 0.27 1</diffuse>
+          </material>
+        </visual>
+        <collision name="carton_0_2">
+          <pose>-7.45 6.6 0.687 0 0 0</pose>
+          <geometry>
+            <box>
+              <size>0.81 0.76 0.54</size>
+            </box>
+          </geometry>
+        </collision>
+        <visual name="v_carton_0_2">
+          <pose>-7.45 6.6 0.687 0 0 0</pose>
+          <geometry>
+            <box>
+              <size>0.81 0.76 0.54</size>
+            </box>
+          </geometry>
+          <material>
+            <ambient>0.4675 0.3825 0.2805 1</ambient>
+            <diffuse>0.55 0.45 0.33 1</diffuse>
+          </material>
+        </visual>
+        <visual name="v_band_0_2">
+          <pose>-7.29 6.218 0.688 0 0 0</pose>
+          <geometry>
+            <box>
+              <size>0.033 0.006 0.54</size>
+            </box>
+          </geometry>
+          <material>
+            <ambient>0.2295 0.255 0.2295 1</ambient>
+            <diffuse>0.27 0.3 0.27 1</diffuse>
+          </material>
+        </visual>
+        <collision name="carton_0_3">
+          <pose>-6.42 6.6 0.807 0 0 0</pose>
+          <geometry>
+            <box>
+              <size>0.81 0.76 0.78</size>
+            </box>
+          </geometry>
+        </collision>
+        <visual name="v_carton_0_3">
+          <pose>-6.42 6.6 0.807 0 0 0</pose>
+          <geometry>
+            <box>
+              <size>0.81 0.76 0.78</size>
+            </box>
+          </geometry>
+          <material>
+            <ambient>0.544 0.408 0.272 1</ambient>
+            <diffuse>0.64 0.48 0.32 1</diffuse>
+          </material>
+        </visual>
+        <visual name="v_band_0_3">
+          <pose>-6.26 6.218 0.808 0 0 0</pose>
+          <geometry>
+            <box>
+              <size>0.033 0.006 0.78</size>
+            </box>
+          </geometry>
+          <material>
+            <ambient>0.2295 0.255 0.2295 1</ambient>
+            <diffuse>0.27 0.3 0.27 1</diffuse>
+          </material>
+        </visual>
+        <collision name="beam_1_0">
+          <pose>-8.1 6.04 1.7 0 0 0</pose>
+          <geometry>
+            <box>
+              <size>5.35 0.1 0.15</size>
+            </box>
+          </geometry>
+        </collision>
+        <visual name="v_beam_1_0">
+          <pose>-8.1 6.04 1.7 0 0 0</pose>
+          <geometry>
+            <box>
+              <size>5.35 0.1 0.15</size>
+            </box>
+          </geometry>
+          <material>
+            <ambient>0.765 0.3315 0.085 1</ambient>
+            <diffuse>0.9 0.39 0.1 1</diffuse>
+          </material>
+        </visual>
+        <collision name="beam_1_1">
+          <pose>-8.1 7.16 1.7 0 0 0</pose>
+          <geometry>
+            <box>
+              <size>5.35 0.1 0.15</size>
+            </box>
+          </geometry>
+        </collision>
+        <visual name="v_beam_1_1">
+          <pose>-8.1 7.16 1.7 0 0 0</pose>
+          <geometry>
+            <box>
+              <size>5.35 0.1 0.15</size>
+            </box>
+          </geometry>
+          <material>
+            <ambient>0.765 0.3315 0.085 1</ambient>
+            <diffuse>0.9 0.39 0.1 1</diffuse>
+          </material>
+        </visual>
+        <collision name="shelf_1">
+          <pose>-8.1 6.6 1.769 0 0 0</pose>
+          <geometry>
+            <box>
+              <size>5.3 1.12 0.054</size>
+            </box>
+          </geometry>
+        </collision>
+        <visual name="v_shelf_1">
+          <pose>-8.1 6.6 1.769 0 0 0</pose>
+          <geometry>
+            <box>
+              <size>5.3 1.12 0.054</size>
+            </box>
+          </geometry>
+          <material>
+            <ambient>0.4505 0.5015 0.51 1</ambient>
+            <diffuse>0.53 0.59 0.6 1</diffuse>
+          </material>
+        </visual>
+        <collision name="carton_1_0">
+          <pose>-10.2 6.6 2.127 0 0 0</pose>
+          <geometry>
+            <box>
+              <size>0.81 0.76 0.66</size>
+            </box>
+          </geometry>
+        </collision>
+        <visual name="v_carton_1_0">
+          <pose>-10.2 6.6 2.127 0 0 0</pose>
+          <geometry>
+            <box>
+              <size>0.81 0.76 0.66</size>
+            </box>
+          </geometry>
+          <material>
+            <ambient>0.6035 0.4845 0.3315 1</ambient>
+            <diffuse>0.71 0.57 0.39 1</diffuse>
+          </material>
+        </visual>
+        <visual name="v_band_1_0">
+          <pose>-10.04 6.218 2.128 0 0 0</pose>
+          <geometry>
+            <box>
+              <size>0.033 0.006 0.66</size>
+            </box>
+          </geometry>
+          <material>
+            <ambient>0.2295 0.255 0.2295 1</ambient>
+            <diffuse>0.27 0.3 0.27 1</diffuse>
+          </material>
+        </visual>
+        <collision name="carton_1_1">
+          <pose>-9.22 6.6 2.247 0 0 0</pose>
+          <geometry>
+            <box>
+              <size>0.81 0.76 0.9</size>
+            </box>
+          </geometry>
+        </collision>
+        <visual name="v_carton_1_1">
+          <pose>-9.22 6.6 2.247 0 0 0</pose>
+          <geometry>
+            <box>
+              <size>0.81 0.76 0.9</size>
+            </box>
+          </geometry>
+          <material>
+            <ambient>0.4675 0.3825 0.2805 1</ambient>
+            <diffuse>0.55 0.45 0.33 1</diffuse>
+          </material>
+        </visual>
+        <visual name="v_band_1_1">
+          <pose>-9.06 6.218 2.248 0 0 0</pose>
+          <geometry>
+            <box>
+              <size>0.033 0.006 0.9</size>
+            </box>
+          </geometry>
+          <material>
+            <ambient>0.2295 0.255 0.2295 1</ambient>
+            <diffuse>0.27 0.3 0.27 1</diffuse>
+          </material>
+        </visual>
+        <collision name="carton_1_2">
+          <pose>-7.45 6.6 2.127 0 0 0</pose>
+          <geometry>
+            <box>
+              <size>0.81 0.76 0.66</size>
+            </box>
+          </geometry>
+        </collision>
+        <visual name="v_carton_1_2">
+          <pose>-7.45 6.6 2.127 0 0 0</pose>
+          <geometry>
+            <box>
+              <size>0.81 0.76 0.66</size>
+            </box>
+          </geometry>
+          <material>
+            <ambient>0.544 0.408 0.272 1</ambient>
+            <diffuse>0.64 0.48 0.32 1</diffuse>
+          </material>
+        </visual>
+        <visual name="v_band_1_2">
+          <pose>-7.29 6.218 2.128 0 0 0</pose>
+          <geometry>
+            <box>
+              <size>0.033 0.006 0.66</size>
+            </box>
+          </geometry>
+          <material>
+            <ambient>0.2295 0.255 0.2295 1</ambient>
+            <diffuse>0.27 0.3 0.27 1</diffuse>
+          </material>
+        </visual>
+        <collision name="carton_1_3">
+          <pose>-6.42 6.6 2.247 0 0 0</pose>
+          <geometry>
+            <box>
+              <size>0.81 0.76 0.9</size>
+            </box>
+          </geometry>
+        </collision>
+        <visual name="v_carton_1_3">
+          <pose>-6.42 6.6 2.247 0 0 0</pose>
+          <geometry>
+            <box>
+              <size>0.81 0.76 0.9</size>
+            </box>
+          </geometry>
+          <material>
+            <ambient>0.6035 0.4845 0.3315 1</ambient>
+            <diffuse>0.71 0.57 0.39 1</diffuse>
+          </material>
+        </visual>
+        <visual name="v_band_1_3">
+          <pose>-6.26 6.218 2.248 0 0 0</pose>
+          <geometry>
+            <box>
+              <size>0.033 0.006 0.9</size>
+            </box>
+          </geometry>
+          <material>
+            <ambient>0.2295 0.255 0.2295 1</ambient>
+            <diffuse>0.27 0.3 0.27 1</diffuse>
+          </material>
+        </visual>
+        <collision name="beam_2_0">
+          <pose>-8.1 6.04 3.02 0 0 0</pose>
+          <geometry>
+            <box>
+              <size>5.35 0.1 0.15</size>
+            </box>
+          </geometry>
+        </collision>
+        <visual name="v_beam_2_0">
+          <pose>-8.1 6.04 3.02 0 0 0</pose>
+          <geometry>
+            <box>
+              <size>5.35 0.1 0.15</size>
+            </box>
+          </geometry>
+          <material>
+            <ambient>0.765 0.3315 0.085 1</ambient>
+            <diffuse>0.9 0.39 0.1 1</diffuse>
+          </material>
+        </visual>
+        <collision name="beam_2_1">
+          <pose>-8.1 7.16 3.02 0 0 0</pose>
+          <geometry>
+            <box>
+              <size>5.35 0.1 0.15</size>
+            </box>
+          </geometry>
+        </collision>
+        <visual name="v_beam_2_1">
+          <pose>-8.1 7.16 3.02 0 0 0</pose>
+          <geometry>
+            <box>
+              <size>5.35 0.1 0.15</size>
+            </box>
+          </geometry>
+          <material>
+            <ambient>0.765 0.3315 0.085 1</ambient>
+            <diffuse>0.9 0.39 0.1 1</diffuse>
+          </material>
+        </visual>
+        <collision name="shelf_2">
+          <pose>-8.1 6.6 3.089 0 0 0</pose>
+          <geometry>
+            <box>
+              <size>5.3 1.12 0.054</size>
+            </box>
+          </geometry>
+        </collision>
+        <visual name="v_shelf_2">
+          <pose>-8.1 6.6 3.089 0 0 0</pose>
+          <geometry>
+            <box>
+              <size>5.3 1.12 0.054</size>
+            </box>
+          </geometry>
+          <material>
+            <ambient>0.4505 0.5015 0.51 1</ambient>
+            <diffuse>0.53 0.59 0.6 1</diffuse>
+          </material>
+        </visual>
+        <collision name="carton_2_0">
+          <pose>-10.2 6.6 3.507 0 0 0</pose>
+          <geometry>
+            <box>
+              <size>0.81 0.76 0.78</size>
+            </box>
+          </geometry>
+        </collision>
+        <visual name="v_carton_2_0">
+          <pose>-10.2 6.6 3.507 0 0 0</pose>
+          <geometry>
+            <box>
+              <size>0.81 0.76 0.78</size>
+            </box>
+          </geometry>
+          <material>
+            <ambient>0.4675 0.3825 0.2805 1</ambient>
+            <diffuse>0.55 0.45 0.33 1</diffuse>
+          </material>
+        </visual>
+        <visual name="v_band_2_0">
+          <pose>-10.04 6.218 3.508 0 0 0</pose>
+          <geometry>
+            <box>
+              <size>0.033 0.006 0.78</size>
+            </box>
+          </geometry>
+          <material>
+            <ambient>0.2295 0.255 0.2295 1</ambient>
+            <diffuse>0.27 0.3 0.27 1</diffuse>
+          </material>
+        </visual>
+        <collision name="carton_2_1">
+          <pose>-9.22 6.6 3.387 0 0 0</pose>
+          <geometry>
+            <box>
+              <size>0.81 0.76 0.54</size>
+            </box>
+          </geometry>
+        </collision>
+        <visual name="v_carton_2_1">
+          <pose>-9.22 6.6 3.387 0 0 0</pose>
+          <geometry>
+            <box>
+              <size>0.81 0.76 0.54</size>
+            </box>
+          </geometry>
+          <material>
+            <ambient>0.544 0.408 0.272 1</ambient>
+            <diffuse>0.64 0.48 0.32 1</diffuse>
+          </material>
+        </visual>
+        <visual name="v_band_2_1">
+          <pose>-9.06 6.218 3.388 0 0 0</pose>
+          <geometry>
+            <box>
+              <size>0.033 0.006 0.54</size>
+            </box>
+          </geometry>
+          <material>
+            <ambient>0.2295 0.255 0.2295 1</ambient>
+            <diffuse>0.27 0.3 0.27 1</diffuse>
+          </material>
+        </visual>
+        <collision name="carton_2_2">
+          <pose>-7.45 6.6 3.507 0 0 0</pose>
+          <geometry>
+            <box>
+              <size>0.81 0.76 0.78</size>
+            </box>
+          </geometry>
+        </collision>
+        <visual name="v_carton_2_2">
+          <pose>-7.45 6.6 3.507 0 0 0</pose>
+          <geometry>
+            <box>
+              <size>0.81 0.76 0.78</size>
+            </box>
+          </geometry>
+          <material>
+            <ambient>0.6035 0.4845 0.3315 1</ambient>
+            <diffuse>0.71 0.57 0.39 1</diffuse>
+          </material>
+        </visual>
+        <visual name="v_band_2_2">
+          <pose>-7.29 6.218 3.508 0 0 0</pose>
+          <geometry>
+            <box>
+              <size>0.033 0.006 0.78</size>
+            </box>
+          </geometry>
+          <material>
+            <ambient>0.2295 0.255 0.2295 1</ambient>
+            <diffuse>0.27 0.3 0.27 1</diffuse>
+          </material>
+        </visual>
+      </link>
+    </model>
+    <model name="rack_2">
+      <static>true</static>
+      <link name="structure">
+        <collision name="post_0_0">
+          <pose>-4.25 6.03 1.7 0 0 0</pose>
+          <geometry>
+            <box>
+              <size>0.105 0.105 3.4</size>
+            </box>
+          </geometry>
+        </collision>
+        <visual name="v_post_0_0">
+          <pose>-4.25 6.03 1.7 0 0 0</pose>
+          <geometry>
+            <box>
+              <size>0.105 0.105 3.4</size>
+            </box>
+          </geometry>
+          <material>
+            <ambient>0.085 0.238 0.3315 1</ambient>
+            <diffuse>0.1 0.28 0.39 1</diffuse>
+          </material>
+        </visual>
+        <collision name="guard_0_0">
+          <pose>-4.25 6.03 0.19 0 0 0</pose>
+          <geometry>
+            <box>
+              <size>0.15 0.15 0.38</size>
+            </box>
+          </geometry>
+        </collision>
+        <visual name="v_guard_0_0">
+          <pose>-4.25 6.03 0.19 0 0 0</pose>
+          <geometry>
+            <box>
+              <size>0.15 0.15 0.38</size>
+            </box>
+          </geometry>
+          <material>
+            <ambient>0.833 0.5865 0.102 1</ambient>
+            <diffuse>0.98 0.69 0.12 1</diffuse>
+          </material>
+        </visual>
+        <collision name="post_0_1">
+          <pose>-4.25 7.17 1.7 0 0 0</pose>
+          <geometry>
+            <box>
+              <size>0.105 0.105 3.4</size>
+            </box>
+          </geometry>
+        </collision>
+        <visual name="v_post_0_1">
+          <pose>-4.25 7.17 1.7 0 0 0</pose>
+          <geometry>
+            <box>
+              <size>0.105 0.105 3.4</size>
+            </box>
+          </geometry>
+          <material>
+            <ambient>0.085 0.238 0.3315 1</ambient>
+            <diffuse>0.1 0.28 0.39 1</diffuse>
+          </material>
+        </visual>
+        <collision name="guard_0_1">
+          <pose>-4.25 7.17 0.19 0 0 0</pose>
+          <geometry>
+            <box>
+              <size>0.15 0.15 0.38</size>
+            </box>
+          </geometry>
+        </collision>
+        <visual name="v_guard_0_1">
+          <pose>-4.25 7.17 0.19 0 0 0</pose>
+          <geometry>
+            <box>
+              <size>0.15 0.15 0.38</size>
+            </box>
+          </geometry>
+          <material>
+            <ambient>0.833 0.5865 0.102 1</ambient>
+            <diffuse>0.98 0.69 0.12 1</diffuse>
+          </material>
+        </visual>
+        <visual name="v_brace_0_0.28">
+          <pose>-4.25 6.6 0.955 0 0.6925485 1.570796</pose>
+          <geometry>
+            <box>
+              <size>0.045 0.045 1.754109</size>
+            </box>
+          </geometry>
+          <material>
+            <ambient>0.4505 0.5015 0.51 1</ambient>
+            <diffuse>0.53 0.59 0.6 1</diffuse>
+          </material>
+        </visual>
+        <visual name="v_brace_0_1.8">
+          <pose>-4.25 6.6 2.475 0 0.6925485 1.570796</pose>
+          <geometry>
+            <box>
+              <size>0.045 0.045 1.754109</size>
+            </box>
+          </geometry>
+          <material>
+            <ambient>0.4505 0.5015 0.51 1</ambient>
+            <diffuse>0.53 0.59 0.6 1</diffuse>
+          </material>
+        </visual>
+        <collision name="post_1_0">
+          <pose>-1.6 6.03 1.7 0 0 0</pose>
+          <geometry>
+            <box>
+              <size>0.105 0.105 3.4</size>
+            </box>
+          </geometry>
+        </collision>
+        <visual name="v_post_1_0">
+          <pose>-1.6 6.03 1.7 0 0 0</pose>
+          <geometry>
+            <box>
+              <size>0.105 0.105 3.4</size>
+            </box>
+          </geometry>
+          <material>
+            <ambient>0.085 0.238 0.3315 1</ambient>
+            <diffuse>0.1 0.28 0.39 1</diffuse>
+          </material>
+        </visual>
+        <collision name="guard_1_0">
+          <pose>-1.6 6.03 0.19 0 0 0</pose>
+          <geometry>
+            <box>
+              <size>0.15 0.15 0.38</size>
+            </box>
+          </geometry>
+        </collision>
+        <visual name="v_guard_1_0">
+          <pose>-1.6 6.03 0.19 0 0 0</pose>
+          <geometry>
+            <box>
+              <size>0.15 0.15 0.38</size>
+            </box>
+          </geometry>
+          <material>
+            <ambient>0.833 0.5865 0.102 1</ambient>
+            <diffuse>0.98 0.69 0.12 1</diffuse>
+          </material>
+        </visual>
+        <collision name="post_1_1">
+          <pose>-1.6 7.17 1.7 0 0 0</pose>
+          <geometry>
+            <box>
+              <size>0.105 0.105 3.4</size>
+            </box>
+          </geometry>
+        </collision>
+        <visual name="v_post_1_1">
+          <pose>-1.6 7.17 1.7 0 0 0</pose>
+          <geometry>
+            <box>
+              <size>0.105 0.105 3.4</size>
+            </box>
+          </geometry>
+          <material>
+            <ambient>0.085 0.238 0.3315 1</ambient>
+            <diffuse>0.1 0.28 0.39 1</diffuse>
+          </material>
+        </visual>
+        <collision name="guard_1_1">
+          <pose>-1.6 7.17 0.19 0 0 0</pose>
+          <geometry>
+            <box>
+              <size>0.15 0.15 0.38</size>
+            </box>
+          </geometry>
+        </collision>
+        <visual name="v_guard_1_1">
+          <pose>-1.6 7.17 0.19 0 0 0</pose>
+          <geometry>
+            <box>
+              <size>0.15 0.15 0.38</size>
+            </box>
+          </geometry>
+          <material>
+            <ambient>0.833 0.5865 0.102 1</ambient>
+            <diffuse>0.98 0.69 0.12 1</diffuse>
+          </material>
+        </visual>
+        <visual name="v_brace_1_0.28">
+          <pose>-1.6 6.6 0.955 0 0.6925485 1.570796</pose>
+          <geometry>
+            <box>
+              <size>0.045 0.045 1.754109</size>
+            </box>
+          </geometry>
+          <material>
+            <ambient>0.4505 0.5015 0.51 1</ambient>
+            <diffuse>0.53 0.59 0.6 1</diffuse>
+          </material>
+        </visual>
+        <visual name="v_brace_1_1.8">
+          <pose>-1.6 6.6 2.475 0 0.6925485 1.570796</pose>
+          <geometry>
+            <box>
+              <size>0.045 0.045 1.754109</size>
+            </box>
+          </geometry>
+          <material>
+            <ambient>0.4505 0.5015 0.51 1</ambient>
+            <diffuse>0.53 0.59 0.6 1</diffuse>
+          </material>
+        </visual>
+        <collision name="post_2_0">
+          <pose>1.05 6.03 1.7 0 0 0</pose>
+          <geometry>
+            <box>
+              <size>0.105 0.105 3.4</size>
+            </box>
+          </geometry>
+        </collision>
+        <visual name="v_post_2_0">
+          <pose>1.05 6.03 1.7 0 0 0</pose>
+          <geometry>
+            <box>
+              <size>0.105 0.105 3.4</size>
+            </box>
+          </geometry>
+          <material>
+            <ambient>0.085 0.238 0.3315 1</ambient>
+            <diffuse>0.1 0.28 0.39 1</diffuse>
+          </material>
+        </visual>
+        <collision name="guard_2_0">
+          <pose>1.05 6.03 0.19 0 0 0</pose>
+          <geometry>
+            <box>
+              <size>0.15 0.15 0.38</size>
+            </box>
+          </geometry>
+        </collision>
+        <visual name="v_guard_2_0">
+          <pose>1.05 6.03 0.19 0 0 0</pose>
+          <geometry>
+            <box>
+              <size>0.15 0.15 0.38</size>
+            </box>
+          </geometry>
+          <material>
+            <ambient>0.833 0.5865 0.102 1</ambient>
+            <diffuse>0.98 0.69 0.12 1</diffuse>
+          </material>
+        </visual>
+        <collision name="post_2_1">
+          <pose>1.05 7.17 1.7 0 0 0</pose>
+          <geometry>
+            <box>
+              <size>0.105 0.105 3.4</size>
+            </box>
+          </geometry>
+        </collision>
+        <visual name="v_post_2_1">
+          <pose>1.05 7.17 1.7 0 0 0</pose>
+          <geometry>
+            <box>
+              <size>0.105 0.105 3.4</size>
+            </box>
+          </geometry>
+          <material>
+            <ambient>0.085 0.238 0.3315 1</ambient>
+            <diffuse>0.1 0.28 0.39 1</diffuse>
+          </material>
+        </visual>
+        <collision name="guard_2_1">
+          <pose>1.05 7.17 0.19 0 0 0</pose>
+          <geometry>
+            <box>
+              <size>0.15 0.15 0.38</size>
+            </box>
+          </geometry>
+        </collision>
+        <visual name="v_guard_2_1">
+          <pose>1.05 7.17 0.19 0 0 0</pose>
+          <geometry>
+            <box>
+              <size>0.15 0.15 0.38</size>
+            </box>
+          </geometry>
+          <material>
+            <ambient>0.833 0.5865 0.102 1</ambient>
+            <diffuse>0.98 0.69 0.12 1</diffuse>
+          </material>
+        </visual>
+        <visual name="v_brace_2_0.28">
+          <pose>1.05 6.6 0.955 0 0.6925485 1.570796</pose>
+          <geometry>
+            <box>
+              <size>0.045 0.045 1.754109</size>
+            </box>
+          </geometry>
+          <material>
+            <ambient>0.4505 0.5015 0.51 1</ambient>
+            <diffuse>0.53 0.59 0.6 1</diffuse>
+          </material>
+        </visual>
+        <visual name="v_brace_2_1.8">
+          <pose>1.05 6.6 2.475 0 0.6925485 1.570796</pose>
+          <geometry>
+            <box>
+              <size>0.045 0.045 1.754109</size>
+            </box>
+          </geometry>
+          <material>
+            <ambient>0.4505 0.5015 0.51 1</ambient>
+            <diffuse>0.53 0.59 0.6 1</diffuse>
+          </material>
+        </visual>
+        <collision name="beam_0_0">
+          <pose>-1.6 6.04 0.32 0 0 0</pose>
+          <geometry>
+            <box>
+              <size>5.35 0.1 0.15</size>
+            </box>
+          </geometry>
+        </collision>
+        <visual name="v_beam_0_0">
+          <pose>-1.6 6.04 0.32 0 0 0</pose>
+          <geometry>
+            <box>
+              <size>5.35 0.1 0.15</size>
+            </box>
+          </geometry>
+          <material>
+            <ambient>0.765 0.3315 0.085 1</ambient>
+            <diffuse>0.9 0.39 0.1 1</diffuse>
+          </material>
+        </visual>
+        <collision name="beam_0_1">
+          <pose>-1.6 7.16 0.32 0 0 0</pose>
+          <geometry>
+            <box>
+              <size>5.35 0.1 0.15</size>
+            </box>
+          </geometry>
+        </collision>
+        <visual name="v_beam_0_1">
+          <pose>-1.6 7.16 0.32 0 0 0</pose>
+          <geometry>
+            <box>
+              <size>5.35 0.1 0.15</size>
+            </box>
+          </geometry>
+          <material>
+            <ambient>0.765 0.3315 0.085 1</ambient>
+            <diffuse>0.9 0.39 0.1 1</diffuse>
+          </material>
+        </visual>
+        <collision name="shelf_0">
+          <pose>-1.6 6.6 0.389 0 0 0</pose>
+          <geometry>
+            <box>
+              <size>5.3 1.12 0.054</size>
+            </box>
+          </geometry>
+        </collision>
+        <visual name="v_shelf_0">
+          <pose>-1.6 6.6 0.389 0 0 0</pose>
+          <geometry>
+            <box>
+              <size>5.3 1.12 0.054</size>
+            </box>
+          </geometry>
+          <material>
+            <ambient>0.4505 0.5015 0.51 1</ambient>
+            <diffuse>0.53 0.59 0.6 1</diffuse>
+          </material>
+        </visual>
+        <collision name="carton_0_1">
+          <pose>-2.72 6.6 0.807 0 0 0</pose>
+          <geometry>
+            <box>
+              <size>0.81 0.76 0.78</size>
+            </box>
+          </geometry>
+        </collision>
+        <visual name="v_carton_0_1">
+          <pose>-2.72 6.6 0.807 0 0 0</pose>
+          <geometry>
+            <box>
+              <size>0.81 0.76 0.78</size>
+            </box>
+          </geometry>
+          <material>
+            <ambient>0.6035 0.4845 0.3315 1</ambient>
+            <diffuse>0.71 0.57 0.39 1</diffuse>
+          </material>
+        </visual>
+        <visual name="v_band_0_1">
+          <pose>-2.56 6.218 0.808 0 0 0</pose>
+          <geometry>
+            <box>
+              <size>0.033 0.006 0.78</size>
+            </box>
+          </geometry>
+          <material>
+            <ambient>0.2295 0.255 0.2295 1</ambient>
+            <diffuse>0.27 0.3 0.27 1</diffuse>
+          </material>
+        </visual>
+        <collision name="carton_0_2">
+          <pose>-0.95 6.6 0.687 0 0 0</pose>
+          <geometry>
+            <box>
+              <size>0.81 0.76 0.54</size>
+            </box>
+          </geometry>
+        </collision>
+        <visual name="v_carton_0_2">
+          <pose>-0.95 6.6 0.687 0 0 0</pose>
+          <geometry>
+            <box>
+              <size>0.81 0.76 0.54</size>
+            </box>
+          </geometry>
+          <material>
+            <ambient>0.4675 0.3825 0.2805 1</ambient>
+            <diffuse>0.55 0.45 0.33 1</diffuse>
+          </material>
+        </visual>
+        <visual name="v_band_0_2">
+          <pose>-0.79 6.218 0.688 0 0 0</pose>
+          <geometry>
+            <box>
+              <size>0.033 0.006 0.54</size>
+            </box>
+          </geometry>
+          <material>
+            <ambient>0.2295 0.255 0.2295 1</ambient>
+            <diffuse>0.27 0.3 0.27 1</diffuse>
+          </material>
+        </visual>
+        <collision name="carton_0_3">
+          <pose>0.08 6.6 0.807 0 0 0</pose>
+          <geometry>
+            <box>
+              <size>0.81 0.76 0.78</size>
+            </box>
+          </geometry>
+        </collision>
+        <visual name="v_carton_0_3">
+          <pose>0.08 6.6 0.807 0 0 0</pose>
+          <geometry>
+            <box>
+              <size>0.81 0.76 0.78</size>
+            </box>
+          </geometry>
+          <material>
+            <ambient>0.544 0.408 0.272 1</ambient>
+            <diffuse>0.64 0.48 0.32 1</diffuse>
+          </material>
+        </visual>
+        <visual name="v_band_0_3">
+          <pose>0.24 6.218 0.808 0 0 0</pose>
+          <geometry>
+            <box>
+              <size>0.033 0.006 0.78</size>
+            </box>
+          </geometry>
+          <material>
+            <ambient>0.2295 0.255 0.2295 1</ambient>
+            <diffuse>0.27 0.3 0.27 1</diffuse>
+          </material>
+        </visual>
+        <collision name="beam_1_0">
+          <pose>-1.6 6.04 1.7 0 0 0</pose>
+          <geometry>
+            <box>
+              <size>5.35 0.1 0.15</size>
+            </box>
+          </geometry>
+        </collision>
+        <visual name="v_beam_1_0">
+          <pose>-1.6 6.04 1.7 0 0 0</pose>
+          <geometry>
+            <box>
+              <size>5.35 0.1 0.15</size>
+            </box>
+          </geometry>
+          <material>
+            <ambient>0.765 0.3315 0.085 1</ambient>
+            <diffuse>0.9 0.39 0.1 1</diffuse>
+          </material>
+        </visual>
+        <collision name="beam_1_1">
+          <pose>-1.6 7.16 1.7 0 0 0</pose>
+          <geometry>
+            <box>
+              <size>5.35 0.1 0.15</size>
+            </box>
+          </geometry>
+        </collision>
+        <visual name="v_beam_1_1">
+          <pose>-1.6 7.16 1.7 0 0 0</pose>
+          <geometry>
+            <box>
+              <size>5.35 0.1 0.15</size>
+            </box>
+          </geometry>
+          <material>
+            <ambient>0.765 0.3315 0.085 1</ambient>
+            <diffuse>0.9 0.39 0.1 1</diffuse>
+          </material>
+        </visual>
+        <collision name="shelf_1">
+          <pose>-1.6 6.6 1.769 0 0 0</pose>
+          <geometry>
+            <box>
+              <size>5.3 1.12 0.054</size>
+            </box>
+          </geometry>
+        </collision>
+        <visual name="v_shelf_1">
+          <pose>-1.6 6.6 1.769 0 0 0</pose>
+          <geometry>
+            <box>
+              <size>5.3 1.12 0.054</size>
+            </box>
+          </geometry>
+          <material>
+            <ambient>0.4505 0.5015 0.51 1</ambient>
+            <diffuse>0.53 0.59 0.6 1</diffuse>
+          </material>
+        </visual>
+        <collision name="carton_1_0">
+          <pose>-3.7 6.6 2.127 0 0 0</pose>
+          <geometry>
+            <box>
+              <size>0.81 0.76 0.66</size>
+            </box>
+          </geometry>
+        </collision>
+        <visual name="v_carton_1_0">
+          <pose>-3.7 6.6 2.127 0 0 0</pose>
+          <geometry>
+            <box>
+              <size>0.81 0.76 0.66</size>
+            </box>
+          </geometry>
+          <material>
+            <ambient>0.6035 0.4845 0.3315 1</ambient>
+            <diffuse>0.71 0.57 0.39 1</diffuse>
+          </material>
+        </visual>
+        <visual name="v_band_1_0">
+          <pose>-3.54 6.218 2.128 0 0 0</pose>
+          <geometry>
+            <box>
+              <size>0.033 0.006 0.66</size>
+            </box>
+          </geometry>
+          <material>
+            <ambient>0.2295 0.255 0.2295 1</ambient>
+            <diffuse>0.27 0.3 0.27 1</diffuse>
+          </material>
+        </visual>
+        <collision name="carton_1_1">
+          <pose>-2.72 6.6 2.247 0 0 0</pose>
+          <geometry>
+            <box>
+              <size>0.81 0.76 0.9</size>
+            </box>
+          </geometry>
+        </collision>
+        <visual name="v_carton_1_1">
+          <pose>-2.72 6.6 2.247 0 0 0</pose>
+          <geometry>
+            <box>
+              <size>0.81 0.76 0.9</size>
+            </box>
+          </geometry>
+          <material>
+            <ambient>0.4675 0.3825 0.2805 1</ambient>
+            <diffuse>0.55 0.45 0.33 1</diffuse>
+          </material>
+        </visual>
+        <visual name="v_band_1_1">
+          <pose>-2.56 6.218 2.248 0 0 0</pose>
+          <geometry>
+            <box>
+              <size>0.033 0.006 0.9</size>
+            </box>
+          </geometry>
+          <material>
+            <ambient>0.2295 0.255 0.2295 1</ambient>
+            <diffuse>0.27 0.3 0.27 1</diffuse>
+          </material>
+        </visual>
+        <collision name="carton_1_2">
+          <pose>-0.95 6.6 2.127 0 0 0</pose>
+          <geometry>
+            <box>
+              <size>0.81 0.76 0.66</size>
+            </box>
+          </geometry>
+        </collision>
+        <visual name="v_carton_1_2">
+          <pose>-0.95 6.6 2.127 0 0 0</pose>
+          <geometry>
+            <box>
+              <size>0.81 0.76 0.66</size>
+            </box>
+          </geometry>
+          <material>
+            <ambient>0.544 0.408 0.272 1</ambient>
+            <diffuse>0.64 0.48 0.32 1</diffuse>
+          </material>
+        </visual>
+        <visual name="v_band_1_2">
+          <pose>-0.79 6.218 2.128 0 0 0</pose>
+          <geometry>
+            <box>
+              <size>0.033 0.006 0.66</size>
+            </box>
+          </geometry>
+          <material>
+            <ambient>0.2295 0.255 0.2295 1</ambient>
+            <diffuse>0.27 0.3 0.27 1</diffuse>
+          </material>
+        </visual>
+        <collision name="carton_1_3">
+          <pose>0.08 6.6 2.247 0 0 0</pose>
+          <geometry>
+            <box>
+              <size>0.81 0.76 0.9</size>
+            </box>
+          </geometry>
+        </collision>
+        <visual name="v_carton_1_3">
+          <pose>0.08 6.6 2.247 0 0 0</pose>
+          <geometry>
+            <box>
+              <size>0.81 0.76 0.9</size>
+            </box>
+          </geometry>
+          <material>
+            <ambient>0.6035 0.4845 0.3315 1</ambient>
+            <diffuse>0.71 0.57 0.39 1</diffuse>
+          </material>
+        </visual>
+        <visual name="v_band_1_3">
+          <pose>0.24 6.218 2.248 0 0 0</pose>
+          <geometry>
+            <box>
+              <size>0.033 0.006 0.9</size>
+            </box>
+          </geometry>
+          <material>
+            <ambient>0.2295 0.255 0.2295 1</ambient>
+            <diffuse>0.27 0.3 0.27 1</diffuse>
+          </material>
+        </visual>
+        <collision name="beam_2_0">
+          <pose>-1.6 6.04 3.02 0 0 0</pose>
+          <geometry>
+            <box>
+              <size>5.35 0.1 0.15</size>
+            </box>
+          </geometry>
+        </collision>
+        <visual name="v_beam_2_0">
+          <pose>-1.6 6.04 3.02 0 0 0</pose>
+          <geometry>
+            <box>
+              <size>5.35 0.1 0.15</size>
+            </box>
+          </geometry>
+          <material>
+            <ambient>0.765 0.3315 0.085 1</ambient>
+            <diffuse>0.9 0.39 0.1 1</diffuse>
+          </material>
+        </visual>
+        <collision name="beam_2_1">
+          <pose>-1.6 7.16 3.02 0 0 0</pose>
+          <geometry>
+            <box>
+              <size>5.35 0.1 0.15</size>
+            </box>
+          </geometry>
+        </collision>
+        <visual name="v_beam_2_1">
+          <pose>-1.6 7.16 3.02 0 0 0</pose>
+          <geometry>
+            <box>
+              <size>5.35 0.1 0.15</size>
+            </box>
+          </geometry>
+          <material>
+            <ambient>0.765 0.3315 0.085 1</ambient>
+            <diffuse>0.9 0.39 0.1 1</diffuse>
+          </material>
+        </visual>
+        <collision name="shelf_2">
+          <pose>-1.6 6.6 3.089 0 0 0</pose>
+          <geometry>
+            <box>
+              <size>5.3 1.12 0.054</size>
+            </box>
+          </geometry>
+        </collision>
+        <visual name="v_shelf_2">
+          <pose>-1.6 6.6 3.089 0 0 0</pose>
+          <geometry>
+            <box>
+              <size>5.3 1.12 0.054</size>
+            </box>
+          </geometry>
+          <material>
+            <ambient>0.4505 0.5015 0.51 1</ambient>
+            <diffuse>0.53 0.59 0.6 1</diffuse>
+          </material>
+        </visual>
+        <collision name="carton_2_0">
+          <pose>-3.7 6.6 3.507 0 0 0</pose>
+          <geometry>
+            <box>
+              <size>0.81 0.76 0.78</size>
+            </box>
+          </geometry>
+        </collision>
+        <visual name="v_carton_2_0">
+          <pose>-3.7 6.6 3.507 0 0 0</pose>
+          <geometry>
+            <box>
+              <size>0.81 0.76 0.78</size>
+            </box>
+          </geometry>
+          <material>
+            <ambient>0.4675 0.3825 0.2805 1</ambient>
+            <diffuse>0.55 0.45 0.33 1</diffuse>
+          </material>
+        </visual>
+        <visual name="v_band_2_0">
+          <pose>-3.54 6.218 3.508 0 0 0</pose>
+          <geometry>
+            <box>
+              <size>0.033 0.006 0.78</size>
+            </box>
+          </geometry>
+          <material>
+            <ambient>0.2295 0.255 0.2295 1</ambient>
+            <diffuse>0.27 0.3 0.27 1</diffuse>
+          </material>
+        </visual>
+        <collision name="carton_2_1">
+          <pose>-2.72 6.6 3.387 0 0 0</pose>
+          <geometry>
+            <box>
+              <size>0.81 0.76 0.54</size>
+            </box>
+          </geometry>
+        </collision>
+        <visual name="v_carton_2_1">
+          <pose>-2.72 6.6 3.387 0 0 0</pose>
+          <geometry>
+            <box>
+              <size>0.81 0.76 0.54</size>
+            </box>
+          </geometry>
+          <material>
+            <ambient>0.544 0.408 0.272 1</ambient>
+            <diffuse>0.64 0.48 0.32 1</diffuse>
+          </material>
+        </visual>
+        <visual name="v_band_2_1">
+          <pose>-2.56 6.218 3.388 0 0 0</pose>
+          <geometry>
+            <box>
+              <size>0.033 0.006 0.54</size>
+            </box>
+          </geometry>
+          <material>
+            <ambient>0.2295 0.255 0.2295 1</ambient>
+            <diffuse>0.27 0.3 0.27 1</diffuse>
+          </material>
+        </visual>
+        <collision name="carton_2_2">
+          <pose>-0.95 6.6 3.507 0 0 0</pose>
+          <geometry>
+            <box>
+              <size>0.81 0.76 0.78</size>
+            </box>
+          </geometry>
+        </collision>
+        <visual name="v_carton_2_2">
+          <pose>-0.95 6.6 3.507 0 0 0</pose>
+          <geometry>
+            <box>
+              <size>0.81 0.76 0.78</size>
+            </box>
+          </geometry>
+          <material>
+            <ambient>0.6035 0.4845 0.3315 1</ambient>
+            <diffuse>0.71 0.57 0.39 1</diffuse>
+          </material>
+        </visual>
+        <visual name="v_band_2_2">
+          <pose>-0.79 6.218 3.508 0 0 0</pose>
+          <geometry>
+            <box>
+              <size>0.033 0.006 0.78</size>
+            </box>
+          </geometry>
+          <material>
+            <ambient>0.2295 0.255 0.2295 1</ambient>
+            <diffuse>0.27 0.3 0.27 1</diffuse>
+          </material>
+        </visual>
+      </link>
+    </model>
+    <model name="rack_3">
+      <static>true</static>
+      <link name="structure">
+        <collision name="post_0_0">
+          <pose>2.35 6.03 1.7 0 0 0</pose>
+          <geometry>
+            <box>
+              <size>0.105 0.105 3.4</size>
+            </box>
+          </geometry>
+        </collision>
+        <visual name="v_post_0_0">
+          <pose>2.35 6.03 1.7 0 0 0</pose>
+          <geometry>
+            <box>
+              <size>0.105 0.105 3.4</size>
+            </box>
+          </geometry>
+          <material>
+            <ambient>0.085 0.238 0.3315 1</ambient>
+            <diffuse>0.1 0.28 0.39 1</diffuse>
+          </material>
+        </visual>
+        <collision name="guard_0_0">
+          <pose>2.35 6.03 0.19 0 0 0</pose>
+          <geometry>
+            <box>
+              <size>0.15 0.15 0.38</size>
+            </box>
+          </geometry>
+        </collision>
+        <visual name="v_guard_0_0">
+          <pose>2.35 6.03 0.19 0 0 0</pose>
+          <geometry>
+            <box>
+              <size>0.15 0.15 0.38</size>
+            </box>
+          </geometry>
+          <material>
+            <ambient>0.833 0.5865 0.102 1</ambient>
+            <diffuse>0.98 0.69 0.12 1</diffuse>
+          </material>
+        </visual>
+        <collision name="post_0_1">
+          <pose>2.35 7.17 1.7 0 0 0</pose>
+          <geometry>
+            <box>
+              <size>0.105 0.105 3.4</size>
+            </box>
+          </geometry>
+        </collision>
+        <visual name="v_post_0_1">
+          <pose>2.35 7.17 1.7 0 0 0</pose>
+          <geometry>
+            <box>
+              <size>0.105 0.105 3.4</size>
+            </box>
+          </geometry>
+          <material>
+            <ambient>0.085 0.238 0.3315 1</ambient>
+            <diffuse>0.1 0.28 0.39 1</diffuse>
+          </material>
+        </visual>
+        <collision name="guard_0_1">
+          <pose>2.35 7.17 0.19 0 0 0</pose>
+          <geometry>
+            <box>
+              <size>0.15 0.15 0.38</size>
+            </box>
+          </geometry>
+        </collision>
+        <visual name="v_guard_0_1">
+          <pose>2.35 7.17 0.19 0 0 0</pose>
+          <geometry>
+            <box>
+              <size>0.15 0.15 0.38</size>
+            </box>
+          </geometry>
+          <material>
+            <ambient>0.833 0.5865 0.102 1</ambient>
+            <diffuse>0.98 0.69 0.12 1</diffuse>
+          </material>
+        </visual>
+        <visual name="v_brace_0_0.28">
+          <pose>2.35 6.6 0.955 0 0.6925485 1.570796</pose>
+          <geometry>
+            <box>
+              <size>0.045 0.045 1.754109</size>
+            </box>
+          </geometry>
+          <material>
+            <ambient>0.4505 0.5015 0.51 1</ambient>
+            <diffuse>0.53 0.59 0.6 1</diffuse>
+          </material>
+        </visual>
+        <visual name="v_brace_0_1.8">
+          <pose>2.35 6.6 2.475 0 0.6925485 1.570796</pose>
+          <geometry>
+            <box>
+              <size>0.045 0.045 1.754109</size>
+            </box>
+          </geometry>
+          <material>
+            <ambient>0.4505 0.5015 0.51 1</ambient>
+            <diffuse>0.53 0.59 0.6 1</diffuse>
+          </material>
+        </visual>
+        <collision name="post_1_0">
+          <pose>5 6.03 1.7 0 0 0</pose>
+          <geometry>
+            <box>
+              <size>0.105 0.105 3.4</size>
+            </box>
+          </geometry>
+        </collision>
+        <visual name="v_post_1_0">
+          <pose>5 6.03 1.7 0 0 0</pose>
+          <geometry>
+            <box>
+              <size>0.105 0.105 3.4</size>
+            </box>
+          </geometry>
+          <material>
+            <ambient>0.085 0.238 0.3315 1</ambient>
+            <diffuse>0.1 0.28 0.39 1</diffuse>
+          </material>
+        </visual>
+        <collision name="guard_1_0">
+          <pose>5 6.03 0.19 0 0 0</pose>
+          <geometry>
+            <box>
+              <size>0.15 0.15 0.38</size>
+            </box>
+          </geometry>
+        </collision>
+        <visual name="v_guard_1_0">
+          <pose>5 6.03 0.19 0 0 0</pose>
+          <geometry>
+            <box>
+              <size>0.15 0.15 0.38</size>
+            </box>
+          </geometry>
+          <material>
+            <ambient>0.833 0.5865 0.102 1</ambient>
+            <diffuse>0.98 0.69 0.12 1</diffuse>
+          </material>
+        </visual>
+        <collision name="post_1_1">
+          <pose>5 7.17 1.7 0 0 0</pose>
+          <geometry>
+            <box>
+              <size>0.105 0.105 3.4</size>
+            </box>
+          </geometry>
+        </collision>
+        <visual name="v_post_1_1">
+          <pose>5 7.17 1.7 0 0 0</pose>
+          <geometry>
+            <box>
+              <size>0.105 0.105 3.4</size>
+            </box>
+          </geometry>
+          <material>
+            <ambient>0.085 0.238 0.3315 1</ambient>
+            <diffuse>0.1 0.28 0.39 1</diffuse>
+          </material>
+        </visual>
+        <collision name="guard_1_1">
+          <pose>5 7.17 0.19 0 0 0</pose>
+          <geometry>
+            <box>
+              <size>0.15 0.15 0.38</size>
+            </box>
+          </geometry>
+        </collision>
+        <visual name="v_guard_1_1">
+          <pose>5 7.17 0.19 0 0 0</pose>
+          <geometry>
+            <box>
+              <size>0.15 0.15 0.38</size>
+            </box>
+          </geometry>
+          <material>
+            <ambient>0.833 0.5865 0.102 1</ambient>
+            <diffuse>0.98 0.69 0.12 1</diffuse>
+          </material>
+        </visual>
+        <visual name="v_brace_1_0.28">
+          <pose>5 6.6 0.955 0 0.6925485 1.570796</pose>
+          <geometry>
+            <box>
+              <size>0.045 0.045 1.754109</size>
+            </box>
+          </geometry>
+          <material>
+            <ambient>0.4505 0.5015 0.51 1</ambient>
+            <diffuse>0.53 0.59 0.6 1</diffuse>
+          </material>
+        </visual>
+        <visual name="v_brace_1_1.8">
+          <pose>5 6.6 2.475 0 0.6925485 1.570796</pose>
+          <geometry>
+            <box>
+              <size>0.045 0.045 1.754109</size>
+            </box>
+          </geometry>
+          <material>
+            <ambient>0.4505 0.5015 0.51 1</ambient>
+            <diffuse>0.53 0.59 0.6 1</diffuse>
+          </material>
+        </visual>
+        <collision name="post_2_0">
+          <pose>7.65 6.03 1.7 0 0 0</pose>
+          <geometry>
+            <box>
+              <size>0.105 0.105 3.4</size>
+            </box>
+          </geometry>
+        </collision>
+        <visual name="v_post_2_0">
+          <pose>7.65 6.03 1.7 0 0 0</pose>
+          <geometry>
+            <box>
+              <size>0.105 0.105 3.4</size>
+            </box>
+          </geometry>
+          <material>
+            <ambient>0.085 0.238 0.3315 1</ambient>
+            <diffuse>0.1 0.28 0.39 1</diffuse>
+          </material>
+        </visual>
+        <collision name="guard_2_0">
+          <pose>7.65 6.03 0.19 0 0 0</pose>
+          <geometry>
+            <box>
+              <size>0.15 0.15 0.38</size>
+            </box>
+          </geometry>
+        </collision>
+        <visual name="v_guard_2_0">
+          <pose>7.65 6.03 0.19 0 0 0</pose>
+          <geometry>
+            <box>
+              <size>0.15 0.15 0.38</size>
+            </box>
+          </geometry>
+          <material>
+            <ambient>0.833 0.5865 0.102 1</ambient>
+            <diffuse>0.98 0.69 0.12 1</diffuse>
+          </material>
+        </visual>
+        <collision name="post_2_1">
+          <pose>7.65 7.17 1.7 0 0 0</pose>
+          <geometry>
+            <box>
+              <size>0.105 0.105 3.4</size>
+            </box>
+          </geometry>
+        </collision>
+        <visual name="v_post_2_1">
+          <pose>7.65 7.17 1.7 0 0 0</pose>
+          <geometry>
+            <box>
+              <size>0.105 0.105 3.4</size>
+            </box>
+          </geometry>
+          <material>
+            <ambient>0.085 0.238 0.3315 1</ambient>
+            <diffuse>0.1 0.28 0.39 1</diffuse>
+          </material>
+        </visual>
+        <collision name="guard_2_1">
+          <pose>7.65 7.17 0.19 0 0 0</pose>
+          <geometry>
+            <box>
+              <size>0.15 0.15 0.38</size>
+            </box>
+          </geometry>
+        </collision>
+        <visual name="v_guard_2_1">
+          <pose>7.65 7.17 0.19 0 0 0</pose>
+          <geometry>
+            <box>
+              <size>0.15 0.15 0.38</size>
+            </box>
+          </geometry>
+          <material>
+            <ambient>0.833 0.5865 0.102 1</ambient>
+            <diffuse>0.98 0.69 0.12 1</diffuse>
+          </material>
+        </visual>
+        <visual name="v_brace_2_0.28">
+          <pose>7.65 6.6 0.955 0 0.6925485 1.570796</pose>
+          <geometry>
+            <box>
+              <size>0.045 0.045 1.754109</size>
+            </box>
+          </geometry>
+          <material>
+            <ambient>0.4505 0.5015 0.51 1</ambient>
+            <diffuse>0.53 0.59 0.6 1</diffuse>
+          </material>
+        </visual>
+        <visual name="v_brace_2_1.8">
+          <pose>7.65 6.6 2.475 0 0.6925485 1.570796</pose>
+          <geometry>
+            <box>
+              <size>0.045 0.045 1.754109</size>
+            </box>
+          </geometry>
+          <material>
+            <ambient>0.4505 0.5015 0.51 1</ambient>
+            <diffuse>0.53 0.59 0.6 1</diffuse>
+          </material>
+        </visual>
+        <collision name="beam_0_0">
+          <pose>5 6.04 0.32 0 0 0</pose>
+          <geometry>
+            <box>
+              <size>5.35 0.1 0.15</size>
+            </box>
+          </geometry>
+        </collision>
+        <visual name="v_beam_0_0">
+          <pose>5 6.04 0.32 0 0 0</pose>
+          <geometry>
+            <box>
+              <size>5.35 0.1 0.15</size>
+            </box>
+          </geometry>
+          <material>
+            <ambient>0.765 0.3315 0.085 1</ambient>
+            <diffuse>0.9 0.39 0.1 1</diffuse>
+          </material>
+        </visual>
+        <collision name="beam_0_1">
+          <pose>5 7.16 0.32 0 0 0</pose>
+          <geometry>
+            <box>
+              <size>5.35 0.1 0.15</size>
+            </box>
+          </geometry>
+        </collision>
+        <visual name="v_beam_0_1">
+          <pose>5 7.16 0.32 0 0 0</pose>
+          <geometry>
+            <box>
+              <size>5.35 0.1 0.15</size>
+            </box>
+          </geometry>
+          <material>
+            <ambient>0.765 0.3315 0.085 1</ambient>
+            <diffuse>0.9 0.39 0.1 1</diffuse>
+          </material>
+        </visual>
+        <collision name="shelf_0">
+          <pose>5 6.6 0.389 0 0 0</pose>
+          <geometry>
+            <box>
+              <size>5.3 1.12 0.054</size>
+            </box>
+          </geometry>
+        </collision>
+        <visual name="v_shelf_0">
+          <pose>5 6.6 0.389 0 0 0</pose>
+          <geometry>
+            <box>
+              <size>5.3 1.12 0.054</size>
+            </box>
+          </geometry>
+          <material>
+            <ambient>0.4505 0.5015 0.51 1</ambient>
+            <diffuse>0.53 0.59 0.6 1</diffuse>
+          </material>
+        </visual>
+        <collision name="carton_0_1">
+          <pose>3.88 6.6 0.807 0 0 0</pose>
+          <geometry>
+            <box>
+              <size>0.81 0.76 0.78</size>
+            </box>
+          </geometry>
+        </collision>
+        <visual name="v_carton_0_1">
+          <pose>3.88 6.6 0.807 0 0 0</pose>
+          <geometry>
+            <box>
+              <size>0.81 0.76 0.78</size>
+            </box>
+          </geometry>
+          <material>
+            <ambient>0.6035 0.4845 0.3315 1</ambient>
+            <diffuse>0.71 0.57 0.39 1</diffuse>
+          </material>
+        </visual>
+        <visual name="v_band_0_1">
+          <pose>4.04 6.218 0.808 0 0 0</pose>
+          <geometry>
+            <box>
+              <size>0.033 0.006 0.78</size>
+            </box>
+          </geometry>
+          <material>
+            <ambient>0.2295 0.255 0.2295 1</ambient>
+            <diffuse>0.27 0.3 0.27 1</diffuse>
+          </material>
+        </visual>
+        <collision name="carton_0_2">
+          <pose>5.65 6.6 0.687 0 0 0</pose>
+          <geometry>
+            <box>
+              <size>0.81 0.76 0.54</size>
+            </box>
+          </geometry>
+        </collision>
+        <visual name="v_carton_0_2">
+          <pose>5.65 6.6 0.687 0 0 0</pose>
+          <geometry>
+            <box>
+              <size>0.81 0.76 0.54</size>
+            </box>
+          </geometry>
+          <material>
+            <ambient>0.4675 0.3825 0.2805 1</ambient>
+            <diffuse>0.55 0.45 0.33 1</diffuse>
+          </material>
+        </visual>
+        <visual name="v_band_0_2">
+          <pose>5.81 6.218 0.688 0 0 0</pose>
+          <geometry>
+            <box>
+              <size>0.033 0.006 0.54</size>
+            </box>
+          </geometry>
+          <material>
+            <ambient>0.2295 0.255 0.2295 1</ambient>
+            <diffuse>0.27 0.3 0.27 1</diffuse>
+          </material>
+        </visual>
+        <collision name="carton_0_3">
+          <pose>6.68 6.6 0.807 0 0 0</pose>
+          <geometry>
+            <box>
+              <size>0.81 0.76 0.78</size>
+            </box>
+          </geometry>
+        </collision>
+        <visual name="v_carton_0_3">
+          <pose>6.68 6.6 0.807 0 0 0</pose>
+          <geometry>
+            <box>
+              <size>0.81 0.76 0.78</size>
+            </box>
+          </geometry>
+          <material>
+            <ambient>0.544 0.408 0.272 1</ambient>
+            <diffuse>0.64 0.48 0.32 1</diffuse>
+          </material>
+        </visual>
+        <visual name="v_band_0_3">
+          <pose>6.84 6.218 0.808 0 0 0</pose>
+          <geometry>
+            <box>
+              <size>0.033 0.006 0.78</size>
+            </box>
+          </geometry>
+          <material>
+            <ambient>0.2295 0.255 0.2295 1</ambient>
+            <diffuse>0.27 0.3 0.27 1</diffuse>
+          </material>
+        </visual>
+        <collision name="beam_1_0">
+          <pose>5 6.04 1.7 0 0 0</pose>
+          <geometry>
+            <box>
+              <size>5.35 0.1 0.15</size>
+            </box>
+          </geometry>
+        </collision>
+        <visual name="v_beam_1_0">
+          <pose>5 6.04 1.7 0 0 0</pose>
+          <geometry>
+            <box>
+              <size>5.35 0.1 0.15</size>
+            </box>
+          </geometry>
+          <material>
+            <ambient>0.765 0.3315 0.085 1</ambient>
+            <diffuse>0.9 0.39 0.1 1</diffuse>
+          </material>
+        </visual>
+        <collision name="beam_1_1">
+          <pose>5 7.16 1.7 0 0 0</pose>
+          <geometry>
+            <box>
+              <size>5.35 0.1 0.15</size>
+            </box>
+          </geometry>
+        </collision>
+        <visual name="v_beam_1_1">
+          <pose>5 7.16 1.7 0 0 0</pose>
+          <geometry>
+            <box>
+              <size>5.35 0.1 0.15</size>
+            </box>
+          </geometry>
+          <material>
+            <ambient>0.765 0.3315 0.085 1</ambient>
+            <diffuse>0.9 0.39 0.1 1</diffuse>
+          </material>
+        </visual>
+        <collision name="shelf_1">
+          <pose>5 6.6 1.769 0 0 0</pose>
+          <geometry>
+            <box>
+              <size>5.3 1.12 0.054</size>
+            </box>
+          </geometry>
+        </collision>
+        <visual name="v_shelf_1">
+          <pose>5 6.6 1.769 0 0 0</pose>
+          <geometry>
+            <box>
+              <size>5.3 1.12 0.054</size>
+            </box>
+          </geometry>
+          <material>
+            <ambient>0.4505 0.5015 0.51 1</ambient>
+            <diffuse>0.53 0.59 0.6 1</diffuse>
+          </material>
+        </visual>
+        <collision name="carton_1_0">
+          <pose>2.9 6.6 2.127 0 0 0</pose>
+          <geometry>
+            <box>
+              <size>0.81 0.76 0.66</size>
+            </box>
+          </geometry>
+        </collision>
+        <visual name="v_carton_1_0">
+          <pose>2.9 6.6 2.127 0 0 0</pose>
+          <geometry>
+            <box>
+              <size>0.81 0.76 0.66</size>
+            </box>
+          </geometry>
+          <material>
+            <ambient>0.6035 0.4845 0.3315 1</ambient>
+            <diffuse>0.71 0.57 0.39 1</diffuse>
+          </material>
+        </visual>
+        <visual name="v_band_1_0">
+          <pose>3.06 6.218 2.128 0 0 0</pose>
+          <geometry>
+            <box>
+              <size>0.033 0.006 0.66</size>
+            </box>
+          </geometry>
+          <material>
+            <ambient>0.2295 0.255 0.2295 1</ambient>
+            <diffuse>0.27 0.3 0.27 1</diffuse>
+          </material>
+        </visual>
+        <collision name="carton_1_1">
+          <pose>3.88 6.6 2.247 0 0 0</pose>
+          <geometry>
+            <box>
+              <size>0.81 0.76 0.9</size>
+            </box>
+          </geometry>
+        </collision>
+        <visual name="v_carton_1_1">
+          <pose>3.88 6.6 2.247 0 0 0</pose>
+          <geometry>
+            <box>
+              <size>0.81 0.76 0.9</size>
+            </box>
+          </geometry>
+          <material>
+            <ambient>0.4675 0.3825 0.2805 1</ambient>
+            <diffuse>0.55 0.45 0.33 1</diffuse>
+          </material>
+        </visual>
+        <visual name="v_band_1_1">
+          <pose>4.04 6.218 2.248 0 0 0</pose>
+          <geometry>
+            <box>
+              <size>0.033 0.006 0.9</size>
+            </box>
+          </geometry>
+          <material>
+            <ambient>0.2295 0.255 0.2295 1</ambient>
+            <diffuse>0.27 0.3 0.27 1</diffuse>
+          </material>
+        </visual>
+        <collision name="carton_1_2">
+          <pose>5.65 6.6 2.127 0 0 0</pose>
+          <geometry>
+            <box>
+              <size>0.81 0.76 0.66</size>
+            </box>
+          </geometry>
+        </collision>
+        <visual name="v_carton_1_2">
+          <pose>5.65 6.6 2.127 0 0 0</pose>
+          <geometry>
+            <box>
+              <size>0.81 0.76 0.66</size>
+            </box>
+          </geometry>
+          <material>
+            <ambient>0.544 0.408 0.272 1</ambient>
+            <diffuse>0.64 0.48 0.32 1</diffuse>
+          </material>
+        </visual>
+        <visual name="v_band_1_2">
+          <pose>5.81 6.218 2.128 0 0 0</pose>
+          <geometry>
+            <box>
+              <size>0.033 0.006 0.66</size>
+            </box>
+          </geometry>
+          <material>
+            <ambient>0.2295 0.255 0.2295 1</ambient>
+            <diffuse>0.27 0.3 0.27 1</diffuse>
+          </material>
+        </visual>
+        <collision name="carton_1_3">
+          <pose>6.68 6.6 2.247 0 0 0</pose>
+          <geometry>
+            <box>
+              <size>0.81 0.76 0.9</size>
+            </box>
+          </geometry>
+        </collision>
+        <visual name="v_carton_1_3">
+          <pose>6.68 6.6 2.247 0 0 0</pose>
+          <geometry>
+            <box>
+              <size>0.81 0.76 0.9</size>
+            </box>
+          </geometry>
+          <material>
+            <ambient>0.6035 0.4845 0.3315 1</ambient>
+            <diffuse>0.71 0.57 0.39 1</diffuse>
+          </material>
+        </visual>
+        <visual name="v_band_1_3">
+          <pose>6.84 6.218 2.248 0 0 0</pose>
+          <geometry>
+            <box>
+              <size>0.033 0.006 0.9</size>
+            </box>
+          </geometry>
+          <material>
+            <ambient>0.2295 0.255 0.2295 1</ambient>
+            <diffuse>0.27 0.3 0.27 1</diffuse>
+          </material>
+        </visual>
+        <collision name="beam_2_0">
+          <pose>5 6.04 3.02 0 0 0</pose>
+          <geometry>
+            <box>
+              <size>5.35 0.1 0.15</size>
+            </box>
+          </geometry>
+        </collision>
+        <visual name="v_beam_2_0">
+          <pose>5 6.04 3.02 0 0 0</pose>
+          <geometry>
+            <box>
+              <size>5.35 0.1 0.15</size>
+            </box>
+          </geometry>
+          <material>
+            <ambient>0.765 0.3315 0.085 1</ambient>
+            <diffuse>0.9 0.39 0.1 1</diffuse>
+          </material>
+        </visual>
+        <collision name="beam_2_1">
+          <pose>5 7.16 3.02 0 0 0</pose>
+          <geometry>
+            <box>
+              <size>5.35 0.1 0.15</size>
+            </box>
+          </geometry>
+        </collision>
+        <visual name="v_beam_2_1">
+          <pose>5 7.16 3.02 0 0 0</pose>
+          <geometry>
+            <box>
+              <size>5.35 0.1 0.15</size>
+            </box>
+          </geometry>
+          <material>
+            <ambient>0.765 0.3315 0.085 1</ambient>
+            <diffuse>0.9 0.39 0.1 1</diffuse>
+          </material>
+        </visual>
+        <collision name="shelf_2">
+          <pose>5 6.6 3.089 0 0 0</pose>
+          <geometry>
+            <box>
+              <size>5.3 1.12 0.054</size>
+            </box>
+          </geometry>
+        </collision>
+        <visual name="v_shelf_2">
+          <pose>5 6.6 3.089 0 0 0</pose>
+          <geometry>
+            <box>
+              <size>5.3 1.12 0.054</size>
+            </box>
+          </geometry>
+          <material>
+            <ambient>0.4505 0.5015 0.51 1</ambient>
+            <diffuse>0.53 0.59 0.6 1</diffuse>
+          </material>
+        </visual>
+        <collision name="carton_2_0">
+          <pose>2.9 6.6 3.507 0 0 0</pose>
+          <geometry>
+            <box>
+              <size>0.81 0.76 0.78</size>
+            </box>
+          </geometry>
+        </collision>
+        <visual name="v_carton_2_0">
+          <pose>2.9 6.6 3.507 0 0 0</pose>
+          <geometry>
+            <box>
+              <size>0.81 0.76 0.78</size>
+            </box>
+          </geometry>
+          <material>
+            <ambient>0.4675 0.3825 0.2805 1</ambient>
+            <diffuse>0.55 0.45 0.33 1</diffuse>
+          </material>
+        </visual>
+        <visual name="v_band_2_0">
+          <pose>3.06 6.218 3.508 0 0 0</pose>
+          <geometry>
+            <box>
+              <size>0.033 0.006 0.78</size>
+            </box>
+          </geometry>
+          <material>
+            <ambient>0.2295 0.255 0.2295 1</ambient>
+            <diffuse>0.27 0.3 0.27 1</diffuse>
+          </material>
+        </visual>
+        <collision name="carton_2_1">
+          <pose>3.88 6.6 3.387 0 0 0</pose>
+          <geometry>
+            <box>
+              <size>0.81 0.76 0.54</size>
+            </box>
+          </geometry>
+        </collision>
+        <visual name="v_carton_2_1">
+          <pose>3.88 6.6 3.387 0 0 0</pose>
+          <geometry>
+            <box>
+              <size>0.81 0.76 0.54</size>
+            </box>
+          </geometry>
+          <material>
+            <ambient>0.544 0.408 0.272 1</ambient>
+            <diffuse>0.64 0.48 0.32 1</diffuse>
+          </material>
+        </visual>
+        <visual name="v_band_2_1">
+          <pose>4.04 6.218 3.388 0 0 0</pose>
+          <geometry>
+            <box>
+              <size>0.033 0.006 0.54</size>
+            </box>
+          </geometry>
+          <material>
+            <ambient>0.2295 0.255 0.2295 1</ambient>
+            <diffuse>0.27 0.3 0.27 1</diffuse>
+          </material>
+        </visual>
+        <collision name="carton_2_2">
+          <pose>5.65 6.6 3.507 0 0 0</pose>
+          <geometry>
+            <box>
+              <size>0.81 0.76 0.78</size>
+            </box>
+          </geometry>
+        </collision>
+        <visual name="v_carton_2_2">
+          <pose>5.65 6.6 3.507 0 0 0</pose>
+          <geometry>
+            <box>
+              <size>0.81 0.76 0.78</size>
+            </box>
+          </geometry>
+          <material>
+            <ambient>0.6035 0.4845 0.3315 1</ambient>
+            <diffuse>0.71 0.57 0.39 1</diffuse>
+          </material>
+        </visual>
+        <visual name="v_band_2_2">
+          <pose>5.81 6.218 3.508 0 0 0</pose>
+          <geometry>
+            <box>
+              <size>0.033 0.006 0.78</size>
+            </box>
+          </geometry>
+          <material>
+            <ambient>0.2295 0.255 0.2295 1</ambient>
+            <diffuse>0.27 0.3 0.27 1</diffuse>
+          </material>
+        </visual>
+      </link>
+    </model>
+    <model name="machining_cell_0">
+      <static>true</static>
+      <link name="structure">
+        <collision name="pedestal">
+          <pose>-8.4 -6.65 0.19 0 0 0</pose>
+          <geometry>
+            <box>
+              <size>2.95 1.55 0.38</size>
+            </box>
+          </geometry>
+        </collision>
+        <visual name="v_pedestal">
+          <pose>-8.4 -6.65 0.19 0 0 0</pose>
+          <geometry>
+            <box>
+              <size>2.95 1.55 0.38</size>
+            </box>
+          </geometry>
+          <material>
+            <ambient>0.1105 0.1445 0.1615 1</ambient>
+            <diffuse>0.13 0.17 0.19 1</diffuse>
+          </material>
+        </visual>
+        <collision name="enclosure">
+          <pose>-8.4 -6.65 1.12 0 0 0</pose>
+          <geometry>
+            <box>
+              <size>2.8 1.48 1.5</size>
+            </box>
+          </geometry>
+        </collision>
+        <visual name="v_enclosure">
+          <pose>-8.4 -6.65 1.12 0 0 0</pose>
+          <geometry>
+            <box>
+              <size>2.8 1.48 1.5</size>
+            </box>
+          </geometry>
+          <material>
+            <ambient>0.1275 0.357 0.357 1</ambient>
+            <diffuse>0.15 0.42 0.42 1</diffuse>
+          </material>
+        </visual>
+        <collision name="window">
+          <pose>-8.12 -5.9 1.24 0 0 0</pose>
+          <geometry>
+            <box>
+              <size>1.58 0.035 0.71</size>
+            </box>
+          </geometry>
+        </collision>
+        <visual name="v_window">
+          <pose>-8.12 -5.9 1.24 0 0 0</pose>
+          <geometry>
+            <box>
+              <size>1.58 0.035 0.71</size>
+            </box>
+          </geometry>
+          <material>
+            <ambient>0.17 0.289 0.323 1</ambient>
+            <diffuse>0.2 0.34 0.38 1</diffuse>
+          </material>
+        </visual>
+        <collision name="console">
+          <pose>-9.38 -5.86 1.05 0 0 0</pose>
+          <geometry>
+            <box>
+              <size>0.45 0.15 0.57</size>
+            </box>
+          </geometry>
+        </collision>
+        <visual name="v_console">
+          <pose>-9.38 -5.86 1.05 0 0 0</pose>
+          <geometry>
+            <box>
+              <size>0.45 0.15 0.57</size>
+            </box>
+          </geometry>
+          <material>
+            <ambient>0.6885 0.714 0.6885 1</ambient>
+            <diffuse>0.81 0.84 0.81 1</diffuse>
+          </material>
+        </visual>
+        <visual name="v_display">
+          <pose>-9.38 -5.775 1.13 0 0 0</pose>
+          <geometry>
+            <box>
+              <size>0.31 0.021 0.22</size>
+            </box>
+          </geometry>
+          <material>
+            <ambient>0.1105 0.1445 0.1615 1</ambient>
+            <diffuse>0.13 0.17 0.19 1</diffuse>
+          </material>
+        </visual>
+        <visual name="v_lamp_0">
+          <pose>-9.52 -6.65 2.005 0 0 0</pose>
+          <geometry>
+            <cylinder>
+              <radius>0.053</radius>
+              <length>0.084</length>
+            </cylinder>
+          </geometry>
+          <material>
+            <ambient>0.663 0.1615 0.1105 1</ambient>
+            <diffuse>0.78 0.19 0.13 1</diffuse>
+          </material>
+        </visual>
+        <visual name="v_lamp_1">
+          <pose>-9.52 -6.65 2.09 0 0 0</pose>
+          <geometry>
+            <cylinder>
+              <radius>0.053</radius>
+              <length>0.084</length>
+            </cylinder>
+          </geometry>
+          <material>
+            <ambient>0.833 0.5865 0.102 1</ambient>
+            <diffuse>0.98 0.69 0.12 1</diffuse>
+          </material>
+        </visual>
+        <visual name="v_lamp_2">
+          <pose>-9.52 -6.65 2.17 0 0 0</pose>
+          <geometry>
+            <cylinder>
+              <radius>0.053</radius>
+              <length>0.084</length>
+            </cylinder>
+          </geometry>
+          <material>
+            <ambient>0.153 0.578 0.323 1</ambient>
+            <diffuse>0.18 0.68 0.38 1</diffuse>
+          </material>
+        </visual>
+      </link>
+    </model>
+    <model name="machining_cell_1">
+      <static>true</static>
+      <link name="structure">
+        <collision name="pedestal">
+          <pose>5.6 -6.65 0.19 0 0 0</pose>
+          <geometry>
+            <box>
+              <size>2.95 1.55 0.38</size>
+            </box>
+          </geometry>
+        </collision>
+        <visual name="v_pedestal">
+          <pose>5.6 -6.65 0.19 0 0 0</pose>
+          <geometry>
+            <box>
+              <size>2.95 1.55 0.38</size>
+            </box>
+          </geometry>
+          <material>
+            <ambient>0.1105 0.1445 0.1615 1</ambient>
+            <diffuse>0.13 0.17 0.19 1</diffuse>
+          </material>
+        </visual>
+        <collision name="enclosure">
+          <pose>5.6 -6.65 1.12 0 0 0</pose>
+          <geometry>
+            <box>
+              <size>2.8 1.48 1.5</size>
+            </box>
+          </geometry>
+        </collision>
+        <visual name="v_enclosure">
+          <pose>5.6 -6.65 1.12 0 0 0</pose>
+          <geometry>
+            <box>
+              <size>2.8 1.48 1.5</size>
+            </box>
+          </geometry>
+          <material>
+            <ambient>0.1275 0.357 0.357 1</ambient>
+            <diffuse>0.15 0.42 0.42 1</diffuse>
+          </material>
+        </visual>
+        <collision name="window">
+          <pose>5.88 -5.9 1.24 0 0 0</pose>
+          <geometry>
+            <box>
+              <size>1.58 0.035 0.71</size>
+            </box>
+          </geometry>
+        </collision>
+        <visual name="v_window">
+          <pose>5.88 -5.9 1.24 0 0 0</pose>
+          <geometry>
+            <box>
+              <size>1.58 0.035 0.71</size>
+            </box>
+          </geometry>
+          <material>
+            <ambient>0.17 0.289 0.323 1</ambient>
+            <diffuse>0.2 0.34 0.38 1</diffuse>
+          </material>
+        </visual>
+        <collision name="console">
+          <pose>4.62 -5.86 1.05 0 0 0</pose>
+          <geometry>
+            <box>
+              <size>0.45 0.15 0.57</size>
+            </box>
+          </geometry>
+        </collision>
+        <visual name="v_console">
+          <pose>4.62 -5.86 1.05 0 0 0</pose>
+          <geometry>
+            <box>
+              <size>0.45 0.15 0.57</size>
+            </box>
+          </geometry>
+          <material>
+            <ambient>0.6885 0.714 0.6885 1</ambient>
+            <diffuse>0.81 0.84 0.81 1</diffuse>
+          </material>
+        </visual>
+        <visual name="v_display">
+          <pose>4.62 -5.775 1.13 0 0 0</pose>
+          <geometry>
+            <box>
+              <size>0.31 0.021 0.22</size>
+            </box>
+          </geometry>
+          <material>
+            <ambient>0.1105 0.1445 0.1615 1</ambient>
+            <diffuse>0.13 0.17 0.19 1</diffuse>
+          </material>
+        </visual>
+        <visual name="v_lamp_0">
+          <pose>4.48 -6.65 2.005 0 0 0</pose>
+          <geometry>
+            <cylinder>
+              <radius>0.053</radius>
+              <length>0.084</length>
+            </cylinder>
+          </geometry>
+          <material>
+            <ambient>0.663 0.1615 0.1105 1</ambient>
+            <diffuse>0.78 0.19 0.13 1</diffuse>
+          </material>
+        </visual>
+        <visual name="v_lamp_1">
+          <pose>4.48 -6.65 2.09 0 0 0</pose>
+          <geometry>
+            <cylinder>
+              <radius>0.053</radius>
+              <length>0.084</length>
+            </cylinder>
+          </geometry>
+          <material>
+            <ambient>0.833 0.5865 0.102 1</ambient>
+            <diffuse>0.98 0.69 0.12 1</diffuse>
+          </material>
+        </visual>
+        <visual name="v_lamp_2">
+          <pose>4.48 -6.65 2.17 0 0 0</pose>
+          <geometry>
+            <cylinder>
+              <radius>0.053</radius>
+              <length>0.084</length>
+            </cylinder>
+          </geometry>
+          <material>
+            <ambient>0.153 0.578 0.323 1</ambient>
+            <diffuse>0.18 0.68 0.38 1</diffuse>
+          </material>
+        </visual>
+      </link>
+    </model>
+    <model name="roller_conveyor">
+      <static>true</static>
+      <link name="structure">
+        <collision name="side_-4.8">
+          <pose>10.2 -4.8 0.73 0 0 0</pose>
+          <geometry>
+            <box>
+              <size>4.9 0.09 0.15</size>
+            </box>
+          </geometry>
+        </collision>
+        <visual name="v_side_-4.8">
+          <pose>10.2 -4.8 0.73 0 0 0</pose>
+          <geometry>
+            <box>
+              <size>4.9 0.09 0.15</size>
+            </box>
+          </geometry>
+          <material>
+            <ambient>0.085 0.238 0.3315 1</ambient>
+            <diffuse>0.1 0.28 0.39 1</diffuse>
+          </material>
+        </visual>
+        <collision name="leg_8.1_-4.8">
+          <pose>8.1 -4.8 0.34 0 0 0</pose>
+          <geometry>
+            <box>
+              <size>0.09 0.09 0.68</size>
+            </box>
+          </geometry>
+        </collision>
+        <visual name="v_leg_8.1_-4.8">
+          <pose>8.1 -4.8 0.34 0 0 0</pose>
+          <geometry>
+            <box>
+              <size>0.09 0.09 0.68</size>
+            </box>
+          </geometry>
+          <material>
+            <ambient>0.1105 0.1445 0.1615 1</ambient>
+            <diffuse>0.13 0.17 0.19 1</diffuse>
+          </material>
+        </visual>
+        <collision name="leg_10.25_-4.8">
+          <pose>10.25 -4.8 0.34 0 0 0</pose>
+          <geometry>
+            <box>
+              <size>0.09 0.09 0.68</size>
+            </box>
+          </geometry>
+        </collision>
+        <visual name="v_leg_10.25_-4.8">
+          <pose>10.25 -4.8 0.34 0 0 0</pose>
+          <geometry>
+            <box>
+              <size>0.09 0.09 0.68</size>
+            </box>
+          </geometry>
+          <material>
+            <ambient>0.1105 0.1445 0.1615 1</ambient>
+            <diffuse>0.13 0.17 0.19 1</diffuse>
+          </material>
+        </visual>
+        <collision name="leg_12.3_-4.8">
+          <pose>12.3 -4.8 0.34 0 0 0</pose>
+          <geometry>
+            <box>
+              <size>0.09 0.09 0.68</size>
+            </box>
+          </geometry>
+        </collision>
+        <visual name="v_leg_12.3_-4.8">
+          <pose>12.3 -4.8 0.34 0 0 0</pose>
+          <geometry>
+            <box>
+              <size>0.09 0.09 0.68</size>
+            </box>
+          </geometry>
+          <material>
+            <ambient>0.1105 0.1445 0.1615 1</ambient>
+            <diffuse>0.13 0.17 0.19 1</diffuse>
+          </material>
+        </visual>
+        <collision name="side_-3.82">
+          <pose>10.2 -3.82 0.73 0 0 0</pose>
+          <geometry>
+            <box>
+              <size>4.9 0.09 0.15</size>
+            </box>
+          </geometry>
+        </collision>
+        <visual name="v_side_-3.82">
+          <pose>10.2 -3.82 0.73 0 0 0</pose>
+          <geometry>
+            <box>
+              <size>4.9 0.09 0.15</size>
+            </box>
+          </geometry>
+          <material>
+            <ambient>0.085 0.238 0.3315 1</ambient>
+            <diffuse>0.1 0.28 0.39 1</diffuse>
+          </material>
+        </visual>
+        <collision name="leg_8.1_-3.82">
+          <pose>8.1 -3.82 0.34 0 0 0</pose>
+          <geometry>
+            <box>
+              <size>0.09 0.09 0.68</size>
+            </box>
+          </geometry>
+        </collision>
+        <visual name="v_leg_8.1_-3.82">
+          <pose>8.1 -3.82 0.34 0 0 0</pose>
+          <geometry>
+            <box>
+              <size>0.09 0.09 0.68</size>
+            </box>
+          </geometry>
+          <material>
+            <ambient>0.1105 0.1445 0.1615 1</ambient>
+            <diffuse>0.13 0.17 0.19 1</diffuse>
+          </material>
+        </visual>
+        <collision name="leg_10.25_-3.82">
+          <pose>10.25 -3.82 0.34 0 0 0</pose>
+          <geometry>
+            <box>
+              <size>0.09 0.09 0.68</size>
+            </box>
+          </geometry>
+        </collision>
+        <visual name="v_leg_10.25_-3.82">
+          <pose>10.25 -3.82 0.34 0 0 0</pose>
+          <geometry>
+            <box>
+              <size>0.09 0.09 0.68</size>
+            </box>
+          </geometry>
+          <material>
+            <ambient>0.1105 0.1445 0.1615 1</ambient>
+            <diffuse>0.13 0.17 0.19 1</diffuse>
+          </material>
+        </visual>
+        <collision name="leg_12.3_-3.82">
+          <pose>12.3 -3.82 0.34 0 0 0</pose>
+          <geometry>
+            <box>
+              <size>0.09 0.09 0.68</size>
+            </box>
+          </geometry>
+        </collision>
+        <visual name="v_leg_12.3_-3.82">
+          <pose>12.3 -3.82 0.34 0 0 0</pose>
+          <geometry>
+            <box>
+              <size>0.09 0.09 0.68</size>
+            </box>
+          </geometry>
+          <material>
+            <ambient>0.1105 0.1445 0.1615 1</ambient>
+            <diffuse>0.13 0.17 0.19 1</diffuse>
+          </material>
+        </visual>
+        <collision name="roller_0">
+          <pose>7.87 -4.31 0.8 1.570796 0 0</pose>
+          <geometry>
+            <cylinder>
+              <radius>0.055</radius>
+              <length>0.95</length>
+            </cylinder>
+          </geometry>
+        </collision>
+        <visual name="v_roller_0">
+          <pose>7.87 -4.31 0.8 1.570796 0 0</pose>
+          <geometry>
+            <cylinder>
+              <radius>0.055</radius>
+              <length>0.95</length>
+            </cylinder>
+          </geometry>
+          <material>
+            <ambient>0.4505 0.5015 0.51 1</ambient>
+            <diffuse>0.53 0.59 0.6 1</diffuse>
+          </material>
+        </visual>
+        <collision name="roller_1">
+          <pose>8.044 -4.31 0.8 1.570796 0 0</pose>
+          <geometry>
+            <cylinder>
+              <radius>0.055</radius>
+              <length>0.95</length>
+            </cylinder>
+          </geometry>
+        </collision>
+        <visual name="v_roller_1">
+          <pose>8.044 -4.31 0.8 1.570796 0 0</pose>
+          <geometry>
+            <cylinder>
+              <radius>0.055</radius>
+              <length>0.95</length>
+            </cylinder>
+          </geometry>
+          <material>
+            <ambient>0.4505 0.5015 0.51 1</ambient>
+            <diffuse>0.53 0.59 0.6 1</diffuse>
+          </material>
+        </visual>
+        <collision name="roller_2">
+          <pose>8.218 -4.31 0.8 1.570796 0 0</pose>
+          <geometry>
+            <cylinder>
+              <radius>0.055</radius>
+              <length>0.95</length>
+            </cylinder>
+          </geometry>
+        </collision>
+        <visual name="v_roller_2">
+          <pose>8.218 -4.31 0.8 1.570796 0 0</pose>
+          <geometry>
+            <cylinder>
+              <radius>0.055</radius>
+              <length>0.95</length>
+            </cylinder>
+          </geometry>
+          <material>
+            <ambient>0.4505 0.5015 0.51 1</ambient>
+            <diffuse>0.53 0.59 0.6 1</diffuse>
+          </material>
+        </visual>
+        <collision name="roller_3">
+          <pose>8.392 -4.31 0.8 1.570796 0 0</pose>
+          <geometry>
+            <cylinder>
+              <radius>0.055</radius>
+              <length>0.95</length>
+            </cylinder>
+          </geometry>
+        </collision>
+        <visual name="v_roller_3">
+          <pose>8.392 -4.31 0.8 1.570796 0 0</pose>
+          <geometry>
+            <cylinder>
+              <radius>0.055</radius>
+              <length>0.95</length>
+            </cylinder>
+          </geometry>
+          <material>
+            <ambient>0.4505 0.5015 0.51 1</ambient>
+            <diffuse>0.53 0.59 0.6 1</diffuse>
+          </material>
+        </visual>
+        <collision name="roller_4">
+          <pose>8.566 -4.31 0.8 1.570796 0 0</pose>
+          <geometry>
+            <cylinder>
+              <radius>0.055</radius>
+              <length>0.95</length>
+            </cylinder>
+          </geometry>
+        </collision>
+        <visual name="v_roller_4">
+          <pose>8.566 -4.31 0.8 1.570796 0 0</pose>
+          <geometry>
+            <cylinder>
+              <radius>0.055</radius>
+              <length>0.95</length>
+            </cylinder>
+          </geometry>
+          <material>
+            <ambient>0.4505 0.5015 0.51 1</ambient>
+            <diffuse>0.53 0.59 0.6 1</diffuse>
+          </material>
+        </visual>
+        <collision name="roller_5">
+          <pose>8.74 -4.31 0.8 1.570796 0 0</pose>
+          <geometry>
+            <cylinder>
+              <radius>0.055</radius>
+              <length>0.95</length>
+            </cylinder>
+          </geometry>
+        </collision>
+        <visual name="v_roller_5">
+          <pose>8.74 -4.31 0.8 1.570796 0 0</pose>
+          <geometry>
+            <cylinder>
+              <radius>0.055</radius>
+              <length>0.95</length>
+            </cylinder>
+          </geometry>
+          <material>
+            <ambient>0.4505 0.5015 0.51 1</ambient>
+            <diffuse>0.53 0.59 0.6 1</diffuse>
+          </material>
+        </visual>
+        <collision name="roller_6">
+          <pose>8.914 -4.31 0.8 1.570796 0 0</pose>
+          <geometry>
+            <cylinder>
+              <radius>0.055</radius>
+              <length>0.95</length>
+            </cylinder>
+          </geometry>
+        </collision>
+        <visual name="v_roller_6">
+          <pose>8.914 -4.31 0.8 1.570796 0 0</pose>
+          <geometry>
+            <cylinder>
+              <radius>0.055</radius>
+              <length>0.95</length>
+            </cylinder>
+          </geometry>
+          <material>
+            <ambient>0.4505 0.5015 0.51 1</ambient>
+            <diffuse>0.53 0.59 0.6 1</diffuse>
+          </material>
+        </visual>
+        <collision name="roller_7">
+          <pose>9.088 -4.31 0.8 1.570796 0 0</pose>
+          <geometry>
+            <cylinder>
+              <radius>0.055</radius>
+              <length>0.95</length>
+            </cylinder>
+          </geometry>
+        </collision>
+        <visual name="v_roller_7">
+          <pose>9.088 -4.31 0.8 1.570796 0 0</pose>
+          <geometry>
+            <cylinder>
+              <radius>0.055</radius>
+              <length>0.95</length>
+            </cylinder>
+          </geometry>
+          <material>
+            <ambient>0.4505 0.5015 0.51 1</ambient>
+            <diffuse>0.53 0.59 0.6 1</diffuse>
+          </material>
+        </visual>
+        <collision name="roller_8">
+          <pose>9.262 -4.31 0.8 1.570796 0 0</pose>
+          <geometry>
+            <cylinder>
+              <radius>0.055</radius>
+              <length>0.95</length>
+            </cylinder>
+          </geometry>
+        </collision>
+        <visual name="v_roller_8">
+          <pose>9.262 -4.31 0.8 1.570796 0 0</pose>
+          <geometry>
+            <cylinder>
+              <radius>0.055</radius>
+              <length>0.95</length>
+            </cylinder>
+          </geometry>
+          <material>
+            <ambient>0.4505 0.5015 0.51 1</ambient>
+            <diffuse>0.53 0.59 0.6 1</diffuse>
+          </material>
+        </visual>
+        <collision name="roller_9">
+          <pose>9.436 -4.31 0.8 1.570796 0 0</pose>
+          <geometry>
+            <cylinder>
+              <radius>0.055</radius>
+              <length>0.95</length>
+            </cylinder>
+          </geometry>
+        </collision>
+        <visual name="v_roller_9">
+          <pose>9.436 -4.31 0.8 1.570796 0 0</pose>
+          <geometry>
+            <cylinder>
+              <radius>0.055</radius>
+              <length>0.95</length>
+            </cylinder>
+          </geometry>
+          <material>
+            <ambient>0.4505 0.5015 0.51 1</ambient>
+            <diffuse>0.53 0.59 0.6 1</diffuse>
+          </material>
+        </visual>
+        <collision name="roller_10">
+          <pose>9.61 -4.31 0.8 1.570796 0 0</pose>
+          <geometry>
+            <cylinder>
+              <radius>0.055</radius>
+              <length>0.95</length>
+            </cylinder>
+          </geometry>
+        </collision>
+        <visual name="v_roller_10">
+          <pose>9.61 -4.31 0.8 1.570796 0 0</pose>
+          <geometry>
+            <cylinder>
+              <radius>0.055</radius>
+              <length>0.95</length>
+            </cylinder>
+          </geometry>
+          <material>
+            <ambient>0.4505 0.5015 0.51 1</ambient>
+            <diffuse>0.53 0.59 0.6 1</diffuse>
+          </material>
+        </visual>
+        <collision name="roller_11">
+          <pose>9.784 -4.31 0.8 1.570796 0 0</pose>
+          <geometry>
+            <cylinder>
+              <radius>0.055</radius>
+              <length>0.95</length>
+            </cylinder>
+          </geometry>
+        </collision>
+        <visual name="v_roller_11">
+          <pose>9.784 -4.31 0.8 1.570796 0 0</pose>
+          <geometry>
+            <cylinder>
+              <radius>0.055</radius>
+              <length>0.95</length>
+            </cylinder>
+          </geometry>
+          <material>
+            <ambient>0.4505 0.5015 0.51 1</ambient>
+            <diffuse>0.53 0.59 0.6 1</diffuse>
+          </material>
+        </visual>
+        <collision name="roller_12">
+          <pose>9.958 -4.31 0.8 1.570796 0 0</pose>
+          <geometry>
+            <cylinder>
+              <radius>0.055</radius>
+              <length>0.95</length>
+            </cylinder>
+          </geometry>
+        </collision>
+        <visual name="v_roller_12">
+          <pose>9.958 -4.31 0.8 1.570796 0 0</pose>
+          <geometry>
+            <cylinder>
+              <radius>0.055</radius>
+              <length>0.95</length>
+            </cylinder>
+          </geometry>
+          <material>
+            <ambient>0.4505 0.5015 0.51 1</ambient>
+            <diffuse>0.53 0.59 0.6 1</diffuse>
+          </material>
+        </visual>
+        <collision name="roller_13">
+          <pose>10.132 -4.31 0.8 1.570796 0 0</pose>
+          <geometry>
+            <cylinder>
+              <radius>0.055</radius>
+              <length>0.95</length>
+            </cylinder>
+          </geometry>
+        </collision>
+        <visual name="v_roller_13">
+          <pose>10.132 -4.31 0.8 1.570796 0 0</pose>
+          <geometry>
+            <cylinder>
+              <radius>0.055</radius>
+              <length>0.95</length>
+            </cylinder>
+          </geometry>
+          <material>
+            <ambient>0.4505 0.5015 0.51 1</ambient>
+            <diffuse>0.53 0.59 0.6 1</diffuse>
+          </material>
+        </visual>
+        <collision name="roller_14">
+          <pose>10.306 -4.31 0.8 1.570796 0 0</pose>
+          <geometry>
+            <cylinder>
+              <radius>0.055</radius>
+              <length>0.95</length>
+            </cylinder>
+          </geometry>
+        </collision>
+        <visual name="v_roller_14">
+          <pose>10.306 -4.31 0.8 1.570796 0 0</pose>
+          <geometry>
+            <cylinder>
+              <radius>0.055</radius>
+              <length>0.95</length>
+            </cylinder>
+          </geometry>
+          <material>
+            <ambient>0.4505 0.5015 0.51 1</ambient>
+            <diffuse>0.53 0.59 0.6 1</diffuse>
+          </material>
+        </visual>
+        <collision name="roller_15">
+          <pose>10.48 -4.31 0.8 1.570796 0 0</pose>
+          <geometry>
+            <cylinder>
+              <radius>0.055</radius>
+              <length>0.95</length>
+            </cylinder>
+          </geometry>
+        </collision>
+        <visual name="v_roller_15">
+          <pose>10.48 -4.31 0.8 1.570796 0 0</pose>
+          <geometry>
+            <cylinder>
+              <radius>0.055</radius>
+              <length>0.95</length>
+            </cylinder>
+          </geometry>
+          <material>
+            <ambient>0.4505 0.5015 0.51 1</ambient>
+            <diffuse>0.53 0.59 0.6 1</diffuse>
+          </material>
+        </visual>
+        <collision name="roller_16">
+          <pose>10.654 -4.31 0.8 1.570796 0 0</pose>
+          <geometry>
+            <cylinder>
+              <radius>0.055</radius>
+              <length>0.95</length>
+            </cylinder>
+          </geometry>
+        </collision>
+        <visual name="v_roller_16">
+          <pose>10.654 -4.31 0.8 1.570796 0 0</pose>
+          <geometry>
+            <cylinder>
+              <radius>0.055</radius>
+              <length>0.95</length>
+            </cylinder>
+          </geometry>
+          <material>
+            <ambient>0.4505 0.5015 0.51 1</ambient>
+            <diffuse>0.53 0.59 0.6 1</diffuse>
+          </material>
+        </visual>
+        <collision name="roller_17">
+          <pose>10.828 -4.31 0.8 1.570796 0 0</pose>
+          <geometry>
+            <cylinder>
+              <radius>0.055</radius>
+              <length>0.95</length>
+            </cylinder>
+          </geometry>
+        </collision>
+        <visual name="v_roller_17">
+          <pose>10.828 -4.31 0.8 1.570796 0 0</pose>
+          <geometry>
+            <cylinder>
+              <radius>0.055</radius>
+              <length>0.95</length>
+            </cylinder>
+          </geometry>
+          <material>
+            <ambient>0.4505 0.5015 0.51 1</ambient>
+            <diffuse>0.53 0.59 0.6 1</diffuse>
+          </material>
+        </visual>
+        <collision name="roller_18">
+          <pose>11.002 -4.31 0.8 1.570796 0 0</pose>
+          <geometry>
+            <cylinder>
+              <radius>0.055</radius>
+              <length>0.95</length>
+            </cylinder>
+          </geometry>
+        </collision>
+        <visual name="v_roller_18">
+          <pose>11.002 -4.31 0.8 1.570796 0 0</pose>
+          <geometry>
+            <cylinder>
+              <radius>0.055</radius>
+              <length>0.95</length>
+            </cylinder>
+          </geometry>
+          <material>
+            <ambient>0.4505 0.5015 0.51 1</ambient>
+            <diffuse>0.53 0.59 0.6 1</diffuse>
+          </material>
+        </visual>
+        <collision name="roller_19">
+          <pose>11.176 -4.31 0.8 1.570796 0 0</pose>
+          <geometry>
+            <cylinder>
+              <radius>0.055</radius>
+              <length>0.95</length>
+            </cylinder>
+          </geometry>
+        </collision>
+        <visual name="v_roller_19">
+          <pose>11.176 -4.31 0.8 1.570796 0 0</pose>
+          <geometry>
+            <cylinder>
+              <radius>0.055</radius>
+              <length>0.95</length>
+            </cylinder>
+          </geometry>
+          <material>
+            <ambient>0.4505 0.5015 0.51 1</ambient>
+            <diffuse>0.53 0.59 0.6 1</diffuse>
+          </material>
+        </visual>
+        <collision name="roller_20">
+          <pose>11.35 -4.31 0.8 1.570796 0 0</pose>
+          <geometry>
+            <cylinder>
+              <radius>0.055</radius>
+              <length>0.95</length>
+            </cylinder>
+          </geometry>
+        </collision>
+        <visual name="v_roller_20">
+          <pose>11.35 -4.31 0.8 1.570796 0 0</pose>
+          <geometry>
+            <cylinder>
+              <radius>0.055</radius>
+              <length>0.95</length>
+            </cylinder>
+          </geometry>
+          <material>
+            <ambient>0.4505 0.5015 0.51 1</ambient>
+            <diffuse>0.53 0.59 0.6 1</diffuse>
+          </material>
+        </visual>
+        <collision name="roller_21">
+          <pose>11.524 -4.31 0.8 1.570796 0 0</pose>
+          <geometry>
+            <cylinder>
+              <radius>0.055</radius>
+              <length>0.95</length>
+            </cylinder>
+          </geometry>
+        </collision>
+        <visual name="v_roller_21">
+          <pose>11.524 -4.31 0.8 1.570796 0 0</pose>
+          <geometry>
+            <cylinder>
+              <radius>0.055</radius>
+              <length>0.95</length>
+            </cylinder>
+          </geometry>
+          <material>
+            <ambient>0.4505 0.5015 0.51 1</ambient>
+            <diffuse>0.53 0.59 0.6 1</diffuse>
+          </material>
+        </visual>
+        <collision name="roller_22">
+          <pose>11.698 -4.31 0.8 1.570796 0 0</pose>
+          <geometry>
+            <cylinder>
+              <radius>0.055</radius>
+              <length>0.95</length>
+            </cylinder>
+          </geometry>
+        </collision>
+        <visual name="v_roller_22">
+          <pose>11.698 -4.31 0.8 1.570796 0 0</pose>
+          <geometry>
+            <cylinder>
+              <radius>0.055</radius>
+              <length>0.95</length>
+            </cylinder>
+          </geometry>
+          <material>
+            <ambient>0.4505 0.5015 0.51 1</ambient>
+            <diffuse>0.53 0.59 0.6 1</diffuse>
+          </material>
+        </visual>
+        <collision name="roller_23">
+          <pose>11.872 -4.31 0.8 1.570796 0 0</pose>
+          <geometry>
+            <cylinder>
+              <radius>0.055</radius>
+              <length>0.95</length>
+            </cylinder>
+          </geometry>
+        </collision>
+        <visual name="v_roller_23">
+          <pose>11.872 -4.31 0.8 1.570796 0 0</pose>
+          <geometry>
+            <cylinder>
+              <radius>0.055</radius>
+              <length>0.95</length>
+            </cylinder>
+          </geometry>
+          <material>
+            <ambient>0.4505 0.5015 0.51 1</ambient>
+            <diffuse>0.53 0.59 0.6 1</diffuse>
+          </material>
+        </visual>
+        <collision name="roller_24">
+          <pose>12.046 -4.31 0.8 1.570796 0 0</pose>
+          <geometry>
+            <cylinder>
+              <radius>0.055</radius>
+              <length>0.95</length>
+            </cylinder>
+          </geometry>
+        </collision>
+        <visual name="v_roller_24">
+          <pose>12.046 -4.31 0.8 1.570796 0 0</pose>
+          <geometry>
+            <cylinder>
+              <radius>0.055</radius>
+              <length>0.95</length>
+            </cylinder>
+          </geometry>
+          <material>
+            <ambient>0.4505 0.5015 0.51 1</ambient>
+            <diffuse>0.53 0.59 0.6 1</diffuse>
+          </material>
+        </visual>
+        <collision name="roller_25">
+          <pose>12.22 -4.31 0.8 1.570796 0 0</pose>
+          <geometry>
+            <cylinder>
+              <radius>0.055</radius>
+              <length>0.95</length>
+            </cylinder>
+          </geometry>
+        </collision>
+        <visual name="v_roller_25">
+          <pose>12.22 -4.31 0.8 1.570796 0 0</pose>
+          <geometry>
+            <cylinder>
+              <radius>0.055</radius>
+              <length>0.95</length>
+            </cylinder>
+          </geometry>
+          <material>
+            <ambient>0.4505 0.5015 0.51 1</ambient>
+            <diffuse>0.53 0.59 0.6 1</diffuse>
+          </material>
+        </visual>
+        <collision name="roller_26">
+          <pose>12.394 -4.31 0.8 1.570796 0 0</pose>
+          <geometry>
+            <cylinder>
+              <radius>0.055</radius>
+              <length>0.95</length>
+            </cylinder>
+          </geometry>
+        </collision>
+        <visual name="v_roller_26">
+          <pose>12.394 -4.31 0.8 1.570796 0 0</pose>
+          <geometry>
+            <cylinder>
+              <radius>0.055</radius>
+              <length>0.95</length>
+            </cylinder>
+          </geometry>
+          <material>
+            <ambient>0.4505 0.5015 0.51 1</ambient>
+            <diffuse>0.53 0.59 0.6 1</diffuse>
+          </material>
+        </visual>
+        <collision name="roller_27">
+          <pose>12.568 -4.31 0.8 1.570796 0 0</pose>
+          <geometry>
+            <cylinder>
+              <radius>0.055</radius>
+              <length>0.95</length>
+            </cylinder>
+          </geometry>
+        </collision>
+        <visual name="v_roller_27">
+          <pose>12.568 -4.31 0.8 1.570796 0 0</pose>
+          <geometry>
+            <cylinder>
+              <radius>0.055</radius>
+              <length>0.95</length>
+            </cylinder>
+          </geometry>
+          <material>
+            <ambient>0.4505 0.5015 0.51 1</ambient>
+            <diffuse>0.53 0.59 0.6 1</diffuse>
+          </material>
+        </visual>
+      </link>
+    </model>
+    <model name="floor_markings">
+      <static>true</static>
+      <link name="structure">
+        <visual name="v_aisle_0">
+          <pose>0 1.8 0.001 0 0 0</pose>
+          <geometry>
+            <box>
+              <size>25 0.07 0.002</size>
+            </box>
+          </geometry>
+          <material>
+            <ambient>0.833 0.5865 0.102 1</ambient>
+            <diffuse>0.98 0.69 0.12 1</diffuse>
+          </material>
+        </visual>
+        <visual name="v_aisle_1">
+          <pose>0 4.2 0.001 0 0 0</pose>
+          <geometry>
+            <box>
+              <size>25 0.07 0.002</size>
+            </box>
+          </geometry>
+          <material>
+            <ambient>0.833 0.5865 0.102 1</ambient>
+            <diffuse>0.98 0.69 0.12 1</diffuse>
+          </material>
+        </visual>
+        <visual name="v_crosswalk_0">
+          <pose>-10.85 3 0.002 0 0 0</pose>
+          <geometry>
+            <box>
+              <size>0.14 2.26 0.003</size>
+            </box>
+          </geometry>
+          <material>
+            <ambient>0.6885 0.714 0.6885 1</ambient>
+            <diffuse>0.81 0.84 0.81 1</diffuse>
+          </material>
+        </visual>
+        <visual name="v_crosswalk_1">
+          <pose>-10.58 3 0.002 0 0 0</pose>
+          <geometry>
+            <box>
+              <size>0.14 2.26 0.003</size>
+            </box>
+          </geometry>
+          <material>
+            <ambient>0.6885 0.714 0.6885 1</ambient>
+            <diffuse>0.81 0.84 0.81 1</diffuse>
+          </material>
+        </visual>
+        <visual name="v_crosswalk_2">
+          <pose>-10.31 3 0.002 0 0 0</pose>
+          <geometry>
+            <box>
+              <size>0.14 2.26 0.003</size>
+            </box>
+          </geometry>
+          <material>
+            <ambient>0.6885 0.714 0.6885 1</ambient>
+            <diffuse>0.81 0.84 0.81 1</diffuse>
+          </material>
+        </visual>
+        <visual name="v_crosswalk_3">
+          <pose>-10.04 3 0.002 0 0 0</pose>
+          <geometry>
+            <box>
+              <size>0.14 2.26 0.003</size>
+            </box>
+          </geometry>
+          <material>
+            <ambient>0.6885 0.714 0.6885 1</ambient>
+            <diffuse>0.81 0.84 0.81 1</diffuse>
+          </material>
+        </visual>
+        <visual name="v_crosswalk_4">
+          <pose>-9.77 3 0.002 0 0 0</pose>
+          <geometry>
+            <box>
+              <size>0.14 2.26 0.003</size>
+            </box>
+          </geometry>
+          <material>
+            <ambient>0.6885 0.714 0.6885 1</ambient>
+            <diffuse>0.81 0.84 0.81 1</diffuse>
+          </material>
+        </visual>
+        <visual name="v_crosswalk_5">
+          <pose>-9.5 3 0.002 0 0 0</pose>
+          <geometry>
+            <box>
+              <size>0.14 2.26 0.003</size>
+            </box>
+          </geometry>
+          <material>
+            <ambient>0.6885 0.714 0.6885 1</ambient>
+            <diffuse>0.81 0.84 0.81 1</diffuse>
+          </material>
+        </visual>
+        <visual name="v_crosswalk_6">
+          <pose>-9.23 3 0.002 0 0 0</pose>
+          <geometry>
+            <box>
+              <size>0.14 2.26 0.003</size>
+            </box>
+          </geometry>
+          <material>
+            <ambient>0.6885 0.714 0.6885 1</ambient>
+            <diffuse>0.81 0.84 0.81 1</diffuse>
+          </material>
+        </visual>
+        <visual name="v_crosswalk_7">
+          <pose>-8.96 3 0.002 0 0 0</pose>
+          <geometry>
+            <box>
+              <size>0.14 2.26 0.003</size>
+            </box>
+          </geometry>
+          <material>
+            <ambient>0.6885 0.714 0.6885 1</ambient>
+            <diffuse>0.81 0.84 0.81 1</diffuse>
+          </material>
+        </visual>
+        <visual name="v_crosswalk_8">
+          <pose>-8.69 3 0.002 0 0 0</pose>
+          <geometry>
+            <box>
+              <size>0.14 2.26 0.003</size>
+            </box>
+          </geometry>
+          <material>
+            <ambient>0.6885 0.714 0.6885 1</ambient>
+            <diffuse>0.81 0.84 0.81 1</diffuse>
+          </material>
+        </visual>
+        <visual name="v_station_A">
+          <pose>1.625 -2.32 0.002 0 0 0</pose>
+          <geometry>
+            <mesh>
+              <uri>model://factory_finishes/meshes/bay_sign.dae</uri>
+            </mesh>
+          </geometry>
+          <material>
+            <script>
+              <uri>model://factory_finishes/materials/scripts</uri>
+              <uri>model://factory_finishes/materials/textures</uri>
+              <name>Factory/BayA</name>
+            </script>
+          </material>
+        </visual>
+        <visual name="v_bay_A_-1_0">
+          <pose>-0.085 -2.88 0.0015 0 0 0</pose>
+          <geometry>
+            <box>
+              <size>0.24 0.05 0.002</size>
+            </box>
+          </geometry>
+          <material>
+            <ambient>0.6885 0.714 0.6885 1</ambient>
+            <diffuse>0.81 0.84 0.81 1</diffuse>
+          </material>
+        </visual>
+        <visual name="v_bay_A_-1_1">
+          <pose>-0.085 -1.76 0.0015 0 0 0</pose>
+          <geometry>
+            <box>
+              <size>0.24 0.05 0.002</size>
+            </box>
+          </geometry>
+          <material>
+            <ambient>0.6885 0.714 0.6885 1</ambient>
+            <diffuse>0.81 0.84 0.81 1</diffuse>
+          </material>
+        </visual>
+        <visual name="v_bay_A_1_0">
+          <pose>1.415 -2.88 0.0015 0 0 0</pose>
+          <geometry>
+            <box>
+              <size>0.24 0.05 0.002</size>
+            </box>
+          </geometry>
+          <material>
+            <ambient>0.6885 0.714 0.6885 1</ambient>
+            <diffuse>0.81 0.84 0.81 1</diffuse>
+          </material>
+        </visual>
+        <visual name="v_bay_A_1_1">
+          <pose>1.415 -1.76 0.0015 0 0 0</pose>
+          <geometry>
+            <box>
+              <size>0.24 0.05 0.002</size>
+            </box>
+          </geometry>
+          <material>
+            <ambient>0.6885 0.714 0.6885 1</ambient>
+            <diffuse>0.81 0.84 0.81 1</diffuse>
+          </material>
+        </visual>
+        <visual name="v_station_B">
+          <pose>5.056115 -2.433717 0.002 0 0 0.09</pose>
+          <geometry>
+            <mesh>
+              <uri>model://factory_finishes/meshes/bay_sign.dae</uri>
+            </mesh>
+          </geometry>
+          <material>
+            <script>
+              <uri>model://factory_finishes/materials/scripts</uri>
+              <uri>model://factory_finishes/materials/textures</uri>
+              <name>Factory/BayB</name>
+            </script>
+          </material>
+        </visual>
+        <visual name="v_bay_B_-1_0">
+          <pose>3.403367 -3.145142 0.0015 0 0 0.09</pose>
+          <geometry>
+            <box>
+              <size>0.24 0.05 0.002</size>
+            </box>
+          </geometry>
+          <material>
+            <ambient>0.6885 0.714 0.6885 1</ambient>
+            <diffuse>0.81 0.84 0.81 1</diffuse>
+          </material>
+        </visual>
+        <visual name="v_bay_B_-1_1">
+          <pose>3.302703 -2.029675 0.0015 0 0 0.09</pose>
+          <geometry>
+            <box>
+              <size>0.24 0.05 0.002</size>
+            </box>
+          </geometry>
+          <material>
+            <ambient>0.6885 0.714 0.6885 1</ambient>
+            <diffuse>0.81 0.84 0.81 1</diffuse>
+          </material>
+        </visual>
+        <visual name="v_bay_B_1_0">
+          <pose>4.897297 -3.010325 0.0015 0 0 0.09</pose>
+          <geometry>
+            <box>
+              <size>0.24 0.05 0.002</size>
+            </box>
+          </geometry>
+          <material>
+            <ambient>0.6885 0.714 0.6885 1</ambient>
+            <diffuse>0.81 0.84 0.81 1</diffuse>
+          </material>
+        </visual>
+        <visual name="v_bay_B_1_1">
+          <pose>4.796633 -1.894858 0.0015 0 0 0.09</pose>
+          <geometry>
+            <box>
+              <size>0.24 0.05 0.002</size>
+            </box>
+          </geometry>
+          <material>
+            <ambient>0.6885 0.714 0.6885 1</ambient>
+            <diffuse>0.81 0.84 0.81 1</diffuse>
+          </material>
+        </visual>
+        <visual name="v_station_C">
+          <pose>-2.645287 -2.520615 0.002 0 0 -0.105</pose>
+          <geometry>
+            <mesh>
+              <uri>model://factory_finishes/meshes/bay_sign.dae</uri>
+            </mesh>
+          </geometry>
+          <material>
+            <script>
+              <uri>model://factory_finishes/materials/scripts</uri>
+              <uri>model://factory_finishes/materials/textures</uri>
+              <name>Factory/BayC</name>
+            </script>
+          </material>
+        </visual>
+        <visual name="v_bay_C_-1_0">
+          <pose>-4.404561 -2.89831 0.0015 0 0 -0.105</pose>
+          <geometry>
+            <box>
+              <size>0.24 0.05 0.002</size>
+            </box>
+          </geometry>
+          <material>
+            <ambient>0.6885 0.714 0.6885 1</ambient>
+            <diffuse>0.81 0.84 0.81 1</diffuse>
+          </material>
+        </visual>
+        <visual name="v_bay_C_-1_1">
+          <pose>-4.287177 -1.784479 0.0015 0 0 -0.105</pose>
+          <geometry>
+            <box>
+              <size>0.24 0.05 0.002</size>
+            </box>
+          </geometry>
+          <material>
+            <ambient>0.6885 0.714 0.6885 1</ambient>
+            <diffuse>0.81 0.84 0.81 1</diffuse>
+          </material>
+        </visual>
+        <visual name="v_bay_C_1_0">
+          <pose>-2.912823 -3.055521 0.0015 0 0 -0.105</pose>
+          <geometry>
+            <box>
+              <size>0.24 0.05 0.002</size>
+            </box>
+          </geometry>
+          <material>
+            <ambient>0.6885 0.714 0.6885 1</ambient>
+            <diffuse>0.81 0.84 0.81 1</diffuse>
+          </material>
+        </visual>
+        <visual name="v_bay_C_1_1">
+          <pose>-2.795439 -1.94169 0.0015 0 0 -0.105</pose>
+          <geometry>
+            <box>
+              <size>0.24 0.05 0.002</size>
+            </box>
+          </geometry>
+          <material>
+            <ambient>0.6885 0.714 0.6885 1</ambient>
+            <diffuse>0.81 0.84 0.81 1</diffuse>
+          </material>
+        </visual>
+        <visual name="v_station_D">
+          <pose>8.4 3.76 0.002 0 0 1.570796</pose>
+          <geometry>
+            <mesh>
+              <uri>model://factory_finishes/meshes/bay_sign.dae</uri>
+            </mesh>
+          </geometry>
+          <material>
+            <script>
+              <uri>model://factory_finishes/materials/scripts</uri>
+              <uri>model://factory_finishes/materials/textures</uri>
+              <name>Factory/BayD</name>
+            </script>
+          </material>
+        </visual>
+        <visual name="v_bay_D_-1_0">
+          <pose>8.96 2.05 0.0015 0 0 1.570796</pose>
+          <geometry>
+            <box>
+              <size>0.24 0.05 0.002</size>
+            </box>
+          </geometry>
+          <material>
+            <ambient>0.6885 0.714 0.6885 1</ambient>
+            <diffuse>0.81 0.84 0.81 1</diffuse>
+          </material>
+        </visual>
+        <visual name="v_bay_D_-1_1">
+          <pose>7.84 2.05 0.0015 0 0 1.570796</pose>
+          <geometry>
+            <box>
+              <size>0.24 0.05 0.002</size>
+            </box>
+          </geometry>
+          <material>
+            <ambient>0.6885 0.714 0.6885 1</ambient>
+            <diffuse>0.81 0.84 0.81 1</diffuse>
+          </material>
+        </visual>
+        <visual name="v_bay_D_1_0">
+          <pose>8.96 3.55 0.0015 0 0 1.570796</pose>
+          <geometry>
+            <box>
+              <size>0.24 0.05 0.002</size>
+            </box>
+          </geometry>
+          <material>
+            <ambient>0.6885 0.714 0.6885 1</ambient>
+            <diffuse>0.81 0.84 0.81 1</diffuse>
+          </material>
+        </visual>
+        <visual name="v_bay_D_1_1">
+          <pose>7.84 3.55 0.0015 0 0 1.570796</pose>
+          <geometry>
+            <box>
+              <size>0.24 0.05 0.002</size>
+            </box>
+          </geometry>
+          <material>
+            <ambient>0.6885 0.714 0.6885 1</ambient>
+            <diffuse>0.81 0.84 0.81 1</diffuse>
+          </material>
+        </visual>
+      </link>
+    </model>
+    <include>
+      <uri>model://epal_1</uri>
+      <name>pallet_A</name>
+      <pose>0.665 -2.32 0.001 0 0 0</pose>
+    </include>
+    <include>
+      <uri>model://epal_1</uri>
+      <name>pallet_B</name>
+      <pose>4.1 -2.52 0.001 0 0 0.09</pose>
+    </include>
+    <include>
+      <uri>model://epal_1</uri>
+      <name>pallet_C</name>
+      <pose>-3.6 -2.42 0.001 0 0 -0.105</pose>
+    </include>
+    <include>
+      <uri>model://epal_1</uri>
+      <name>pallet_D</name>
+      <pose>8.4 2.8 0.001 0 0 1.570796</pose>
+    </include>
+    <plugin name="gazebo_ros_state" filename="libgazebo_ros_state.so">
+      <ros>
+        <namespace>/gazebo</namespace>
+      </ros>
+      <update_rate>20</update_rate>
+    </plugin>
+  </world>
+</sdf>

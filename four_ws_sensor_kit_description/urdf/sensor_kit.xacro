@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot xmlns:xacro="http://ros.org/wiki/xacro">
+  <!-- Resolve beside this file so both the source tree and installed package work. -->
+  <xacro:property name="sensor_kit_default_calibration_file"
+                  value="${xacro.abs_filename('../config/sensor_kit_calibration.yaml')}" lazy_eval="false"/>
+
+  <xacro:macro name="mid360_sensor" params="name pose">
+    <!-- The simplified housing is 65 x 65 x 60 mm, centred on the mount TF.
+         Real optical-centre extrinsics must be measured before hardware use. -->
+    <link name="mid360_${name}_base_link">
+      <visual>
+        <geometry><mesh filename="package://four_ws_vehicle_description/mesh/sensor_mid360.dae"/></geometry>
+      </visual>
+      <collision><geometry><box size="0.065 0.065 0.060"/></geometry></collision>
+    </link>
+    <joint name="mid360_${name}_mount_joint" type="fixed">
+      <parent link="sensor_kit_base_link"/>
+      <child link="mid360_${name}_base_link"/>
+      <origin xyz="${pose['x']} ${pose['y']} ${pose['z']}"
+              rpy="${pose['roll']} ${pose['pitch']} ${pose['yaw']}"/>
+    </joint>
+    <link name="mid360_${name}"/>
+    <joint name="mid360_${name}_joint" type="fixed">
+      <parent link="mid360_${name}_base_link"/><child link="mid360_${name}"/>
+    </joint>
+  </xacro:macro>
+
+  <xacro:macro name="kit_camera" params="name pose mesh_yaw">
+    <link name="${name}/camera_link">
+      <visual>
+        <!-- Undo the CAD's baked-in yaw before applying the calibrated TF. -->
+        <origin rpy="0 0 ${mesh_yaw}"/>
+        <geometry><mesh filename="package://four_ws_vehicle_description/mesh/sensor_${name}.dae"/></geometry>
+      </visual>
+    </link>
+    <joint name="${name}_mount_joint" type="fixed">
+      <parent link="sensor_kit_base_link"/><child link="${name}/camera_link"/>
+      <origin xyz="${pose['x']} ${pose['y']} ${pose['z']}"
+              rpy="${pose['roll']} ${pose['pitch']} ${pose['yaw']}"/>
+    </joint>
+    <link name="${name}/camera_optical_link"/>
+    <joint name="${name}_optical_joint" type="fixed">
+      <parent link="${name}/camera_link"/><child link="${name}/camera_optical_link"/>
+      <origin rpy="${-pi/2} 0 ${-pi/2}"/>
+    </joint>
+  </xacro:macro>
+
+  <xacro:macro name="kit_aux_sensor" params="name joint_name mesh pose">
+    <link name="${name}">
+      <visual><geometry><mesh filename="package://four_ws_vehicle_description/mesh/${mesh}"/></geometry></visual>
+    </link>
+    <joint name="${joint_name}" type="fixed">
+      <parent link="sensor_kit_base_link"/><child link="${name}"/>
+      <origin xyz="${pose['x']} ${pose['y']} ${pose['z']}"
+              rpy="${pose['roll']} ${pose['pitch']} ${pose['yaw']}"/>
+    </joint>
+  </xacro:macro>
+
+  <xacro:macro name="sensor_kit_macro"
+               params="parent x y z roll pitch yaw calibration_file:=${sensor_kit_default_calibration_file}">
+    <xacro:property name="calibration" value="${xacro.load_yaml(calibration_file)['sensor_kit_base_link']}"/>
+    <link name="sensor_kit_base_link"/>
+    <joint name="sensor_kit_base_joint" type="fixed">
+      <parent link="${parent}"/><child link="sensor_kit_base_link"/>
+      <origin xyz="${x} ${y} ${z}" rpy="${roll} ${pitch} ${yaw}"/>
+    </joint>
+
+    <!-- Figure 2: L1 upright; L2/L3 left high inverted; L4/L5 right low inverted. -->
+    <xacro:mid360_sensor name="l1" pose="${calibration['mid360_l1_base_link']}"/>
+    <xacro:mid360_sensor name="l2" pose="${calibration['mid360_l2_base_link']}"/>
+    <xacro:mid360_sensor name="l3" pose="${calibration['mid360_l3_base_link']}"/>
+    <xacro:mid360_sensor name="l4" pose="${calibration['mid360_l4_base_link']}"/>
+    <xacro:mid360_sensor name="l5" pose="${calibration['mid360_l5_base_link']}"/>
+
+    <xacro:kit_camera name="CAM_FRONT" pose="${calibration['CAM_FRONT/camera_link']}" mesh_yaw="0"/>
+    <xacro:kit_camera name="CAM_FRONT_LEFT" pose="${calibration['CAM_FRONT_LEFT/camera_link']}" mesh_yaw="-0.9599310886"/>
+    <xacro:kit_camera name="CAM_FRONT_RIGHT" pose="${calibration['CAM_FRONT_RIGHT/camera_link']}" mesh_yaw="0.9599310886"/>
+    <xacro:kit_camera name="CAM_BACK" pose="${calibration['CAM_BACK/camera_link']}" mesh_yaw="-3.1415926536"/>
+    <xacro:kit_camera name="CAM_BACK_LEFT" pose="${calibration['CAM_BACK_LEFT/camera_link']}" mesh_yaw="-2.1816615650"/>
+    <xacro:kit_camera name="CAM_BACK_RIGHT" pose="${calibration['CAM_BACK_RIGHT/camera_link']}" mesh_yaw="2.1816615650"/>
+    <xacro:kit_aux_sensor name="tamagawa/imu_link" joint_name="imu_mount_joint" mesh="sensor_imu.dae"
+                         pose="${calibration['tamagawa/imu_link']}"/>
+    <xacro:kit_aux_sensor name="gnss_link" joint_name="gnss_mount_joint" mesh="sensor_gnss.dae"
+                         pose="${calibration['gnss_link']}"/>
+  </xacro:macro>
+</robot>

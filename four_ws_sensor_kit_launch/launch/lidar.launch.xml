@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<launch>
+  <!-- Kept for the existing Autoware caller; the five-input merger is a standalone node. -->
+  <arg name="pointcloud_container_name" default="pointcloud_container"/>
+  <arg name="use_sim_time" default="false"/>
+  <arg name="crop_box_filter_self_param_path" default="$(find-pkg-share four_ws_sensor_kit_launch)/config/crop_box_filter_self.param.yaml"/>
+  <arg name="crop_box_filter_mirror_param_path" default="$(find-pkg-share four_ws_sensor_kit_launch)/config/crop_box_filter_mirror.param.yaml"/>
+  <arg name="merger_param_path" default="$(find-pkg-share four_ws_sensor_kit_launch)/config/mid360_cloud_merger.param.yaml"/>
+  <node pkg="four_ws_sensor_kit_launch" exec="merge_mid360_clouds.py"
+        name="mid360_cloud_merger" namespace="lidar" output="screen">
+    <param from="$(var merger_param_path)"/>
+    <param name="use_sim_time" value="$(var use_sim_time)"/>
+    <param name="crop_box_filter_self_param_path" value="$(var crop_box_filter_self_param_path)"/>
+    <param name="crop_box_filter_mirror_param_path" value="$(var crop_box_filter_mirror_param_path)"/>
+  </node>
+</launch>

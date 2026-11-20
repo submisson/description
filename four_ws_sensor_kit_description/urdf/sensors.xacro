@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot xmlns:xacro="http://ros.org/wiki/xacro">
+  <xacro:include filename="sensor_kit.xacro"/>
+  <xacro:arg name="sensor_kit_calibration_file" default="${sensor_kit_default_calibration_file}"/>
+  <xacro:arg name="sensors_calibration_file" default="${xacro.abs_filename('../config/sensors_calibration.yaml')}"/>
+  <xacro:property name="kit_pose" value="${xacro.load_yaml('$(arg sensors_calibration_file)')['base_link']['sensor_kit_base_link']}"/>
+  <xacro:sensor_kit_macro parent="base_link"
+                         x="${kit_pose['x']}" y="${kit_pose['y']}" z="${kit_pose['z']}"
+                         roll="${kit_pose['roll']}" pitch="${kit_pose['pitch']}" yaw="${kit_pose['yaw']}"
+                         calibration_file="$(arg sensor_kit_calibration_file)"/>
+</robot>
