@@ -10,6 +10,7 @@ Visualization Manager:
       Name: Grid
       Enabled: true
       Cell Size: 0.5
+      Offset: {X: 0.0, Y: 0.0, Z: -0.175}
     - Class: rviz_default_plugins/RobotModel
       Name: 4WS_vehicle
       Enabled: true
@@ -25,4 +26,4 @@ Visualization Manager:
       Distance: 4.0
       Pitch: 0.45
       Yaw: 0.75
-      Focal Point: {X: 0.6, Y: 0.0, Z: 0.7}
+      Focal Point: {X: 0.0, Y: 0.0, Z: 0.525}

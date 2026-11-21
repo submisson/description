@@ -1,5 +1,7 @@
 # Bicycle planning-simulator compatibility parameters; not a four-wheel dynamic model.
 # Delays and rate limits are provisional simulation values, not identified hardware data.
+# To publish a rear-axle ground pose as base_link, compose it with the local
+# translation (0.60825, 0, 0.175) m. The frame ID alone only labels the pose.
 /**:
   ros__parameters:
     simulated_frame_id: base_link

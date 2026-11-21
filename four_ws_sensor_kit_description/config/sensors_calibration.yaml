@@ -1,8 +1,9 @@
+# sensor_kit_base_link 是原有标定参考点，位于后轴的地面投影处。
 base_link:
   sensor_kit_base_link:
-    x: 0.0
+    x: -0.60825
     y: 0.0
-    z: 0.0
+    z: -0.175
     roll: 0.0
     pitch: 0.0
     yaw: 0.0

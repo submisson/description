@@ -1,9 +1,9 @@
 # Vehicle + five MID-360 envelope with 20 mm margin, in base_link.
 /**:
   ros__parameters:
-    min_x: -1.358247575944675
-    max_x: 1.3617524240553252
+    min_x: -1.3582475759446751
+    max_x: 1.361752424055325
     min_y: -0.7623940091962456
     max_y: 0.616674960530317
-    min_z: -0.02
-    max_z: 1.935
+    min_z: -0.195
+    max_z: 1.76
