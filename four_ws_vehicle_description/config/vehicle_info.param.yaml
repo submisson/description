@@ -1,4 +1,4 @@
-# CAD-derived loaded envelope, SI units. base_link: rear axle on ground.
+# CAD-derived loaded envelope, SI units. base_link: center of the four wheel hubs in x/y, on the ground plane.
 # max_steer_angle=0.70 is a PROVISIONAL front-steer bicycle limit for stock Autoware.
 # Independent 4WS limits are in four_ws_vehicle_launch/config/simulation_limits.yaml.
 /**:
@@ -7,8 +7,8 @@
     wheel_width: 0.1
     wheel_base: 1.2165
     wheel_tread: 0.68
-    front_overhang: 0.7335024240553252
-    rear_overhang: 0.7299975759446751
+    front_overhang: 1.3417524240553251
+    rear_overhang: 1.338247575944675
     left_overhang: 0.25667496053031696
     right_overhang: 0.4023940091962455
     vehicle_height: 1.915

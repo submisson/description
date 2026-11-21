@@ -1,96 +1,96 @@
 # 按图2布置；安装坐标由现有 CAD 估算，并非实车测量标定。
 # ROS FLU: +x 前进，+y 左，+z 上；位置 m，角度 rad。
-# base_link 位于后轴中心地面；sensor_kit_base_link 默认与其重合。
+# base_link 位于四个轮毂中心的水平中点，z=0 为地面；sensor_kit_base_link 默认与其重合。
 # L1 顶部正装；L2/L3 左前/左后高位倒装；L4/L5 右前/右中低位倒装。
 # roll=pi 表示倒装，不要再在点云驱动中重复施加该外参。
 # 坐标原点为简化雷达外壳中心，实机需按厂家光学原点重新标定。
 sensor_kit_base_link:
   mid360_l1_base_link:
-    x: 1.43825
+    x: 0.83
     y: 0.44
     z: 1.885
     roll: 0.0
     pitch: 0.0
     yaw: 0.0
   mid360_l2_base_link:
-    x: 1.59325
+    x: 0.985
     y: 0.565
     z: 1.8
     roll: 3.141592653589793
     pitch: 0.0
     yaw: 0.0
   mid360_l3_base_link:
-    x: -0.37675
+    x: -0.985
     y: 0.565
     z: 1.8
     roll: 3.141592653589793
     pitch: 0.0
     yaw: 0.0
   mid360_l4_base_link:
-    x: 1.59325
+    x: 0.985
     y: -0.71
     z: 0.46
     roll: 3.141592653589793
     pitch: 0.0
     yaw: 0.0
   mid360_l5_base_link:
-    x: 0.60825
+    x: 0.0
     y: -0.71
     z: 0.46
     roll: 3.141592653589793
     pitch: 0.0
     yaw: 0.0
   CAM_FRONT/camera_link:
-    x: 1.5932499999999998
+    x: 0.985
     y: 0.43
     z: 1.755
     roll: 0
     pitch: 0
     yaw: 0
   CAM_FRONT_LEFT/camera_link:
-    x: 1.43825
+    x: 0.83
     y: 0.565
     z: 1.755
     roll: 0
     pitch: 0
     yaw: 0.9599310885968813
   CAM_FRONT_RIGHT/camera_link:
-    x: 1.5932499999999998
+    x: 0.985
     y: 0.31
     z: 1.755
     roll: 0
     pitch: 0
     yaw: -0.9599310885968813
   CAM_BACK/camera_link:
-    x: -0.37675000000000003
+    x: -0.985
     y: 0.43
     z: 1.755
     roll: 0
     pitch: 0
     yaw: 3.141592653589793
   CAM_BACK_LEFT/camera_link:
-    x: -0.22175
+    x: -0.83
     y: 0.565
     z: 1.755
     roll: 0
     pitch: 0
     yaw: 2.181661564992912
   CAM_BACK_RIGHT/camera_link:
-    x: -0.37675000000000003
+    x: -0.985
     y: 0.31
     z: 1.755
     roll: 0
     pitch: 0
     yaw: -2.181661564992912
   tamagawa/imu_link:
-    x: 0.60825
+    x: 0.0
     y: 0.44
     z: 0.6
     roll: 0
     pitch: 0
     yaw: 0
   gnss_link:
-    x: 0.8282499999999999
+    x: 0.22
     y: 0.44
     z: 1.76
     roll: 0
